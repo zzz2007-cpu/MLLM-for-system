@@ -1,0 +1,214 @@
+\begin{thebibliography}{10}
+
+\bibitem{ghafari2025comprehensive}
+Masoumeh Ghafari et~al.
+\newblock A comprehensive review on the application of large language models
+  (llms) in power systems.
+\newblock {\em IEEE Access}, 2025.
+
+\bibitem{mirshekali2025review}
+Hamid Mirshekali et~al.
+\newblock A review of large language models for energy systems: Applications,
+  challenges, and future prospects.
+\newblock {\em IEEE Access}, 2025.
+
+\bibitem{niu2025llm_power}
+牛泽原, 李嘉媚, and 艾芊.
+\newblock 大语言模型在电力系统中的应用初探.
+\newblock {\em 电网技术}, 2025.
+
+\bibitem{vaswani2017attention}
+Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones,
+  Aidan~N. Gomez, Lukasz Kaiser, and Illia Polosukhin.
+\newblock Attention is all you need.
+\newblock In {\em Advances in Neural Information Processing Systems}, 2017.
+
+\bibitem{brown2020language}
+Tom~B. Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared Kaplan,
+  Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda
+  Askell, et~al.
+\newblock Language models are few-shot learners.
+\newblock In {\em Advances in Neural Information Processing Systems}, 2020.
+
+\bibitem{radford2021learning}
+Alec Radford, Jong~Wook Kim, Chris Hallacy, Aditya Ramesh, Gabriel Goh,
+  Sandhini Agarwal, Girish Sastry, Amanda Askell, Pamela Mishkin, Jack Clark,
+  et~al.
+\newblock Learning transferable visual models from natural language
+  supervision.
+\newblock In {\em Proceedings of the 38th International Conference on Machine
+  Learning}, 2021.
+
+\bibitem{liu2023visual}
+Haotian Liu, Chunyuan Li, Qingyang Wu, and Yong~Jae Lee.
+\newblock Visual instruction tuning.
+\newblock In {\em Advances in Neural Information Processing Systems}, 2023.
+
+\bibitem{li2024foundation_power}
+李刚, 方鸿, 刘云鹏, 杨强, 赵晓林, and 汪佐宪.
+\newblock
+  新型电力系统中的大模型驱动技术：现状、机遇与挑战.
+\newblock {\em 高电压技术}, 2024.
+
+\bibitem{xiang2025mllm_power}
+向思屿, 王译萱, 邝俊威, 杜佩珂, 毛洋, and 刘春.
+\newblock 多模态大模型在电力领域的应用综述.
+\newblock {\em 四川电力技术}, 2025.
+
+\bibitem{sarwar2025large}
+Muhammad Sarwar et~al.
+\newblock Large language models for power system applications: A comprehensive
+  literature survey, 2025.
+
+\bibitem{fan2025cognitive}
+Xiaoyi Fan et~al.
+\newblock Large language models in power systems toward cognitive intelligence:
+  A literature review, 2025.
+\newblock Preprint.
+
+\bibitem{zhang2026large}
+Wen Zhang et~al.
+\newblock Large language models meet energy systems: Opportunities, challenges,
+  and future perspectives.
+\newblock {\em Applied Energy}, 2026.
+
+\bibitem{du2026key}
+杜博骏, 钟非池, 侯庆春, 贾宏阳, 张宁, and 康重庆.
+\newblock 电力系统大模型的关键科学问题、挑战与展望.
+\newblock {\em 中国电机工程学报}, 2026.
+
+\bibitem{ouyang2026powervlm}
+欧阳旭东 et~al.
+\newblock Powervlm：基于federated
+  learning与模型剪枝的电力视觉语言大模型.
+\newblock {\em 全球能源互联网}, 2026.
+
+\bibitem{lewis2020retrieval}
+Patrick Lewis, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir
+  Karpukhin, Naman Goyal, Heinrich Kuttler, Mike Lewis, Wen-tau Yih, Tim
+  Rocktaschel, et~al.
+\newblock Retrieval\mbox{-}augmented generation for knowledge\mbox{-}intensive
+  nlp tasks.
+\newblock In {\em Advances in Neural Information Processing Systems}, 2020.
+
+\bibitem{ji2022survey}
+Shaoxiong Ji, Shirui Pan, Erik Cambria, Pekka Marttinen, and Philip~S. Yu.
+\newblock A survey on knowledge graphs: Representation, acquisition, and
+  applications.
+\newblock {\em IEEE Transactions on Neural Networks and Learning Systems},
+  2022.
+
+\bibitem{shen2026hgrag}
+Wenhao Shen et~al.
+\newblock Hg-rag: A hierarchical graph retrieval\mbox{-}augmented generation
+  framework.
+\newblock {\em Electronics}, 2026.
+
+\bibitem{fangfang2025computing}
+房方 et~al.
+\newblock 电力智算系统构建理论与关键技术, 2025.
+
+\bibitem{zhengxiang2025data}
+郑翔 et~al.
+\newblock 变电站监测数据质量提升技术研究及展望, 2025.
+
+\bibitem{zhangjun2023operation}
+张俊 et~al.
+\newblock
+  人工智能大模型在电力系统运行控制中的应用综述及展望.
+\newblock {\em 武汉大学学报（工学版）}, 2023.
+
+\bibitem{li2024risks}
+Zhaoyang Li et~al.
+\newblock Risks of practicing large language models in smart grid: Threat
+  modeling and validation, 2024.
+
+\bibitem{wang2025inspection}
+王启其 et~al.
+\newblock 基于多模态大模型的电力巡检图像智能识别, 2025.
+
+\bibitem{liu2026defect}
+刘爽.
+\newblock
+  基于多模态融合和数据增强的复杂电力系统设备缺陷识别关键技术研究,
+  2026.
+
+\bibitem{deng2026repair}
+邓养吾 et~al.
+\newblock 大模型指令微调驱动的电力故障抢修方案智能生成.
+\newblock {\em 计算机集成制造系统}, 2026.
+
+\bibitem{jiang2025deepseek}
+江秀臣 et~al.
+\newblock 类deepseek范式在电力装备故障诊断中的应用模式.
+\newblock {\em 高电压技术}, 2025.
+
+\bibitem{zhangjianliang2025fault}
+张建良 et~al.
+\newblock
+  面向新型电力系统的故障诊断技术研究进展（二）：机器学习和大语言模型技术.
+\newblock {\em 世界地质}, 2025.
+
+\bibitem{mongaillard2024scheduling}
+Thomas Mongaillard et~al.
+\newblock Evaluating the performance of large language models for power system
+  scheduling, 2024.
+
+\bibitem{yang2025operator}
+Xu~Yang et~al.
+\newblock Llm as an operator for distribution network voltage control, 2025.
+
+\bibitem{bernier2025powergraph}
+Benoit Bernier et~al.
+\newblock Powergraph-llm: Graph-guided large language models for power systems.
+\newblock {\em IEEE Transactions on Power Systems}, 2025.
+
+\bibitem{yutao2026reasoning}
+余涛 et~al.
+\newblock
+  推理大模型赋能新型电力系统智能决策：原理、应用与展望.
+\newblock {\em 电力系统自动化}, 2026.
+\newblock 网络首发.
+
+\bibitem{liwenchao2025rag}
+李文超 et~al.
+\newblock
+  基于高级检索增强生成技术与多模态大模型的电力应急演练应用研究.
+\newblock {\em 电脑知识与技术}, 2025.
+
+\bibitem{fuxuhui2025mmkg}
+付旭辉.
+\newblock
+  基于多模态知识图谱的变电站设备智能运检关键技术研究.
+\newblock Master's thesis, 中国矿业大学, 2025.
+
+\bibitem{zhouaihua2026kg}
+周爱华 et~al.
+\newblock 基于大语言模型构建面向能源数字网络的知识图谱.
+\newblock {\em 电力信息与通信技术}, 2026.
+
+\bibitem{yao2023react}
+Shunyu Yao, Jeffrey Zhao, Dian Yu, Nan Du, Izhak Shafran, Karthik Narasimhan,
+  and Yuan Cao.
+\newblock React: Synergizing reasoning and acting in language models.
+\newblock In {\em International Conference on Learning Representations}, 2023.
+
+\bibitem{wu2023autogen}
+Qingyun Wu, Gagan Bansal, Jieyu Zhang, Yiran Wu, Shaokun Li, Erkang Zhu, Beibin
+  Jiang, Li~Zhang, Xiaoyun Zhang, Ahmed~H. Awadallah, et~al.
+\newblock Autogen: Enabling next-gen llm applications via multi-agent
+  conversation framework, 2023.
+
+\bibitem{cui2026multiagent}
+崔豪驿 et~al.
+\newblock
+  面向配网调度故障研判的多模态多智能体可信业务协同机制.
+\newblock {\em 计算机集成制造系统}, 2026.
+
+\bibitem{dou2026autonomous}
+窦嘉铭 et~al.
+\newblock
+  电力系统自主智能决策范式设想：从知识数据融合、人在回路到具身自主智能.
+\newblock {\em 中国电机工程学报}, 2026.
+
+\end{thebibliography}

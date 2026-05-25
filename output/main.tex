@@ -1,0 +1,424 @@
+﻿% !TeX program = xelatex
+% !TEX root = main.tex
+% !TeX encoding = UTF-8
+\documentclass[10.5pt,compsoc]{CjC}
+%\usepackage{CJKutf8}
+%\usepackage{CJK}
+\usepackage{graphicx}
+\usepackage{footmisc}
+\usepackage{subfigure}
+\usepackage{url}
+\usepackage{multirow}
+\usepackage[noadjust]{cite}
+\usepackage{amsmath,amsthm}
+\usepackage{amssymb,amsfonts}
+\usepackage{booktabs}
+\usepackage{color}
+\usepackage{ccaption}
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{caption}
+\usepackage{xcolor,stfloats}
+\usepackage{comment}
+\setcounter{page}{1}
+\graphicspath{{figures/}}
+\usepackage{cuted}
+\usepackage{captionhack}
+\usepackage{epstopdf}
+
+%===============================%
+% XeLaTeX + CJK font setup. CjC.cls is based on ctexart; these explicit fonts
+% reduce the risk of garbled Chinese output on Windows TeX Live.
+\setmainfont{Times New Roman}
+\setCJKmainfont{SimSun}
+\setCJKsansfont{SimHei}
+\setCJKmonofont{FangSong}
+
+% Manual body and heading spacing overrides for the compact CjC two-column
+% layout. These settings intentionally override the class defaults so that long
+% Chinese section headings never visually collide with adjacent paragraphs.
+\setlength{\parskip}{0.38\baselineskip plus 0.08\baselineskip minus 0.04\baselineskip}
+\makeatletter
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+  {4.0ex \@plus 1.0ex \@minus .2ex}%
+  {2.4ex \@plus .5ex}%
+  {\normalfont\zihao{4-}\heiti\bfseries\raggedright}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+  {3.2ex \@plus .8ex \@minus .2ex}%
+  {1.8ex \@plus .4ex}%
+  {\normalfont\zihao{5}\heiti\bfseries\raggedright}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+  {2.6ex \@plus .6ex \@minus .2ex}%
+  {1.4ex \@plus .3ex}%
+  {\normalfont\zihao{5}\songti\bfseries\raggedright}}
+\makeatother
+
+\headevenname{\mbox{\quad} \hfill  \mbox{\zihao{-5}{\songti  计\quad \quad 算\quad \quad 机\quad \quad 学\quad \quad 报 } \hspace {50mm} \mbox{\songti  202X 年 }}}%
+\headoddname{\songti  课程论文 \hfill
+课程论文作者：多模态大模型在智能电网中的应用综述 }%
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\setcounter{footnote}{0}
+\renewcommand\footnotelayout{\zihao{5-}}
+
+\newtheoremstyle{mystyle}{0pt}{0pt}{\normalfont}{1em}{\bf}{}{1em}{}
+\theoremstyle{mystyle}
+\renewcommand\figurename{figure~}
+\renewcommand{\thesubfigure}{(\alph{subfigure})}
+\newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+\newcommand{\abc}{\color{white}\vrule width 2pt}
+\makeatletter
+\renewcommand{\@biblabel}[1]{[#1]\hfill}
+\makeatother
+\setlength\parindent{2em}
+
+\begin{document}
+\hyphenpenalty=50000
+\makeatletter
+\newcommand\mysmall{\@setfontsize\mysmall{7}{9.5}}
+\newenvironment{tablehere}
+  {\def\@captype{table}}
+
+\let\temp\footnote
+\renewcommand \footnote[1]{\temp{\zihao{-5}#1}}
+
+\thispagestyle{plain}%
+\thispagestyle{empty}%
+\pagestyle{CjCheadings}
+
+\begin{table*}[!t]
+\vspace {-13mm}
+\begin{tabular}{p{168mm}}
+\zihao{5-}
+\songti
+课程论文初稿 \hfill 计\quad 算\quad 机\quad 学\quad 报\hfill Course Paper
+\zihao{5-}\songti
+202X年 \hfill CHINESE JOURNAL OF COMPUTERS \hfill 202X \\
+\hline\\[-4.5mm]
+\hline\end{tabular}
+
+\centering
+\vspace{11mm}
+\heiti
+{\zihao{2} 多模态大模型在智能电网中的应用综述}
+
+\vskip 5mm
+
+{\zihao{3} \fangsong
+课程论文作者$^{1)}$
+}
+
+\vspace{5mm}
+\zihao{6}{\songti
+$^{1)}$(课程论文，单位信息略)
+}
+
+\zihao{6}{\heiti
+本文为课程论文初稿，作者、单位、基金及联系方式信息略。
+}
+
+\vskip 5mm
+{\centering
+\begin{tabular}{p{160mm}}
+\zihao{5-}{
+\setlength{\baselineskip}{16pt}\selectfont{
+\noindent\heiti 摘\quad 要\quad   \songti
+智能电网在源网荷储协同、设备状态感知、调度运行和安全治理中产生图像、视频、红外、文本、时序、拓扑和知识图谱等多源异构数据，传统单模态智能方法难以支撑统一理解、交互推理和可信决策。面向这一问题，本文综述多模态大模型在智能电网中的应用进展，并提出``数据模态--模型机制--电力任务--可信约束''四维分类框架，统一刻画输入来源、能力实现、业务目标和部署边界之间的关系。在此基础上，本文梳理视觉语言模型、指令微调、检索增强生成和知识图谱等关键技术，总结电力巡检、故障诊断、调度辅助、应急演练和安全监管等典型应用，分析知识增强可信推理、数据治理、物理约束、实时性、可解释性和安全责任等挑战，并展望电力专用多模态基础模型、物理约束融合、动态知识增强、人在回路决策和标准化评测等方向。
+\par}}\\[2mm]
+
+\zihao{5-}{\noindent
+\heiti 关键词  \quad \songti  多模态大模型；智能电网；视觉语言模型；电力巡检；故障诊断；调度辅助决策；知识增强
+}\\[2mm]
+\zihao{5-}{\heiti 中图法分类号 	\songti
+TP391 \rm{\quad \quad \quad     }
+\heiti DOI号: \songti
+投稿时不提供DOI号}
+\end{tabular}}
+
+\vskip 7mm
+
+\begin{center}
+\zihao{3}{ {\heiti A Survey on Applications of Multimodal Large Models in Smart Grids}}\\
+\vspace {5mm}
+\zihao{5}{ {\heiti Course Paper Author$^{1)}$}}\\
+\vspace {2mm}
+\zihao{6}{\heiti {$^{1)}$(Course Paper, affiliation omitted)}}
+
+\end{center}
+
+\begin{tabular}{p{160mm}}
+\zihao{5}{
+\setlength{\baselineskip}{18pt}\selectfont{
+{\bf Abstract}\quad
+Smart grids generate heterogeneous data from source-grid-load-storage coordination, equipment-state perception, dispatching operation, and safety governance, including images, videos, infrared sensing, text, time series, topology, and knowledge graphs. Conventional single-modal artificial intelligence methods are insufficient for unified understanding, interactive reasoning, and trustworthy decision support. This paper surveys multimodal large models for smart grids and proposes a four-dimensional taxonomy of data modality, model mechanism, power task, and trustworthy constraint to characterize the relationships among input sources, capability realization, business objectives, and deployment boundaries. Based on this framework, the paper reviews key techniques such as vision-language models, instruction tuning, retrieval-augmented generation, and knowledge graphs; summarizes representative applications in power inspection, fault diagnosis, dispatching assistance, emergency rehearsal, and safety supervision; analyzes challenges in knowledge-enhanced trustworthy reasoning, data governance, physical constraints, real-time requirements, explainability, and safety responsibility; and discusses future directions including power-domain multimodal foundation models, physical-constraint integration, dynamic knowledge enhancement, human-in-the-loop decision making, and standardized evaluation.
+\par}}\\
+
+\setlength{\baselineskip}{18pt}\selectfont{
+\zihao{5}{\noindent
+\vspace {5mm}
+{\bf Keywords}\quad multimodal large models; smart grid; vision-language models; power inspection; fault diagnosis; dispatching assistance; knowledge enhancement
+}\par}
+\end{tabular}
+
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{p{0.05cm}p{16.15cm}}
+\multicolumn{2}{l}{\rule[4mm]{40mm}{0.1mm}}\\[-3mm]
+&\begin{songti}
+课程论文初稿：作者、单位、基金、邮箱及手机号等投稿专用信息略。
+\end{songti}
+\end{tabular}\end{table*}
+\clearpage\clearpage
+\begin{strip}
+\vspace {-13mm}
+\end{strip}
+\heiti
+\zihao{5}
+\setlength{\baselineskip}{17pt}\selectfont
+\vskip 3mm
+
+
+\section{引言}
+
+\songti
+新型电力系统以高比例新能源接入、源网荷储协同、分布式资源互动和数字化调度为重要特征。与传统电力系统相比，智能电网不仅要处理潮流、负荷、状态量等结构化数据，还要面对巡检图像、红外图像、作业视频、缺陷文本、设备台账、调度规程、故障工单和拓扑图结构等多源异构信息。已有研究表明，大语言模型正在进入电力系统规划、运行、市场、运维和网络安全等环节\cite{ghafari2025comprehensive,mirshekali2025review,niu2025llm_power}，但智能电网的真实业务对象往往并非纯文本任务，而是由多模态感知、领域知识检索、状态推理和业务流程协同共同构成。
+
+多模态大模型(multimodal large model, MLLM)为上述问题提供了新的研究路径。通用大模型的发展以 Transformer 架构\cite{vaswani2017attention}和大语言模型的上下文学习能力\cite{brown2020language}为基础，视觉语言模型进一步通过图文对齐与视觉指令微调将图像理解、自然语言交互和推理解释连接起来\cite{radford2021learning,liu2023visual}。在电力领域，这类能力有望将巡检图像识别、缺陷描述、规程查询、故障处置和调度辅助从割裂的单点模型推进为统一的人机协同智能系统\cite{li2024foundation_power,xiang2025mllm_power}。
+
+然而，多模态大模型不能被简单理解为通用模型在电力数据上的直接迁移。电力系统具有强安全、强实时、强物理约束和强责任边界等特点，模型输出需要满足设备约束、运行规程和可审计要求。现有综述已对电力系统大语言模型、能源系统大模型和电力大模型关键问题进行了初步梳理\cite{sarwar2025large,fan2025cognitive,zhang2026large,du2026key}，但对``多模态数据类型--模型机制--电网任务--可信约束''之间关系的系统分析仍显不足。具体而言，Sarwar 等\cite{sarwar2025large}侧重电力系统大语言模型应用文献的总体梳理，Fan 等\cite{fan2025cognitive}强调面向认知智能的电力系统大语言模型研究脉络，Zhang 等\cite{zhang2026large}主要从能源系统机会、挑战和前景展开，杜博骏等\cite{du2026key}则聚焦电力系统大模型的关键科学问题与发展挑战。这些研究为理解电力大模型奠定了基础，但对图像、红外、时序、拓扑、文本和知识图谱等多模态数据如何经由不同模型机制服务于具体电网任务，并受到何种可信约束制约，仍缺少统一分析框架。为此，本文围绕多模态大模型在智能电网中的应用展开综述，提出``数据模态--模型机制--电力任务--可信约束''四维系统分析框架，重点回答三个问题：智能电网中哪些数据和任务需要多模态大模型；多模态大模型在巡检、诊断、调度和知识增强中如何发挥作用；面向电力生产系统部署时还存在哪些可信、安全和工程挑战。
+
+本文余下部分组织如下：第2节介绍多模态大模型关键技术基础；第3节构建智能电网多模态数据与任务体系；第4节总结典型应用场景；第5节讨论知识增强、RAG与可信推理；第6节分析工程部署、安全可信和评测挑战；第7节展望未来研究方向；第8节给出结论。
+
+
+\section{多模态大模型关键技术基础}
+
+
+\subsection{Transformer与大语言模型}
+
+Transformer 通过自注意力机制实现序列建模能力，成为当前大语言模型和多模态大模型的核心架构基础\cite{vaswani2017attention}。大语言模型在规模化预训练后表现出上下文学习、少样本迁移、指令跟随和自然语言生成能力\cite{brown2020language}，使其能够处理电力规程问答、运维报告生成、故障处置建议和调度语义理解等知识密集型任务\cite{ghafari2025comprehensive,niu2025llm_power}。但通用语言模型的训练语料并不天然覆盖电力设备、调度规程和运行约束，因此在电力系统中使用时需要领域知识注入、数据安全隔离和输出校验。
+
+
+\subsection{视觉语言模型与多模态指令微调}
+
+视觉语言模型通过图像和文本之间的语义对齐，使模型具备跨模态表示和零样本视觉理解能力。CLIP 通过自然语言监督学习可迁移视觉表示\cite{radford2021learning}，LLaVA 等视觉指令微调方法进一步使模型具备图像问答、描述生成和交互式解释能力\cite{liu2023visual}。在电力巡检中，图像、红外、设备名称、缺陷类型和巡检规程之间存在天然的语义对应关系，因此视觉语言模型可用于缺陷识别、异常解释和巡检报告生成。PowerVLM 等电力视觉语言模型研究已开始探索联邦学习、模型剪枝和行业场景适配\cite{ouyang2026powervlm}。
+
+
+\subsection{检索增强生成与知识图谱}
+
+检索增强生成(retrieval augmented generation, RAG)通过将生成模型与外部文档检索结合，使模型输出可以依托非参数化知识来源\cite{lewis2020retrieval}。电力系统中的规程制度、设备台账、历史工单和应急预案具有明确版本与责任属性，RAG 可用于提高回答可追溯性并降低幻觉风险。知识图谱则能够以结构化方式表达设备、缺陷、部件、工况、规程和处置动作之间的关系\cite{ji2022survey}，为多模态大模型提供可查询、可推理的领域知识空间。近期 HG-RAG 等框架也表明，层次化图结构可进一步增强复杂知识检索和生成能力\cite{shen2026hgrag}。
+
+
+\subsection{电力领域适配技术}
+
+电力领域适配涉及模型能力、数据约束和部署环境三方面。首先，电力专用指令微调和任务数据集可提高模型对设备缺陷、故障现象和调度术语的理解能力。其次，电力数据存在隐私和安全限制，联邦学习、私有化部署、数据脱敏和权限控制是行业模型落地的重要条件\cite{ouyang2026powervlm,du2026key}。再次，智能电网边缘侧设备和现场网络环境有限，模型压缩、边云协同和电力智算基础设施将影响多模态大模型的工程可用性\cite{fangfang2025computing}。
+
+
+\section{智能电网多模态数据与任务体系}
+
+
+\subsection{多模态数据类型}
+
+智能电网的多模态数据可分为七类：一是可见光图像和视频，用于设备外观、线路通道和作业现场识别；二是红外和局部放电等状态感知数据，用于反映设备热异常或绝缘缺陷；三是电压、电流、功率、频率等时序量测数据；四是电网拓扑、设备连接和站线关系等图结构数据；五是规程、标准、调度指令、检修票和工单等文本数据；六是设备台账、缺陷库和检修记录等业务数据；七是由上述数据抽象形成的电力知识图谱。不同模态在采集频率、噪声水平、语义粒度和安全等级上存在差异，决定了多模态融合不能仅靠简单拼接，而需要结合任务目标和业务约束进行建模\cite{li2024foundation_power,du2026key,zhengxiang2025data}。
+
+
+\subsection{多模态任务谱系}
+
+从任务层次看，智能电网多模态大模型可支持感知识别、语义理解、知识检索、状态推理、方案生成和人机协同六类能力。感知识别主要面向巡检图像缺陷检测和作业现场识别；语义理解关注图像、文本和设备台账之间的关系解释；知识检索用于规程问答和证据定位；状态推理面向故障诊断、运行态势研判和异常原因分析；方案生成用于抢修方案、巡检报告和应急演练脚本；人机协同则强调模型建议经人工复核后进入业务闭环\cite{ghafari2025comprehensive,mirshekali2025review,xiang2025mllm_power}。
+
+
+\subsection{面向智能电网的分类框架}
+
+本文建议从``数据模态--模型机制--电力任务--可信约束''四个维度理解多模态大模型应用。数据模态刻画输入来源，模型机制说明模型如何完成跨模态对齐、知识检索、推理生成和工具调用，电力任务对应巡检、诊断、调度、应急和运维等业务目标，可信约束则限定模型输出能否进入生产流程。四个维度不是简单并列关系，而是构成从``输入证据''到``模型能力''、再到``业务动作''和``部署边界''的分析链条：同一模型机制在不同数据模态和电力任务下可能产生不同风险，同一业务任务也必须根据实时性、物理可行性、责任归属和可审计性设置不同的使用边界。
+
+图\ref{fig:framework}展示了多模态大模型赋能智能电网的五层技术架构，用于说明从数据层、模型层、知识层、应用层到可信治理层的工程实现链路。与之不同，本文在第3.3节提出的``数据模态--模型机制--电力任务--可信约束''四维分析框架，主要用于比较不同应用场景在输入来源、能力实现、业务目标和部署边界上的差异。该四维框架贯穿全文后续结构：第4节按照电力任务维度比较巡检、故障诊断、调度辅助和应急演练等典型应用；第5节重点展开模型机制维度中的 RAG、知识图谱和可信推理；第6节从可信约束维度讨论数据治理、物理约束、可解释性、评测和系统集成问题；第7节则围绕四个维度归纳电力专用模型、物理约束融合、动态知识增强、人在回路和标准化评测等研究方向。该框架有助于避免将多模态大模型泛化为单纯的图像识别或文本问答技术，也有助于区分不同场景的成熟度与风险等级。
+
+\begin{figure*}[htbp]
+\centering
+\fbox{\begin{minipage}{0.92\textwidth}
+\centering
+\begin{tabular}{c}
+\fbox{数据层：图像、视频、红外、文本、时序、拓扑、知识图谱}\\[1mm]
+$\Downarrow$\\[-1mm]
+\fbox{模型层：视觉语言对齐、指令微调、跨模态表示、工具调用}\\[1mm]
+$\Downarrow$\\[-1mm]
+\fbox{知识层：规程库、设备台账、历史工单、RAG、知识图谱}\\[1mm]
+$\Downarrow$\\[-1mm]
+\fbox{应用层：巡检识别、故障诊断、调度辅助、应急演练}\\[1mm]
+$\Downarrow$\\[-1mm]
+\fbox{可信治理层：物理约束、安全校验、证据追溯、人在回路}
+\end{tabular}
+\end{minipage}}
+\caption{多模态大模型赋能智能电网的五层技术架构。图中五层描述从数据到可信治理的工程实现链路；第3.3节提出的四维分析框架用于理解不同应用场景在数据模态、模型机制、电力任务和可信约束上的差异。}
+\label{fig:framework}
+\end{figure*}
+
+
+\subsection{与传统电力人工智能方法的关系}
+
+多模态大模型并不替代传统机器学习、优化算法和电力机理模型，而是对其形成补充。传统方法在潮流计算、状态估计、故障分类和优化调度中具有明确数学结构和可验证性；多模态大模型则更适合开放语义理解、复杂文档交互、多源证据融合和业务流程协同。对于高安全等级的调度辅助与运行控制类任务，应将模型输出定位为辅助建议，并通过物理模型、仿真平台和调度规则进行约束校验\cite{zhangjun2023operation,li2024risks}。
+
+
+\section{多模态大模型在智能电网中的典型应用}
+
+本节按照第3.3节提出的四维框架，从输入模态、模型机制、任务输出和可信约束四个方面分析典型应用场景。需要强调的是，以下应用中的多模态大模型主要承担感知理解、证据组织、候选建议和结果解释等辅助功能，其输出仍需接受业务规则、物理模型和人工复核的约束。
+
+\subsection{电力巡检与设备缺陷识别}
+
+电力巡检是多模态大模型具有较好落地基础的场景。传统视觉模型通常聚焦于设备或缺陷的检测分类，而多模态大模型可以将图像理解、缺陷语义解释和巡检结果描述连接起来。例如，电力视觉语言模型可根据巡检图像识别绝缘子破损、导线异物、表计异常和设备外观缺陷，并生成面向巡检任务的文本描述\cite{ouyang2026powervlm,wang2025inspection,liu2026defect}。在巡检机器人场景中，自然语言交互还可用于任务说明和结果解释，但任务执行仍应受巡检路径、作业许可和现场安全规则约束。
+
+该方向的主要瓶颈在于跨场站泛化、复杂天气鲁棒性、缺陷样本不均衡和误报漏报责任边界。由于电力巡检图像往往涉及不同设备厂家、拍摄角度和现场环境，单一数据集上的性能难以代表真实部署效果。因此，后续研究需要建设覆盖多设备、多场景和多模态证据的评测集，并将模型输出与人工复核、工单系统和缺陷闭环治理结合。
+
+
+\subsection{故障诊断、设备运维与抢修方案生成}
+
+故障诊断和设备运维要求模型从多源证据中推断故障类型、故障位置和处置策略。与单纯分类任务不同，电力故障处置通常包含现场现象描述、保护动作记录、设备状态量、历史工单、图像证据和规程条款。大模型指令微调可用于生成抢修方案和运维建议\cite{deng2026repair}，类 DeepSeek 范式等推理模型也被用于探索电力装备故障诊断中的推理链组织\cite{jiang2025deepseek}。已有故障诊断综述指出，机器学习和大语言模型为新型电力系统故障诊断提供了新的方法补充，但仍需与机理知识和专家经验结合\cite{zhangjianliang2025fault}。
+
+从工程角度看，故障诊断类应用尤其需要证据链。模型不应只给出``可能是某故障''的结论，还应明确依据哪些量测、图像、规程或历史案例，并给出不确定性提示。对于抢修方案生成，应将模型输出限制为辅助建议，经现场人员和调度人员审核后执行，避免生成式模型直接触发高风险操作。
+
+
+\subsection{调度辅助、运行状态感知与辅助决策}
+
+调度辅助是电力大模型应用中价值高但风险也最高的方向之一。现有研究开始评估大语言模型在电力系统调度任务中的能力\cite{mongaillard2024scheduling}，也有工作探索将大语言模型作为配电网电压控制中的操作员角色\cite{yang2025operator}。PowerGraph-LLM 等图增强方法表明，将电网拓扑结构和语言模型结合有助于提升运行决策中的结构化理解能力\cite{bernier2025powergraph}。中文研究也从运行控制、推理大模型和配电系统专用大模型角度讨论了智能决策前景\cite{zhangjun2023operation,yutao2026reasoning}。
+
+但是，调度业务具有强实时、强约束和强安全属性，通用模型不能绕过潮流约束、设备限值和调度规程。更合理的路径是将多模态大模型用于调度语义理解、态势摘要、异常提示、预案检索、候选方案说明和校验结果解释，再由优化算法、仿真系统和人工调度员完成最终校验。因此，当前阶段应强调辅助决策和方案解释，而非完全自主控制。
+
+
+\subsection{应急演练、安全监管与工程实践}
+
+应急演练和安全监管属于知识密集、流程密集但相对可控的应用场景。基于高级 RAG 与多模态大模型的电力应急演练研究表明，模型可将应急预案、现场图像、处置流程和问答交互结合起来，生成演练脚本、风险提示和处置建议\cite{liwenchao2025rag}。在电力工程实践中，行业大模型已被用于智能巡检、安全督察、调度辅助和知识服务等场景\cite{ghafari2025comprehensive,li2024foundation_power}。
+
+这类场景的优势在于可先以离线或半在线方式部署，降低直接控制风险。其主要挑战是知识库版本管理、业务流程一致性和输出责任归属。若模型引用过期规程或错误工单，可能造成误导。因此，应急与监管类应用也需要建立证据追溯、版本控制和人工确认机制。
+
+表1按照四维框架对上述典型应用进行归纳，其中``任务输出/业务价值''用于说明模型在业务流程中可承担的辅助环节，``主要约束''用于限定其部署边界。
+
+\begin{table*}[htbp]
+\centering
+\heiti 表1\quad 多模态大模型在智能电网典型应用中的任务与约束
+\vspace{-2mm}
+\begin{tabular}{p{22mm}p{31mm}p{32mm}p{36mm}p{30mm}}
+\toprule
+应用场景 & 主要输入模态 & 典型模型机制 & 任务输出/业务价值 & 主要约束 \\
+\midrule
+电力巡检 & 图像、视频、红外、台账、规程 & 视觉语言模型、指令微调 & 缺陷候选识别、证据解释、报告草拟 & 样本不均衡、跨场景泛化、误报漏报 \\
+故障诊断 & 状态量、工单、图像、历史案例 & RAG、推理链、知识图谱 & 多源证据汇聚、诊断依据组织、方案草案生成 & 幻觉风险、证据冲突、责任边界 \\
+调度辅助 & 时序、拓扑、告警、调度指令、规程 & 图增强大语言模型、工具调用、约束校验 & 态势摘要、预案检索、候选方案解释 & 实时性、物理约束、越权控制风险 \\
+应急演练 & 预案、现场图像、流程文本、角色信息 & RAG、多模态问答、流程校验 & 情景推演、流程协同、风险提示 & 知识版本、流程一致性、人工复核 \\
+\bottomrule
+\end{tabular}
+\label{tab:applications}
+\end{table*}
+
+
+\section{知识增强、RAG与电力领域可信推理}
+
+
+\subsection{电力知识图谱与多模态知识组织}
+
+电力知识图谱能够将设备、部件、缺陷、规程、状态量、检修记录和运行场景组织为结构化知识网络。与纯文本知识库相比，知识图谱能够显式表达实体关系和业务约束，有利于模型进行可解释推理\cite{ji2022survey}。在变电站智能运检、电力领域多模态知识图谱和能源数字网络知识图谱等研究中，知识图谱被用于支撑设备状态理解、跨模态检索和知识服务\cite{fuxuhui2025mmkg,zhouaihua2026kg}。
+
+多模态知识图谱的关键难点在于实体对齐和动态更新。图像中的设备部件、台账中的设备编码、规程中的专业术语和工单中的故障描述可能对应同一实体或状态。如果对齐错误，后续检索和推理都会受到影响。因此，电力知识图谱建设需要结合标准化命名、设备编码体系、图像标注和业务流程规则。
+
+
+\subsection{RAG在电力规程和业务知识中的应用}
+
+RAG 将外部知识检索与模型生成结合，适合电力规程问答、故障处置建议和应急演练等知识密集型任务\cite{lewis2020retrieval,liwenchao2025rag}。在电力场景中，RAG 的评价重点不应只是答案是否流畅，还应关注检索证据是否权威、版本是否有效、引用是否可追溯以及不同证据之间是否冲突。层次化图检索等方法可进一步提高复杂知识结构下的检索组织能力\cite{shen2026hgrag}。
+
+
+\subsection{可信推理机制}
+
+可信推理要求模型输出从``生成文本''转向``给出可验证建议''。在故障诊断中，模型应说明使用了哪些图像证据、状态量、历史工单和规程条款；在调度辅助中，模型应说明建议是否经过潮流约束、设备限值和安全规则校验；在应急演练中，模型应给出处置流程与预案来源。图增强语言模型、知识图谱和 RAG 可以共同构成证据链，为多模态大模型提供可审计的推理基础\cite{bernier2025powergraph,ji2022survey,li2024risks}。
+
+
+\section{工程部署、安全可信与评测挑战}
+
+
+\subsection{数据治理与隐私安全}
+
+电力数据具有关键基础设施属性，涉及企业生产、用户隐私和电网安全。多模态大模型训练和部署面临数据孤岛、标注成本高、数据质量不一致和共享限制等问题\cite{zhengxiang2025data,du2026key}。例如，巡检图像可能包含设备铭牌、站内位置和作业人员信息，调度日志可能包含运行方式和事故处置信息，若直接进入集中式训练或外部云端推理，将带来敏感数据泄露风险。联邦学习、私有化部署、模型压缩和权限控制可在一定程度上缓解数据安全与模型能力之间的矛盾\cite{ouyang2026powervlm}，但也会带来模型更新、性能评估和系统运维的新问题。
+
+
+\subsection{可靠性、实时性与物理约束}
+
+智能电网中的模型输出必须符合电力系统物理约束。多模态大模型可能生成语义上合理但物理上不可行的建议，例如在配电网电压越限场景中建议切换无功补偿装置，却忽略相邻节点电压、线路潮流和设备投切次数约束；在故障处置中建议转供负荷，却未校验备用线路热稳定限值。智能电网大模型风险研究指出，模型在电网环境中的误用可能导致安全、隐私和运行风险\cite{li2024risks}。因此，面向调度辅助和故障处置的系统应建立``模型建议--规则校验--仿真验证--人工确认''的闭环，而不能将生成结果直接转化为控制指令。
+
+
+\subsection{可解释性、可追溯性与责任边界}
+
+可解释性是多模态大模型进入电力生产流程的前提。巡检识别需要说明缺陷位置和图像证据，故障诊断需要说明推理依据，调度辅助需要说明约束校验结果。若模型输出无法追溯来源，现场人员和调度人员难以判断其可信度。例如，模型若给出``疑似套管过热''结论，应同时给出红外图像区域、温升依据、历史缺陷记录和规程条款来源，而不能只输出自然语言判断。RAG、知识图谱和日志审计可在一定程度上提高输出可追溯性，但责任边界仍需制度化设计，尤其是当模型参与抢修方案生成或运行建议时\cite{lewis2020retrieval,deng2026repair,li2024risks}。
+
+
+\subsection{评测体系与基准数据集缺失}
+
+当前电力多模态大模型缺少统一基准测试，不同研究在数据来源、任务定义、评价指标和场景复杂度上差异较大。单纯使用准确率或召回率难以评价模型的业务价值。例如，巡检模型即使在单一数据集上具有较高缺陷识别准确率，也可能在强光、雨雾、遮挡或不同厂家设备场景下出现性能下降；调度问答模型即使回答流畅，也可能引用过期规程或忽略安全校验。面向智能电网的评测应同时覆盖识别准确性、跨场景鲁棒性、证据可追溯性、响应时延、安全违规率、幻觉率和人工采纳率。对于高风险任务，还应引入仿真环境和红队测试，评估模型在异常输入、冲突证据和规程变更情况下的表现\cite{ghafari2025comprehensive,mirshekali2025review,li2024risks}。
+
+
+\subsection{工程部署与系统集成}
+
+多模态大模型落地不仅是模型问题，也是系统工程问题。电力场景需要考虑边缘端算力、网络带宽、模型更新、业务系统接口、审计日志和安全运维流程。例如，边缘巡检终端可能无法承载大规模视觉语言模型的实时推理，应采用模型压缩、边云协同或离线批处理；调度辅助系统则需要与能量管理系统、仿真平台和权限审计模块隔离集成。电力智算系统和行业大模型实践表明，算力基础设施、数据治理平台和业务流程重构是模型规模化应用的基础\cite{fangfang2025computing,du2026key}。对于巡检和应急等场景，可优先采用离线分析或人机协同方式部署；对于调度辅助等高风险场景，应在仿真和沙箱环境中逐步验证。
+
+\begin{table*}[htbp]
+\centering
+\heiti 表2\quad 挑战与未来方向矩阵
+\vspace{-2mm}
+\begin{tabular}{p{24mm}p{42mm}p{38mm}p{42mm}}
+\toprule
+挑战维度 & 具体表现 & 影响场景 & 未来方向 \\
+\midrule
+数据治理 & 数据孤岛、敏感信息、标注不足、质量不一 & 巡检、诊断、调度辅助 & 标准化数据集、联邦学习、质量评估 \\
+物理约束 & 生成建议可能违反潮流、限值或规程 & 调度辅助、故障处置 & 机理模型融合、规则校验、仿真验证 \\
+可信推理 & 幻觉、证据冲突、来源不清 & 诊断、调度辅助、规程问答、应急演练 & RAG、知识图谱、证据链追踪 \\
+实时部署 & 时延、算力和网络限制 & 在线监测、边缘巡检 & 模型压缩、边云协同、电力智算 \\
+安全责任 & 越权操作、责任不清、审计不足 & 调度辅助、抢修、安全监管 & 人在回路、权限控制、审计机制 \\
+\bottomrule
+\end{tabular}
+\label{tab:challenge}
+\end{table*}
+
+
+\section{未来研究方向}
+
+
+\subsection{面向电力系统的专用多模态基础模型}
+
+未来研究需要从通用 MLLM 调用走向电力专用多模态基础模型建设。该方向包括电力设备视觉语义库、缺陷图文对齐数据、时序--拓扑联合表示、电力规程指令集和跨场景评测集。专用模型既要提升设备与业务语义理解能力，也要避免对私有数据和高风险控制流程的不当暴露\cite{du2026key,li2024foundation_power,ouyang2026powervlm}。
+
+
+\subsection{物理约束与机理模型融合}
+
+智能电网应用不能只依赖统计相关性和语言推理。未来应探索多模态大模型与潮流计算、优化调度、数字孪生和仿真平台的融合，使模型输出在生成阶段或后处理阶段接受物理约束校验。图增强语言模型和配电网电压控制研究为这一方向提供了初步启示\cite{bernier2025powergraph,yang2025operator,zhangjun2023operation}。
+
+
+\subsection{动态知识增强与持续学习}
+
+电力规程、设备状态和运行方式会持续变化，静态知识库难以长期保持有效。未来需要动态 RAG、可更新知识图谱和持续学习机制，使模型能够处理新设备、新故障和新业务流程。同时，应建立知识版本管理和变更审计机制，确保模型引用的规程和证据处于有效状态\cite{lewis2020retrieval,ji2022survey,shen2026hgrag}。
+
+
+\subsection{多智能体协同与人在回路决策}
+
+智能体和多智能体系统是未来趋势，而不宜作为当前智能电网 MLLM 应用的主线。ReAct 将推理和行动结合起来\cite{yao2023react}，AutoGen 等多智能体框架展示了多角色协同完成复杂任务的可能性\cite{wu2023autogen}。在电力场景中，多智能体可模拟调度员、运维人员、安监人员和知识检索模块之间的协作，用于配网故障研判和应急会商\cite{cui2026multiagent,dou2026autonomous}。但其应用必须受权限控制、审计追踪、安全隔离和人在回路确认约束。
+
+
+\subsection{可信、安全与标准化评测}
+
+多模态大模型能否进入生产级智能电网，取决于可信评测和安全标准。未来应建立覆盖缺陷识别、跨模态检索、规程问答、诊断推理和调度辅助的公开或行业级基准，评价指标应包括准确性、鲁棒性、时延、可解释性、幻觉率、安全违规率和人工采纳率。对于高风险业务，还应引入红队测试和故障注入验证，识别模型在异常输入和冲突证据下的失效模式\cite{li2024risks,ghafari2025comprehensive,mirshekali2025review}。
+
+
+\section{结论}
+
+多模态大模型为智能电网处理多源异构数据、理解电力业务语义和支撑人机协同决策提供了新的技术路径。本文提出的四维分类框架表明，相关应用需要同时考察数据模态、模型机制、电力任务和可信约束。与传统单模态模型相比，MLLM 在巡检图像理解、故障证据汇聚、规程知识问答、应急演练和调度辅助中具有更强的跨模态表达和交互能力。然而，智能电网的强安全、强实时和强物理约束属性决定了 MLLM 不能以通用生成模型形态直接进入控制闭环。未来研究应围绕电力专用多模态基础模型、知识增强可信推理、物理约束融合、标准化评测、隐私保护和人在回路机制持续推进。总体而言，多模态大模型在智能电网中的价值并非替代电力机理模型和专家体系，而是通过跨模态理解与知识增强机制，提升复杂业务场景下的感知、解释、推理和协同能力。
+
+\vspace {5mm}
+\centerline
+{\zihao{5}
+\heiti 参~考~文~献}
+
+\begingroup
+\renewcommand{\refname}{}
+\zihao{5-}
+\bibliographystyle{unsrt}
+\bibliography{references}
+\endgroup
+
+\end{document}
+

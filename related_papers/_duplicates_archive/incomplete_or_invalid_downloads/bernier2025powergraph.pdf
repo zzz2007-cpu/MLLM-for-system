@@ -1,0 +1,604 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>ORBilu: Request Item</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="Generator" content="DSpace 6.4-SNAPSHOT" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <link rel="shortcut icon" href="/file/theme/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="/file/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/file/css/flickity.min.css" crossorigin="anonymous" />
+        <link  rel="stylesheet" href="/file/css/orejime-standard.css" />
+        <link  rel="stylesheet" href="/file/css/orejime-custom.css" />
+        <link rel="stylesheet" href="/file/css/highlightjs.default.min.css" />
+        <link rel="stylesheet" href="/file/css/orbi.css?v=18f32ce960a3f4e03d7d96a6df67c341" />
+        <link rel="stylesheet" href="/file/css/file.css?v=f70cbbb32819996896f8d58df5abf54e" />
+        <link rel="stylesheet" href="/file/theme/custom.css" />
+        
+        <link rel="search" type="application/opensearchdescription+xml" href="/open-search/description.xml" title="DSpace"/>
+        
+        
+        <script>
+          var contextPath='';
+          var contextLocale = "en";
+          var msgGbl={close:'Close',cancel:'Cancel'};
+        </script>
+    </head>
+    <body>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<header class="d-none d-md-block d-print-none" id="header-menu">
+    <div class="navbar navbar-expand flex-row py-0 mx-auto">
+        <ul class="navbar-nav flex-row mr-auto d-none d-md-flex">
+            <li class="nav-item d-none d-lg-inline-block">
+                <a class="pt-1 pr-2" href="https://www.uni.lu/en/" target="_blank">
+                  <img class="logo m-1" src="/file/theme/header-inst-logo.svg" alt="institution logo" />
+                </a>
+            </li>
+            
+
+
+
+        </ul>
+    
+        <ul class="navbar-nav flex-row ml-auto">
+            
+    
+            
+
+
+    
+        
+        
+        
+        
+        
+        
+        
+
+
+
+<li class="nav-item">
+    <a class="nav-link" href="/tools/login">
+        <svg class="feather">
+            <use xlink:href="#user"/>
+        </svg>&nbsp;
+        <span class="d-none d-sm-inline">
+            Login
+        </span>
+    </a>
+</li>
+
+        
+        
+        
+    
+
+    
+
+    
+        
+        
+        
+        
+        
+
+
+
+
+
+        
+        
+        
+        
+        
+    
+
+
+
+            
+            <li class="nav-item separator"></li>  
+            <li class="nav-item dropdown slide-dropdown">
+            <a class="nav-link" href="#" id="header-lang" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                EN
+            </a>
+            <div class="dropdown-menu dropdown-menu-right shadow m-0" aria-labelledby="header-lang">
+            
+            <a class="dropdown-item
+                disabled"
+                href="#"  onclick="reloadLang('en')">
+                [EN] English
+            </a>
+            
+            <a class="dropdown-item
+                "
+                href="#"  onclick="reloadLang('fr')">
+                [FR] Français
+            </a>
+            
+            </div>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+<div id="header-placeholder"></div>
+
+    
+
+
+
+
+
+
+
+
+
+<nav id="main-navbar" class="d-print-none">
+  <div class="navbar navbar-expand-md bg-white">
+    <a class="navbar-brand" href="/">
+      <img class="logo align-top" src="/file/theme/orbi-logo.svg" alt="logo" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar-collapse" aria-controls="main-navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="main-navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item d-md-none">
+          
+
+
+
+
+
+
+  <div id="minimal-menu" class="navbar navbar-expand flex-row py-0 mx-auto">
+    <ul class="navbar-nav flex-row">
+        
+
+        
+
+
+    
+        
+        
+        
+        
+        
+        
+        
+
+
+
+<li class="nav-item">
+    <a class="nav-link" href="/tools/login">
+        <svg class="feather">
+            <use xlink:href="#user"/>
+        </svg>&nbsp;
+        <span class="d-none d-sm-inline">
+            Login
+        </span>
+    </a>
+</li>
+
+        
+        
+        
+    
+
+    
+
+    
+        
+        
+        
+        
+        
+
+
+
+
+
+        
+        
+        
+        
+        
+    
+
+    
+        
+        
+        
+        
+        
+        <li class="nav-item separator"></li>
+        
+        
+        
+        
+    
+
+
+
+        
+        <li class="nav-item dropdown slide-dropdown">
+        <a class="nav-link" href="#" id="minimal-lang" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            EN
+        </a>
+        <div class="dropdown-menu shadow m-0" aria-labelledby="minimal-lang">
+        
+            <a class="dropdown-item
+                disabled"
+                href="#"  onclick="reloadLang('en')">
+                [EN] English
+            </a>
+        
+            <a class="dropdown-item
+                "
+                href="#"  onclick="reloadLang('fr')">
+                [FR] Français
+            </a>
+        
+        </div>
+        </li>
+        
+    </ul>
+  </div>
+        </li>
+        <li class="nav-item"><a class="link" href="/page/feedback">Give us feedback</a></li><li class="nav-item dropdown slide-dropdown"><a class="link" href="#" data-toggle="dropdown" id="default_0_-1_1" aria-haspopup="true" aria-expanded="false">Search and explore</a><div class="dropdown-menu dropdown-menu-right shadow" aria-labelledby="default_0_-1_1"><a class="dropdown-item" href="/simple-search">Search</a><a class="dropdown-item" href="/page/explore-orbilu">Explore ORBilu</a></div></li><li class="nav-item dropdown slide-dropdown"><a class="link" href="#" data-toggle="dropdown" id="default_0_-1_2" aria-haspopup="true" aria-expanded="false">Open Science</a><div class="dropdown-menu dropdown-menu-right shadow" aria-labelledby="default_0_-1_2"><a class="dropdown-item" href="/page/what-is-open-science">Open Science</a><a class="dropdown-item" href="/page/open-access">Open Access</a><a class="dropdown-item" href="/page/research-data-management">Research Data Management</a><a class="dropdown-item" href="/page/Definitions">Definitions</a><a class="dropdown-item" href="/page/OS-working-group">OS Working group</a><a class="dropdown-item" href="/page/webinars">Webinars</a></div></li><li class="nav-item"><a class="link" href="/statistics?type=global">Statistics</a></li><li class="nav-item dropdown slide-dropdown"><a class="link" href="#" data-toggle="dropdown" id="default_0_-1_4" aria-haspopup="true" aria-expanded="false">Help</a><div class="dropdown-menu dropdown-menu-right shadow" aria-labelledby="default_0_-1_4"><a class="dropdown-item" href="/page/yourorbilujourney">Your ORBilu journey: new or leaving UL</a><a class="dropdown-item" href="/page/user-guide">User Guide</a><a class="dropdown-item" href="/page/faq">FAQ</a><a class="dropdown-item" href="/page/publications-list">Publication list</a><a class="dropdown-item" href="/page/typology">Document types</a><a class="dropdown-item" href="/page/reporting">Reporting</a><a class="dropdown-item" href="/page/training">Training </a><a class="dropdown-item" href="/page/orcid">ORCID</a></div></li><li class="nav-item dropdown slide-dropdown"><a class="link" href="#" data-toggle="dropdown" id="default_0_-1_5" aria-haspopup="true" aria-expanded="false">About</a><div class="dropdown-menu dropdown-menu-right shadow" aria-labelledby="default_0_-1_5"><a class="dropdown-item" href="/page/what-is-orbilu">About ORBilu</a><a class="dropdown-item" href="/page/Deposit Mandate">Deposit Mandate</a><a class="dropdown-item" href="/page/ORBilu-team">ORBilu team</a><a class="dropdown-item" href="/page/impact">Impact and visibility</a><a class="dropdown-item" href="/page/statistics">About statistics</a><a class="dropdown-item" href="/page/metrics">About metrics</a><a class="dropdown-item" href="/page/oai-pmh-output">OAI-PMH</a><a class="dropdown-item" href="/page/background">Project history</a><a class="dropdown-item" href="/page/legal-information">Legal Information</a><a class="dropdown-item" href="/page/data-protection">Data protection</a><a class="dropdown-item" href="/page/legal-notices">Legal notices</a></div></li><li class="nav-item"><a class="link" href="/submit">Add a publication</a></li>
+
+        <li onclick="$('.navbar-toggler').click()" class="d-md-none nav-item" style="height:90vh;background-color:hsla(255,0%,100%,.65)"></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+
+                
+
+<div class="container">
+    
+
+
+
+
+
+
+
+
+<div class="breadcrumb my-3 p-0 d-print-none">
+  <div class="breadcrumb-item breadcrumb-back">
+      <a href="javascript:history.go(-1)">Back</a>
+  </div>
+  <ol class="breadcrumb breadcrumb-list p-0 m-0">
+
+    <li class="breadcrumb-item">Home</li>
+
+    <li class="breadcrumb-item">Request Item</li>
+
+</ol>
+</div>
+
+            
+
+</div>                
+
+
+
+<div class="container mt-5 mb-3">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <div class="card mb-5">
+        <div class="card-body py-4">
+            <div class="d-flex flex-md-row flex-column">
+                <img class="mr-md-4 mb-4 mb-md-0 w-25" alt="institution logo" src="/file/theme/inst-logo.svg" />
+                <div class="align-self-center">
+                    If you&#39;re <strong>member of the institution</strong>,  you just have to <a href="/tools/login?redirect=https://orbilu.uni.lu/handle/10993/66633">login</a> to download the file in restricted access. It is not necessary to request a print.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <h1>Request copy</h1>
+    
+    <div class="border-left p-3 my-3 card-result">
+        <div class="ref"> <div class="title">PowerGraph-LLM:&#x20;Novel&#x20;Power&#x20;Grid&#x20;Graph&#x20;Embedding&#x20;and&#x20;Optimization&#x20;With&#x20;Large&#x20;Language&#x20;Models</div><div><span class="author uid" data-uid="50046925">BERNIER,&#x20;Fabien</span>; <span class="author uid" data-uid="50063488">CAO,&#x20;Jun</span>; <span class="author uid" data-uid="50027892">CORDY,&#x20;Maxime</span> <em class="etal">et al.</em></div><div><span class="issued">2025</span> &bull; <span class="source">In <em>IEEE&#x20;Transactions&#x20;on&#x20;Power&#x20;Systems, 40</em> (6), p. 5483&#x20;-&#x20;5486</span></div></div>
+        <br />
+		
+	<div class="font-weight-bold">Document(s) requested</div>
+                <div class="d-flex pl-2">
+                <svg class="feather mr-2"><use xlink:href="#doc-ra"></use></svg><span>OPF_predictions_with_LLMs.pdf</span>
+                </div>
+            <br />
+        <p class="font-italic">The desired document is not currently available on open access. Nevertheless you can request an offprint through the form below. If your request is accepted you will receive by e-mail a link allowing you access to the document for 5 days, 5 download attempts maximum.</p>
+    </div>
+    <br/>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Request form</h5>
+                <p class="card-subtitle font-italic pb-3  text-muted">Fields marked with &#10033; are compulsory.</p>
+                <form id="request-item-form" method="POST">
+                    <input type="hidden" name="request_item" value="request_form" />
+                    <input type="hidden" name="handle" value="10993/66633" />
+                    <input type="hidden" name="request-token" value="fc9df507-5f7c-4bd0-87c9-c75c2594bedd" />
+
+                    <div class="form-group position-absolute row"  style="left:-5000px;">
+                        <div class="input-group">    
+                            <label class="col-12 col-sm-2 col-form-label d-flex justify-content-end label-required">Your last name</label>
+                            <div class="col-12 col-sm-10">
+                                <input id="requesterName" class="form-control" name="request_item_requester_name" type="text" value=""/>
+                            </div>
+                        </div>              
+                    </div>
+                    <div class="form-group row">
+                        <div class="input-group">    
+                            <label class="col-12 col-sm-2 col-form-label d-flex justify-content-end label-required">Your last name</label>
+                            <div class="col-12 col-sm-10">
+                                <input id="requesterLastName" class="form-control" name="request_item_requester_last_name" type="text" value="" required="required"/>
+                            </div>
+                        </div>              
+                    </div>
+                    <div class="form-group row">
+                        <div class="input-group">
+                            <label class="col-12 col-sm-2 col-form-label d-flex justify-content-end label-required">Your first name</label>
+                            <div class="col-12 col-sm-10"> 
+                                <input id="requesterFirstName" class="form-control" name="request_item_requester_first_name" type="text" value="" required="required"/>
+                            </div>
+                        </div>   
+                    </div>
+                    <div class="form-group row">
+                        <div class="input-group">
+                            <label class="col-12 col-sm-2 col-form-label d-flex justify-content-end label-required">Your e-mail</label>
+                            <div class="col-12 col-sm-10"> 
+                                <input id="requesterEmail" class="form-control" name="request_item_requester_email" type="email" value="" required="required"/>
+                            </div>
+                        </div>   
+                    </div>
+                    <div class="form-group row">
+                        <div class="input-group">
+                            <label class="col-12 col-sm-2 col-form-label d-flex justify-content-end label-required">Your affiliation</label>
+                            <div class="col-12 col-sm-10"> 
+                            <input id="requesterAffiliation" class="form-control" name="request_item_requester_affiliation" type="text" required="required"/>
+                            </div>
+                        </div>   
+                    </div>                               
+                    <div class="form-group">
+                        <label>Document(s) requested</label>
+                        
+                            <div class="d-flex custom-control custom-checkbox align-items-center ml-2">
+                              <input id="checkbox_a9108d46-c558-48aa-8cab-5a2528f7467b" class="custom-control-input" type="checkbox" name="request_item_bitstream" value="a9108d46-c558-48aa-8cab-5a2528f7467b" checked="checked" />
+                              <label class="custom-control-label mb-0" for="checkbox_a9108d46-c558-48aa-8cab-5a2528f7467b"><svg class="feather mx-2"><use xlink:href="#doc-ra"></use></svg>OPF_predictions_with_LLMs.pdf</label>
+                            </div>
+                        
+                        
+                            
+                    </div>
+                    <div class="form-group">
+                        <label class="label-required" for="requesterMessage">Reason of the demand</label>
+                        <textarea id="requesterMessage" class="form-control" name="request_item_requester_message" rows="3" required="required"></textarea>
+                    </div>
+                    <div class="form-group d-flex justify-content-end">
+                        <a class="btn btn-primary" href="/handle/10993/66633">Back to the reference</a>
+                        <button id="submit-request" class="btn btn-primary ml-2" >Send the request</button>
+                    </div>
+                </form>
+            </div>
+        </div>                 
+   
+    <div id="feedback-request-dialog" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body p-5">
+                    <h3 id="feedbackSuccess" class="text-center d-none"><svg class="big-feather text-success" style="stroke-width:3"><use xlink:href="#check-circle"></use></svg> The request item has been sent.</h3>
+                    <h3 id="feedbackError" class="text-center d-none"><svg class="big-feather text-danger" style="stroke-width:3"><use xlink:href="#alert-triangle"></use></svg><br />The system has experienced an internal error. Please try to do what you were doing again, and if the problem persists, please contact us so we can fix the problem.</h3>
+                    <h3 id="feedbackRobot" class="text-center d-none"><svg class="big-feather" style="stroke-width:3"><use xlink:href="#alert-triangle"></use></svg><br />Actions or data sent do not correspond to human behavior. Please try again.</h3>
+                    <h3 id="feedbackUncontactable" class="text-center d-none"><svg class="big-feather" style="stroke-width:3"><use xlink:href="#slash"></use></svg> Your request item can not succeed. No author can be contacted to handle your request.</h3>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-primary px-5" href="/handle/10993/66633">OK</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div><!-- Container -->
+
+<!-- Feedback -->
+<div id="feedback" class="d-print-none">
+  <a class="btn btn-lg btn-feedback font-weight-bold justify-content-center d-flex" role="button">
+    <svg class="feather mr-1 my-auto"><use xlink:href="#mail"></use></svg> Contact ORBilu
+  </a>
+  <div class="info d-none" id="info-feedback"></div>
+</div>
+
+<!-- Footer -->
+<div class="p-3"></div>
+<footer class="footer">
+  <div class="footer-container d-print-none">
+    <div class="content">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-lg-3">
+            <div class="address">
+              <a href="https://www.uni.lu/en/" target="_blank">
+                <img class="logo img-fluid mb-4" src="/file/theme/footer-inst-logo.svg" alt="institution logo" />
+              </a>
+              <address>
+                University of Luxembourg<br />
+                2, Avenue de l'Université<br />
+                L-4365 Esch-sur-Alzette<br />
+                +352 46 66 44 1<br />
+                <br />
+                
+              </address>
+            </div>
+            <div class="p-3 p-lg-0"></div>
+          </div>
+
+          <div class="col text-uppercase">
+            <div class="title">University of Luxembourg</div><a class="item" href="https://orbilu.uni.lu/page/what-is-open-science" target="_blank">Open Science<svg class="inline-feather mr-1"><use xlink:href="#"></use></svg></a><a class="item" href="https://orbilu.uni.lu/statistics?type=global" target="_blank">Statistics<svg class="inline-feather mr-1"><use xlink:href="#"></use></svg></a><a class="item" href="https://orbilu.uni.lu/simple-search" target="_blank">Search<svg class="inline-feather mr-1"><use xlink:href="#"></use></svg></a>
+
+          </div>
+          <div class="col text-uppercase">
+            <div class="title">ORBilu (issn  2354-5011)</div><a class="item" href="/page/background" >Project Background<svg class="inline-feather mr-1"><use xlink:href="#"></use></svg></a><a class="item" href="/page/legal-information" >Legal information<svg class="inline-feather mr-1"><use xlink:href="#"></use></svg></a><a class="item" href="/page/legal-notices" >Legal notices<svg class="inline-feather mr-1"><use xlink:href="#"></use></svg></a><a class="item" href="/page/data-protection" >Data protection<svg class="inline-feather mr-1"><use xlink:href="#"></use></svg></a>
+
+          </div>
+          <div class="col text-uppercase">
+            <div class="title">Quick links</div><a class="item" href="/page/Deposit Mandate" >Deposit mandate<svg class="inline-feather mr-1"><use xlink:href="#"></use></svg></a><a class="item" href="/page/oai-pmh-output" >OAI-PMH Output<svg class="inline-feather mr-1"><use xlink:href="#"></use></svg></a><a class="item" href="/page/faq" >FAQ<svg class="inline-feather mr-1"><use xlink:href="#"></use></svg></a><a class="item" href="/page/feedback" >Contact us<svg class="inline-feather mr-1"><use xlink:href="#"></use></svg></a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-layer">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+      <polygon class="light" points="55 100 0 100 0 68 55 100"></polygon>
+      <polygon class="medium" points="100 50 100 100 14 100"></polygon>
+      </svg>
+    </div>
+  </div>
+  <div class="footer-bottom text-uppercase">
+    <div class="text-center">
+      <a href="/page/legal-notices" target="_blank">Terms of use</a> -<a href="/page/data-protection" target="_blank">Privacy Policy</a> -
+
+      <span>
+        ORBilu is a project developed by University of Liege
+        <a href="https://www.uliege.be" target="_blank">
+            <img class="logo-uliege p-1" src="/file/img/uliege-logo2.svg" alt="logo uliege">
+        </a>
+      </span>
+    </div>
+  </div>
+</footer>      
+
+<script src="/file/js/jquery-3.5.1.min.js"></script>
+<script src="/file/js/popper.min.js"></script>
+<script src="/file/js/bootstrap.min.js"></script>
+<script src="/file/js/cookieconsent.min.js"></script>
+<script src="/file/js/main.js?v=6ada0bb517d73118e1f98cb12b2b96d0"></script>
+<script src="/file/js/utils.js"></script>
+       
+<script>
+    let reqitemfrm=$("#request-item-form");
+    let reqitemmdl=$("#feedback-request-dialog");
+    let msgI18n={get:function(key){
+      let m=msgI18n[key.toLowerCase()]||'';
+        return m;
+      },
+      request_item_requester_last_name_required:'Add your lastname',
+      request_item_requester_first_name_required:'Add your firstname',
+      request_item_requester_email_required:'Add your e-mail',
+      request_item_requester_email_pattern:'Add a correct mail',
+      request_item_requester_affiliation_required:'Add your affiliation',
+      request_item_requester_message_required:'Add your message'
+    }
+    let submitForm=function(){
+      reqitemmdl.find('h3').addClass('d-none');
+      $.ajax({
+        url:$(location).attr('href'),
+        type:"POST",
+        dataType:'html',
+        headers:{'x-jreqPage':$(location).attr('href')},
+        data:reqitemfrm.serialize(),
+      }).done(function(){
+        reqitemmdl.find("#feedbackSuccess").removeClass('d-none');
+      }).fail(function(xhr){alert(xhr.status);
+        if(xhr.status==500) reqitemmdl.find("#feedbackError").removeClass('d-none');
+        else if(xhr.status==401) reqitemmdl.find("#feedbackRobot").removeClass('d-none');
+      }).always(function(){
+        reqitemmdl.modal({backdrop:'static',show:true,keyboard:false});
+      });
+    }
+    reqitemfrm.find('#checkbox_a9108d46-c558-48aa-8cab-5a2528f7467b').on('click',function(){return false;});
+    reqitemfrm.on('submit',function(){return false});
+    reqitemfrm.validate();
+    reqitemfrm.find('#submit-request').on('click',function(){
+      if(reqitemfrm.validate()){submitForm();}
+    });
+    
+    </script>
+
+
+</body>
+</html>
