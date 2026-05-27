@@ -1,0 +1,66 @@
+{
+  "latex-workshop.latex.recipe.default": "first",
+  "latex-workshop.latex.tools": [
+    {
+      "name": "xelatex",
+      "command": "D:/texlive/2025/bin/windows/xelatex.exe",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "bibtex",
+      "command": "D:/texlive/2025/bin/windows/bibtex.exe",
+      "args": [
+        "%DOCFILE%"
+      ]
+    },
+    {
+      "name": "xelatex-preview",
+      "command": "D:/texlive/2025/bin/windows/xelatex.exe",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-jobname=%DOCFILE%_preview",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "bibtex-preview",
+      "command": "D:/texlive/2025/bin/windows/bibtex.exe",
+      "args": [
+        "%DOCFILE%_preview"
+      ]
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "XeLaTeX -> BibTeX -> XeLaTeX x2",
+      "tools": [
+        "xelatex",
+        "bibtex",
+        "xelatex",
+        "xelatex"
+      ]
+    },
+    {
+      "name": "XeLaTeX only",
+      "tools": [
+        "xelatex"
+      ]
+    },
+    {
+      "name": "XeLaTeX preview PDF -> BibTeX -> XeLaTeX x2",
+      "tools": [
+        "xelatex-preview",
+        "bibtex-preview",
+        "xelatex-preview",
+        "xelatex-preview"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1972 @@
+
+
+[Page 1]
+Applied Energy 403 (2026) 127076
+Contents lists available at ScienceDirect
+Applied Energy
+journal homepage: www.elsevier.com/locate/apenergy
+Large Language Models Meet Energy Systems: Opportunities, Challenges,
+and Future Perspectives
+Chaobo Zhanga, Jian Zhangb, Jie Lub, Yang Zhaob,c,*
+aDepartment of Building Environment and Energy Engineering, The Hong Kong Polytechnic University, Hong Kong, China
+bInstitute of Refrigeration and Cryogenics, Zhejiang University, Hangzhou, China
+cKey Laboratory of Clean Energy and Carbon Neutrality of Zhejiang Province, Jiaxing Research Institute, Zhejiang University, Jiaxing, China
+H I G H L I G H T S
+•Applications of large language models (LLMs) in energy systems are reviewed.
+•Advantages and disadvantages of LLMs used in energy systems are discussed.
+•Five performance enhancement technologies for LLMs are summarized.
+•Thirteen roles of LLMs in energy systems are uncovered.
+•Opportunities, challenges, and eight potential future directions are presented.
+A R T I C L E I N F O A B S T R A C T
+Keywords: Large language models (LLMs) are sparking a groundbreaking revolution in the intelligent transformation of
+Energy system energy systems. They hold significant potential for applications in energy systems, where they can assist or even
+Smart energy replace humans in completing complex tasks. However, the application of LLMs in energy systems is an emerging
+Large language model
+field, which lacks a comprehensive review. To address this gap, this paper provides a comprehensive review of
+ChatGPT
+the applications of LLMs in energy systems over the past seven years. The advantages, disadvantages, and target
+Artificial intelligence
+users of 22 types of LLMs (such as GPT, Llama, and ChatGLM) used in energy systems are summarized. Five
+performance enhancement technologies for developing domain-specific LLMs are discussed, including prompt
+engineering, knowledge augmentation, fine-tuning, multimodal integration, and autonomous agent. Thirteen
+roles of LLMs in energy systems are revealed, such as maintainer, adviser, programmer, and modeler. Based on
+the literature review, this paper identifies and highlights the opportunities and challenges associated with
+applying LLMs in energy systems. Furthermore, eight future directions are proposed to address these challenges.
+This paper offers valuable insights that can guide future research and advance the integration of LLMs in the
+energy domain.
+1. Introduction sustainable development goals. Artificial intelligence (AI) technologies
+are increasingly being integrated into energy systems, offering effective
+Energy systems play a critical role in modern society, supporting solutions to improve system performance, operational reliability, and
+global economic growth, social development, and everyday life [1]. flexibility [3].
+Meanwhile, they are closely linked to global climate change and envi- In the big data era, AI technologies (such as machine learning, deep
+ronmental challenges [2]. Therefore, enhancing energy efficiency and learning, and reinforcement learning) have been widely applied in enreducing carbon emissions in energy systems is essential to achieving ergy systems [4]. For example, machine learning and deep learning can
+Abbreviations:AI, Artificial intelligence; API, Application program interface; BIM, Building information models; CoT, Chain of thought; EV, Electric vehicle;
+HVAC, Heating, ventilation, and air conditioning; LLM, Large language model; LoRA, Low-rank adaptation; LSTM, Long short-term memory; PV, Photovoltaic; ReAct,
+Reasoning and acting; RAG, Retrieval-augmented generation; SQL, Structured query language.
+* Corresponding author.
+E-mail address: youngzhao@zju.edu.cn(Y. Zhao).
+https://doi.org/10.1016/j.apenergy.2025.127076
+Received 4 June 2025; Received in revised form 6 November 2025; Accepted 11 November 2025
+Available online 18 November 2025
+0306-2619/© 2025 Elsevier Ltd. All rights are reserved, including those for text and data mining, AI training, and similar technologies.
+
+
+[Page 2]
+C. Zhang et al. A p p l i e d E n e r g y 403 (2026) 127076
+accurately predict energy demand, generation, and pricing, enabling Table 1
+smarter and more efficient energy management [5]. Additionally, they Summary of existing review articles.
+can effectively diagnose faults in energy systems, thereby improving Review Main focus Limitations Contributions of our
+their operational efficiency [6]. Reinforcement learning is a powerful paper review
+tool widely used to develop optimal management strategies for
+Zhang Survey the 1. Limited to GPT 1. Survey the
+improving the operation of energy systems [7]. However, these AI et al. application of GPT in and exclude other application of a
+technologies are typically designed to perform specific tasks or solve [9] energy systems. LLMs. wider range of LLMs
+particular problems, meaning they cannot automatically solve problems 2. Do not discuss the in energy systems.
+opportunities, 2. Discuss the
+in the same way humans can. They typically rely on energy data for
+limitations, and opportunities,
+model training and often require human intervention throughout the future perspectives limitations, and
+training process. of LLMs in energy future perspectives
+Recently, a more powerful AI technology named large language systems. of LLMs in energy
+models (LLMs) has demonstrated promising potential in solving prob- systems.
+Li et al. 1. Survey the Limited to energy 1. Survey the use of
+lems in a human-like manner. They have achieved human-level per-
+[10] application of LLMs system health LLMs in a wider
+formance across a wide range of complex tasks, such as natural language in energy system management and variety of application
+processing, code generation, data analysis, cross-domain knowledge health management. exclude other scenarios.
+integration, reasoning, and self-learning [8]. This makes them particu- 2. Discuss the application 2. Discuss the
+opportunities, scenarios. opportunities,
+larly promising in assisting or even replacing human experts in various
+limitations, and limitations, and
+energy system applications, such as energy demand and generation future perspectives future perspectives
+forecasting, predictive maintenance, operational control, energy of LLMs in energy of LLMs in a wider
+scheduling, and policy formulation [9]. By enhancing the intelligence of system health variety of application
+energy systems, LLMs hold significant potential to improve their effi- management. scenarios.
+Wang 1. Survey the Limited to virtual 1. Survey the use of
+ciency, reliability, and flexibility.
+et al. application of LLMs power plants and LLMs in a wider
+Since the initial release of ChatGPT (GPT-3.5) on November 30, [11] in virtual power exclude other variety of application
+2022, the number of articles on the application of LLMs in energy sys- plants. application scenarios.
+tems has grown rapidly. As this is an emerging research field, it is 2. Discuss the scenarios. 2. Discuss the
+opportunities, opportunities,
+essential to provide comprehensive and in-depth review articles to
+limitations, and limitations, and
+address the following four questions:
+future perspectives future perspectives
+Question 1: Which LLMs and performance enhancement technolo- of LLMs in virtual of LLMs in a wider
+gies have been applied in energy systems? power plants. variety of application
+Question 2: What roles can LLMs play in energy systems? scenarios.
+Li et al. 1. Survey the Limited to geoenergy 1. Survey the
+Question 3: What are the opportunities and limitations of LLMs in
+[12] application of LLMs systems and exclude application of LLMs
+energy systems? in geoenergy other energy in a broader type of
+Question 4: What are the future research directions of LLMs in en- systems. systems. energy systems.
+ergy systems? 2. Discuss the 2. Discuss the
+opportunities, opportunities,
+Through a systematic literature search (see Section 2), a total of 9
+limitations, and limitations, and
+review articles on the application of LLMs in energy systems have been
+future perspectives future perspectives
+published by March 2025. Table 1provides a summary of these review of LLMs in geoenergy of LLMs in a broader
+articles. Questions 1 and 2 have been partially addressed in some review systems. type of energy
+articles. One review article focused specifically on the application of systems.
+Shi et al. 1. Survey the Limited to smart 1. Survey the use of
+GPT models in energy systems, rather than the broader category of LLMs
+[13] application of LLMs grids and exclude LLMs in a broader
+[9]. Several other review articles have discussed the use of LLMs in two in smart grids. other energy type of energy
+application scenarios (energy system health management [10] and vir- 2. Discuss the systems. systems.
+tual power plants [11]) and three types of energy systems (geoenergy opportunities, 2. Discuss the
+limitations, and opportunities,
+systems [12], power systems [13,14], and building energy systems
+future perspectives limitations, and
+[15]). As for Questions 3 and 4, several review articles have discussed
+of LLMs in smart future perspectives
+the opportunities, limitations, and future research directions of LLMs in grids. of LLMs in a broader
+three application scenarios (energy system health management [10], type of energy
+virtual power plants [11], and energy demand prediction [16]) and systems.
+Zhao 1. Survey the Limited to power 1. Survey the
+three types of energy systems (geoenergy systems [12], power systems
+et al. application of LLMs systems and exclude application of LLMs
+[13,14], and building energy systems [15]). Overall, a comprehensive [14] in power systems. other energy in a broader type of
+and in-depth review article that effectively addresses Questions 1 to 4 is 2. Discuss the systems. energy systems.
+still lacking. This study fills this research gap. opportunities, 2. Discuss the
+limitations, and opportunities,
+There are three primary contributions in this study. The first is to
+future perspectives limitations, and
+provide guidance on selecting suitable LLMs and improving their perof LLMs in power future perspectives
+formance for energy-related applications. The second is to identify systems. of LLMs in a broader
+application scenarios of LLMs in energy systems. The third is to reveal type of energy
+the opportunities and challenges of applying LLMs in energy systems, systems.
+Zhang 1. Survey the Limited to building 1. Survey the
+while offering valuable insights for future research. These contributions
+and application of LLMs energy systems and application of LLMs
+enable people to comprehensively understand LLMs and their applica- Chen in building energy exclude other energy in a broader type of
+tions in energy systems. This allows them to quickly develop their own [15] systems. systems. energy systems.
+approaches, thereby advancing research related to the application of 2. Discuss the 2. Discuss the
+opportunities, opportunities,
+LLMs in energy systems.
+limitations, and limitations, and
+future perspectives future perspectives
+(continued on next page)
+2
+
+
+[Page 3]
+C. Zhang et al. A p p l i e d E n e r g y 403 (2026) 127076
+Table 1 (continued) Fig. 1 illustrates the number of articles published from 2019 to
+March 2025. All the articles were published after the initial release of
+Review Main focus Limitations Contributions of our
+paper review ChatGPT on November 30, 2022. In 2023, 13 research articles were
+published. A total of 91 articles (79 research articles, 5 review articles,
+of LLMs in building of LLMs in a broader
+energy systems. type of energy and 7 perspective articles) were published in 2024. As for 2025, 29 arsystems. ticles (23 research articles, 4 review articles, and 2 perspective articles)
+Zaboli Offer the future 1. Do not survey the 1. Survey the LLMs were published in the first three months of this year. This trend indicates
+et al. perspectives of LLMs application of LLMs applied in energy that this field is increasingly gaining attention in recent years.
+[16] in energy demand in energy systems. systems.
+prediction. 2. Do not discuss the 2. Discuss the
+opportunities and opportunities and 3. Large language models and performance enhancement
+limitations of LLMs limitations of LLMs technologies in energy systems
+in energy systems. in energy systems.
+3. The future 3. Offer the future
+perspectives of LLMs perspectives of LLMs 3.1. Large language models
+are limited to energy in a wider variety of
+demand prediction. application After reviewing the 133 eligible articles, it is found that 22 types of
+scenarios.
+LLMs have already been applied in energy systems. Their usage fre-
+Zhang Discuss a LLM-based 1. Do not survey the 1. Survey the LLMs
+quencies are illustrated in Fig. 2. It needs to be noted that the total usage
+et al. building load application of LLMs applied in energy
+[17] prediction in energy systems. systems. frequency of these LLMs in Fig. 2does not equal the total number of final
+framework. 2. Do not discuss the 2. Discuss the eligible articles, as some articles utilized multiple LLMs. The GPT series
+opportunities, opportunities, models are the most popular LLMs in energy systems. They have been
+limitations, and limitations, and
+utilized by 65 articles. The Llama series models have been applied by 31
+future perspectives future perspectives
+of LLMs in energy of LLMs in energy articles, making them the second most widely used LLMs in this domain.
+systems. systems. The ChatGLM series models are the third most widely used LLMs in this
+domain. They have been adopted in 17 articles. BERT, T5, and Qwen
+have also been commonly used in this domain. Each of them has been
+2. Literature search
+applied in 7-10 articles. BaiChuan, Gemini, Gemma, Yi, Bloom, Claude,
+and Mistral are relatively popular in this domain, with each being uti-
+The literature search process of this study involves four steps. First,
+lized in 2-3 articles. The remaining LLMs in Fig. 2were used only once
+articles were identified using Scopus and Web of Science, two of the
+each. The references for studies utilizing the 22 types of LLMs are
+most widely utilized databases for academic research. Their advanced
+summarized in Appendix A.
+search tools were applied with the following query string: ("large language model" OR "large language models" OR "LLMs" OR "LLM" OR
+3.1.1. Advantages and disadvantages
+"GPT" OR "ChatGPT") AND ("energy" OR "electricity" OR "cooling" OR
+Table 3 summarizes the advantages and disadvantages of the 22
+"heating" OR "biomass" OR "H2" OR "hydrogen" OR "gas" OR "coal" OR
+types of LLMs. The GPT series is a family of Transformer-based LLMs
+"petroleum"). This query string aims to find articles related to LLMs and
+developed by OpenAI [8]. Seven types of GPT models have been applied
+energy systems, including electricity systems, cooling systems, heating
+in energy systems, including GPT-2 [25], GPT-3 [26], GPT-3.5 [27],
+systems, and other types of energy systems utilizing various energy
+Copilot (a fine-tuned version of GPT-3) [28], GPT-4 [29], GPT-4o [30],
+carriers. Since it is widely recognized that T5, the first LLM with a size
+and GPT-4V [31]. Several alternatives to GPT models have also been
+greater than 10B, was proposed in 2019, this literature search includes
+applied in the energy domain, including Claude [32], Gemini [28], and
+only articles published between 2019 and 2025 [18]. By March 2025, a
+PaLM [33]. The advantages and disadvantages of these LLMs can be
+total of 3,603 articles were identified, with 1,758 from Scopus and 1,845
+found in Table 3.
+from Web of Science.
+The Llama series is a family of open-source LLMs developed by Meta
+Second, duplicate articles identified from the two databases were
+[34]. Fifteen types of Llama models (or their fine-tuned variants) have
+removed, resulting in 2,383 non-duplicate articles remaining. Third, the
+been utilized in energy systems, including Llama [35], Llama-2 [36],
+non-duplicate articles were screened to exclude those that (1) are not
+Llama-3 [36], Llama-3.1 [36], Llama-3.2 [37], Chinese-Llama [38],
+peer-reviewed and (2) are not related to the application of LLMs in en-
+Chinese-Llama-2 [39], Vicuna [40], Vicuna-1.5 [41], LongAlign [41],
+ergy systems. Each article was initially screened by analysing its title,
+Longchat [41], Solar-v1.0 [41], FreeWilly-2 [42], Koala [23], and
+abstract, and keywords. If the topic could not be determined from this
+information, the full text was thoroughly reviewed to decide whether it
+should be excluded. After this screening process, a total of 120 articles
+remained. Finally, the references of the articles that were not excluded
+were examined to identify the missing articles not captured by the query
+string. This step identified 13 missing articles. The number of articles at
+each step is listed in Table 2. A total of 133 articles were identified as
+eligible for this literature review, including 115 research articles, 9 review articles, and 9 perspective articles.
+Table 2
+Number of articles in each step of the literature search.
+Step Type of articles Article count
+Step 1 Articles identified from Scopus and Web of Science 3,603
+Step 2 Non-duplicate articles 2,383
+Step 3 Articles remaining after screening 120
+Step 4 Missing articles 13
+Total Eligible articles for the literature review 133
+Fig. 1. Number of articles published from 2019 to March 2025.
+3
+
+
+[Page 4]
+C. Zhang et al. A p p l i e d E n e r g y 403 (2026) 127076
+Table 3
+Advantages and disadvantages of LLMs used in energy systems.
+Model Advantages Disadvantages
+GPT 1. High performance [8] 1. Closed source
+2. Official API access 2. Privacy leakage risk [19]
+3. Multimodal capability
+Llama 1. Open source 1. High computational
+2. Relatively high requirement for local
+performance [18] deployment [20]
+3. Multimodal capability 2. Unofficial API access
+ChatGLM 1. Open source 1. High computational
+2. Official API access requirement for local
+3. Relatively high deployment [20]
+performance [18] 2. No multimodal capability
+4. Strong Chinese language
+comprehension ability [21]
+BERT, Distiluse 1. Low computational 1. Limited application
+requirement for local scenarios
+deployment [22] 2. Unofficial APIs
+2. Open source 3. Low performance [18]
+4. No multimodal capability
+T5, StableLM, Open source 1. Relatively low
+Pythia, OPT, performance [18,23]
+Bloom 2. Unofficial APIs
+3. High computational
+requirement for local
+deployment [20]
+4. No multimodal capability
+Mistral, Gemma, 1. Open source High computational
+Falcon, Phi 2. Official API access requirement for local
+3. Relatively high deployment [20]
+performance [18]
+4. Multimodal capability
+Qwen, Yi, 1. Official API access High computational
+BaiChuan 2. Open source requirement for local
+3. Strong Chinese language deployment [20]
+comprehension ability [18]
+4. Relatively high
+performance [18]
+5. Multimodal capability
+Ernie Bot 1. Official API access 1. Closed source
+2. Strong Chinese language 2. Privacy leakage risk [19]
+comprehension ability
+3. Relatively high
+performance [23]
+4. Multimodal capability
+Fig. 2. Usage frequencies of LLMs applied in energy systems.
+Claude, Gemini 1. Official API access 1. Closed source
+2. Relatively high 2. Privacy leakage risk [19]
+Alpaca [23]. Llama models also have some alternatives in the energy performance [18]
+domain, including T5 [41], StableLM [23], Pythia [23], Mistral [41], 3. Multimodal capability
+PaLM 1. Official API access 1. Closed source
+Gemma [41], Falcon [41], Phi [43], OPT [44], and Bloom [45]. The
+2. Relatively high 2. Privacy leakage risk [19]
+advantages and disadvantages of these LLMs are shown in Table 3.
+performance [18] 3. No multimodal capability
+The ChatGLM series is a family of open-source bilingual LLMs TimeGPT 1. Official API access 1. Closed source
+developed by Tsinghua University and Zhipu AI [21]. Four types of 2. High performance in time 2. Privacy leakage risk [19]
+ChatGLM models have been utilized in energy systems, including series prediction [24] 3. Very limited application
+scenarios [24]
+ChatGLM [46], ChatGLM-2 [47], ChatGLM-3 [48], and ChatGLM-4 [49].
+4. No multimodal capability
+ChatGLM models also have some alternatives in the energy domain,
+including Qwen [41], Yi [41], BaiChuan [50], and Ernie Bot [23].
+Table 3lists the advantages and disadvantages of these LLMs specifically are listed in Table 3.
+developed for the Chinese language. TimeGPT is a Transformer-based LLM designed specifically for time
+The BERT series, developed by Google, represents a class of pre- series forecasting [24]. It is trained using over 100 billion time series
+trained language models [51]. Four types of BERT models have been data points from various domains, such as finance, energy, healthcare,
+adopted in energy systems, including BERT [52], DistilBERT [53], retail, and traffic. This model has been applied for electrical load pre-
+LaBSE [54], and XLM-RoBERTa [54]. Although some researchers refer diction [57]. Table 3shows its advantages and disadvantages.
+to them as LLMs, they are generally not classified as such, as they lack
+generative capabilities and have a comparatively smaller parameter size 3.1.2. Guidelines for model selection and evaluation
+than modern LLMs. They are designed for understanding language A decision framework is developed (see Fig. 3) to assist in selecting
+rather than generative tasks. They are primarily applicable in limited suitable LLMs based on their usage frequencies, advantages, and disenergy-related scenarios, such as fault diagnosis [52], public sentiment advantages. This framework can be used to determine the target users of
+classification [55], energy prediction [56], and semantic matching [54]. the 22 types of LLMs. This framework includes the following five deci-
+In addition to BERT models, researchers in the energy domain have also sion criteria:
+applied a similar model, Distiluse, for semantic matching of energyrelated data [54]. The advantages and disadvantages of these LLMs
+4
+
+
+[Page 5]
+C. Zhang et al. A p p l i e d E n e r g y 403 (2026) 127076
+Fig. 3. A decision framework for LLM selection. LLMs marked with * are preferred owing to their wider adoption and stronger performance.
+• Do you require privacy protection or extensive modifications for 3.2. Performance enhancement technologies
+domain-specific LLMs?
+• Do you need multimodal LLMs? LLMs are trained on vast amounts of publicly available data, such as
+• Do you focus on Chinese language tasks? books, articles, websites, and code. They usually do not have access to
+• Do you focus on time series prediction tasks? domain-specific data from energy systems during training. Hence, it is
+• Do you focus on simple natural language comprehension tasks? necessary to enhance the performance of LLMs before applying them in
+energy systems. Through the literature review, five types of technologies
+These criteria are designed according to the advantages and disad- have been widely employed to enhance the performance of LLMs in
+vantages of the 22 types of LLMs. If users require privacy protection or energy systems, including prompt engineering, knowledge augmentaextensive modifications for domain-specific LLMs, they should choose tion, fine-tuning, multimodal integration, and autonomous agent (see
+open-source LLMs. Otherwise, they can select closed-source LLMs due to Fig. 4). Prompt engineering technologies include one-shot learning, fewtheir strong performance and user-friendly API access. If users need shot learning, chain of thought (CoT), reasoning and acting (ReAct), and
+multimodal LLMs, they should select LLMs with multimodal capabilities. automated prompt optimization. Retrieval-augmented generation
+If users focus on Chinese language tasks, it is recommended to use LLMs (RAG) is the most popular knowledge augmentation technology in this
+with strong Chinese language comprehension capabilities. If users focus domain. Two types of fine-tuning technologies have been adopted,
+on time series prediction tasks, TimeGPT is a good choice. If users focus including full parameter fine-tuning and parameter-efficient fine-tunon simple natural language comprehension tasks such as semantic ing. Multimodal integration for LLMs can be achieved in two ways: plugmatching or classification, BERT and Distiluse are well-suited. Accord- in integration and native integration. For autonomous agent, two types
+ingly, ten categories of LLMs are identified in Fig. 3. For categories of frameworks have been employed: single-agent framework and multicontaining multiple available LLMs, GPT, Llama, ChatGLM, BERT, and agent framework.
+Qwen are selected as preferred LLMs. This selection is primarily based Fig. 5illustrates the usage frequencies of the five types of enhanceon their higher usage frequencies and stronger performance compared ment technologies in energy systems. A total of 54 articles have applied
+with other LLMs in the same categories. fine-tuning to enhance the performance of LLMs in energy systems,
+After selecting suitable LLMs, it is essential to evaluate their per- making it the most popular technology. Knowledge augmentation is the
+formance on specific tasks of users. A widely adopted approach is human second most popular technology, which have been applied by 31 artievaluation [58], in which domain experts assess the quality of LLM re- cles. The technologies ranking third, fourth, and fifth are prompt engisponses for particular tasks. However, this approach can be both time- neering (22 articles), multimodal integration (14 articles), and
+consuming and costly. Recently, researchers have begun leveraging autonomous agent (10 articles), respectively.
+high-performing LLMs, such as GPT-4o, to evaluate the outputs of less
+capable LLMs [59]. This approach offers a faster and more cost-effective 3.2.1. Prompt engineering
+alternative, though it depends on the use of sufficiently powerful LLMs Prompt engineering is a technique for designing and refining
+as evaluators. If the selected LLMs fail to meet the required performance prompts to effectively guide LLMs in generating better responses. This
+standards, the technologies described in Section 3.2can be applied to technique enables users to easily enhance the performance of LLMs
+enhance their performance. without retraining or fine-tuning LLMs. One-shot and few-shot learning
+are the two most commonly used prompt engineering techniques
+inspired by the human ability to learn new concepts from very limited
+5
+
+
+[Page 6]
+C. Zhang et al. A p p l i e d E n e r g y 403 (2026) 127076
+Fig. 4. Performance enhancement technologies for LLMs in energy systems.
+LLMs provided energy-efficient control strategies for building energy
+systems when supplied with several examples. One-shot and few-shot
+learning have also been applied to enhance the performance of LLMs
+in grid modeling [63], energy data management [64], fault diagnosis in
+nuclear power plants [65], and so on.
+CoT is a prompt engineering technique that guides LLMs to generate
+intermediate reasoning steps before arriving at a final answer. Fig. 7(a)
+illustrates an example of using CoT to identify peak electricity demand.
+As shown, this technique enhances the reasoning capability and accuracy of LLMs by decomposing complex problems into smaller, more
+manageable sub-tasks. This technique improves the performance of
+LLMs in energy system applications. For example, Jiang et al. utilized
+CoT to guide LLMs in the step-by-step generation of building energy
+models using EnergyPlus [41]. The results showed that CoT improved
+the accuracy of LLMs in generating EnergyPlus models. Xiao and Xu
+applied CoT-based prompts to empower LLMs to analyse the energy
+usage of buildings and provide tailored retrofit recommendations [66].
+CoT was also applied by Wang et al. to improve the performance of LLMs
+Fig. 5. Usage frequencies of performance enhancement technologies for LLMs
+in understanding and detecting unsafe electricity usage behaviours in
+in energy systems.
+households [67].
+ReAct is designed to enhance the performance of LLMs by integrating
+examples [60]. As illustrated in Fig. 6, one-shot learning is implemented
+step-by-step reasoning with executable actions [68]. Fig. 7(b) illustrates
+by providing a single example, whereas few-shot learning utilizes
+an example that uses ReAct to address an electricity demand data
+several examples. They have been applied to enhance the performance
+analysis task. As shown, ReAct breaks down complex tasks into a series
+of LLMs in energy-related scenarios. For instance, Zhang et al. employed
+of sub-tasks, similar to CoT. However, ReAct further enables LLMs to
+one-shot learning to enhance the performance of GPT-3.5 in generating
+perform external actions in each sub-task, such as querying a search
+code for training data-driven building energy demand prediction models
+engine or using a tool, to solve the complex task more effectively. This
+[61]. The results showed that incorporating a relevant example code
+technique has been employed by Xiao and Xu to improve the perforinto prompts improved the correctness of the GPT-generated code by an
+mance of LLMs in generating recommendations for building retrofits
+average of 90.0%. Sawada et al. applied few-shot learning to enhance
+[66].
+the performance of LLMs in controlling building energy systems [62].
+6
+
+
+[Page 7]
+C. Zhang et al. A p p l i e d E n e r g y 403 (2026) 127076
+Fig. 6. Illustrations of (a) zero-shot learning, (b) one-shot learning, and (c) few-shot learning.
+Fig. 7. Illustrations of (a) CoT and (b) ReAct.
+Automated prompt optimization is a prompt engineering technique optimization was employed to refine prompts based on the prediction
+that leverages optimization algorithms to automatically refine prompts accuracy of the generated code. The results demonstrated that this
+for obtaining optimal LLM responses (see Fig. 8). Zhang et al. proposed method significantly improved the prediction accuracy of the generated
+an automated prompt optimization method based on Bayesian optimi- code.
+zation to improve the accuracy of data-driven building energy load
+prediction models developed using LLM-generated code [61]. Bayesian 3.2.2. Knowledge augmentation
+Knowledge augmentation aims to enhance the performance of LLMs
+by integrating external knowledge into the prompting process. To achieve this, it is essential to develop and continuously update an external
+knowledge base. The energy domain already has many available
+knowledge sources, such as design documents, energy policies, textbooks, research papers, and equipment maintenance records. They can
+be utilized to develop external knowledge bases.
+RAG is the most popular knowledge augmentation technique in energy system applications. As shown in Fig. 9, RAG retrieves relevant
+information based on user queries from external knowledge bases (such
+as text documents, web content, and knowledge graphs) and incorporates this information into the prompts [69]. The prompts, which
+include both the user queries and the retrieved information, are then
+input into LLMs to generate more accurate responses. RAG has been
+widely used to enhance the performance of LLMs in energy systems. For
+instance, Labib designed a RAG-based framework to enable LLMs to
+answer questions related to the use of two widely adopted building
+energy simulation tools: EnergyPlus and OpenStudio [70]. A total of 59
+Fig. 8. Illustration of automated prompt optimization.
+7
+
+
+[Page 8]
+C. Zhang et al. A p p l i e d E n e r g y 403 (2026) 127076
+Fig. 9. Illustration of RAG.
+video tutorials were selected as a knowledge base, allowing LLMs to Fig. 10 illustrates an example for LLM fine-tuning. As shown, a LLM
+provide instructional text responses supplemented with relevant videos. without fine-tuning is unable to answer a question regarding the
+Wei et al. adopted RAG to improve the accuracy of LLMs in detecting meaning of "PV." By applying a fine-tuning dataset that includes a
+natural gas valve chamber leakages [71]. By incorporating leakage- correctly structured prompt and response for this question, the paramrelated documents as a knowledge base, the performance of LLMs in eters of the LLM can be updated. After fine-tuning, the LLM becomes
+leakage detection was significantly improved. In addition, RAG also has capable of answering the question accurately in the context of the enbeen utilized in other energy-related tasks, such as energy policy in- ergy domain.
+quiries [72], building retrofit consultations [66], decision-making for Full parameter fine-tuning is a powerful technique for fine-tuning
+sustainable energy transitions [36], and electric power system man- LLMs, as it updates all model parameters. However, due to the typiagement [31]. cally enormous parameter size of LLMs, this technique requires substantial computational resources. As a result, it is generally more
+3.2.3. Fine-tuning suitable for LLMs with relatively smaller parameter sizes. For instance,
+Fine-tuning enhances the performance of LLMs in the energy domain Liao et al. fine-tuned all the parameters of TimeGPT using energy load
+by further training a pre-trained LLM on a domain-specific dataset. data, which significantly enhanced its accuracy in load forecasting [57].
+Fig. 10. Illustration of LLM fine-tuning.
+8
+
+
+[Page 9]
+C. Zhang et al. A p p l i e d E n e r g y 403 (2026) 127076
+Full parameter fine-tuning can also be applied to fine-tune BERT models, As shown in Fig. 12 (a), native integration refers to developing a
+as BERT models are relatively small in size. For instance, Zhao et al. fine- multimodal LLM that natively supports multiple modalities. As shown in
+tuned BERT models to enhance their understanding in partial tripping of Table 3, some advanced LLMs, such as GPT-4o, GPT-4V and Llama-3.2,
+distributed energy systems [52]. already have multimodal versions available. These models can be
+For LLMs with enormous parameter sizes, parameter-efficient fine- readily applied to process multimodal information from energy systems.
+tuning is a more suitable technique. This technique updates only a small For instance, Huang et al. applied GPT-4V to detect anomalies (such as
+subset of parameters in LLMs, making it faster and cheaper compared to wildfires) in power systems using multimodal data [31]. Both satellite
+full parameter fine-tuning. Low-rank adaptation (LoRA) is the most images and text-based descriptions were inputted into GPT-4V for
+widely used parameter-efficient fine-tuning technique for the energy anomaly detection. Yan et al. leveraged GPT models to extract multidomain [73]. For instance, Lu et al. applied LoRA to fine-tune LLMs modal features from multimodal weather data (i.e., text and numeric
+using corpora related to the electric power industry [50]. The results vectors) for enhancing the accuracy of photovoltaic (PV) power foreshowed that fine-tuned LLMs achieved higher accuracy in answering casting [81].
+questions concerning the electric power industry. Zhang et al. proposed However, training a natively multimodal LLM typically requires
+a LoRA-based fine-tuning approach to enhance the accuracy of LLMs in substantial computational resources. Plug-in integration offers a more
+diagnosing faults in building energy systems [74]. The fine-tuned LLMs feasible solution for users seeking to develop local multimodal LLMs. As
+exhibited significantly higher diagnosis accuracy compared to the LLMs shown in Fig. 12(b), this approach enhances a text-only LLM by intewithout fine-tuning. Moreover, LoRA has also been applied to enhance grating external modules that handle other modalities, such as images,
+the performance of LLMs in other energy-related scenarios, such as vision, and audio. This approach has been widely applied in energy
+planning for renewable energy deployment [75], and wind speed fore- systems. For instance, Labib utilized a speech recognition model
+casting [76]. developed by Google to convert audio into text, which was then used as
+Four other parameter-efficient fine-tuning techniques (i.e., prefix- the input for LLMs [70]. This allowed LLMs to process audio data related
+tuning [77], P-tuning [78], adapter-tuning [79], and ladder side- to building energy modeling. Wei et al. trained deep learning models to
+tuning [80]) have also been employed in the energy domain. For extract features from audio data and infrared temperature readings
+instance, Xu and Tang employed prefix-tuning and P-tuning to fine-tune collected from natural gas valve chambers [71]. These extracted features
+LLMs using a fault-related corpus of electrical equipment [47]. The re- were subsequently fed into LLMs for gas leakage detection.
+sults showed that LLMs achieved higher diagnosis accuracy after finetuning. Wang et al. compared the performance of LoRA, adapter- 3.2.5. Autonomous agent
+tuning, P-tuning, and ladder side-tuning for fine-tuning LLMs to A LLM-based single autonomous agent improves the performance of
+enhance the accuracy of fault plan generation in electric power systems LLMs in addressing complex tasks by integrating essential external
+[26]. The results indicated that adapter-tuning, P-tuning, and ladder modules, such as action, planning, and memory (see Fig. 13) [82]. This
+side-tuning achieved performance improvements comparable to those of technique has proven effective in solving complex tasks, such as coding,
+LoRA. in energy systems. For instance, Zhang et al. developed a LLM-based
+agent to automatically generate Python programs for data-driven
+3.2.4. Multimodal integration building energy load prediction [61]. This agent included four main
+The information in the energy domain spans multiple modalities, modules: planning, actions, memory, and self-reflection. The results
+including text (e.g., papers, reports, and maintenance records), images demonstrated that the agent automatically generated highly accurate
+(e.g., equipment photos and satellite maps), audio (e.g., equipment Python programs for load prediction.
+sound data and call records), and video (e.g., surveillance video and Energy systems often require decentralized and coordinated
+instructional videos). Leveraging multimodal information can enhance decision-making across multiple components (such as buildings,
+the performance of LLMs in addressing energy-related tasks. Multimodal distributed energy resources, energy storage systems, and energy netintegration allows LLMs to process and understand multimodal infor- works) and among various stakeholders (such as energy suppliers, enmation. Fig. 11presents an example in which a multimodal LLM is used ergy consumers, and policymakers). A single agent faces significant
+to diagnose faults in wind turbine blades. The multimodal LLM can challenges in effectively addressing such complex decision-making
+understand both the image of the wind turbine blades and the user’s tasks. As shown in Fig. 13 (b), a multi-agent framework is composed
+textual query, enabling it to identify cracks in the blades. There are two of multiple LLM agents, demonstrating better capabilities in handling
+main approaches to achieving multimodal integration of LLMs in energy decentralized and coordinated tasks compared to a single agent. Several
+system applications: native integration and plug-in integration. researchers have explored the potential of multi-agent frameworks in
+Fig. 11. Illustration of multimodal integration in a LLM. The image of wind turbine blades is created by GPT-4o.
+9
+
+
+[Page 10]
+C. Zhang et al. A p p l i e d E n e r g y 403 (2026) 127076
+Fig. 12. Illustrations of (a) native integration, and (b) plug-in integration.
+(cid:50)(cid:50)(cid:51)
+(cid:50)(cid:50)(cid:50)(cid:50)(cid:51)(cid:51)
+(cid:50)(cid:50)(cid:51) (cid:50)(cid:50)(cid:51) (cid:50)(cid:50)(cid:51)
+Fig. 13. Illustrations of the (a) single-agent framework, and (b) multi-agent framework.
+energy systems. For instance, Zhang et al. proposed LLM-based multi- mistakes or adjust the style of their responses by leveraging prompt
+agent frameworks for automatically generating building energy models engineering techniques, such as incorporating several examples into
+[83,84]. Multiple LLM agents were deployed to handle sub-tasks such as the prompts.
+planning, information extraction, modeling, and debugging. These • Knowledge augmentation and fine-tuning are necessary for LLMs
+agents collaborated to generate building energy models. Gamage et al. that lack domain knowledge and frequently make mistakes in user’s
+designed a LLM-based framework with four agents (observers, analysers, specific tasks. In such cases, LLMs need to leverage external knowlvisualizers, and retrievers) to support decision-making in net-zero edge bases or undergo fine-tuning to enhance their performance.
+emission energy systems [85]. Observers identified anomalies in en- Knowledge augmentation techniques, such as RAG, are the optimal
+ergy systems. Analysers examined patterns of energy usage. Visualizers choice for users who have a large volume of textual documents
+generated visual representations of energy-related attributes. Retrievers related to their tasks and aim to develop domain-specific LLMs with
+addressed queries beyond the capabilities of other agents. fast deployment and low costs. Fine-tuning can be used for users who
+are able to obtain or create a large set of high-quality structured
+3.2.6. Guidelines for technology selection prompts and responses tailored to their specific tasks. Fine-tuned
+The following guidelines can help users select appropriate perfor- LLMs typically outperform LLMs enhanced by knowledge augmenmance enhancement technologies for LLMs in energy-related tasks: tation, as fine-tuning datasets are specifically developed to meet
+users’ requirements. However, creating high-quality fine-tuning
+• Prompt engineering is suitable for LLMs that already perform well in datasets is often time-consuming and costly.
+most user-specific requests, requiring only minor error reduction or • Multimodal integration is the only solution for users who need to
+style adjustments. In such cases, LLMs can easily correct their input various modalities of information, such as text, images, audio,
+10
+
+
+[Page 11]
+C. Zhang et al. A p p l i e d E n e r g y 403 (2026) 127076
+and video, into LLMs. However, prompt engineering, knowledge Table 4
+augmentation, and fine-tuning are still required if LLMs struggle to Summary of LLMs as maintainers in energy systems.
+understand multimodal information effectively. Ref. Specific task System type Research content
+• Autonomous agent techniques are suitable for users who want to
+[26] Fault plan Electric power This study applied LoRA to fine-tune
+apply LLMs to solve complex tasks involving multiple steps. In such
+generation system GPT-3, thereby enhancing its ability
+cases, multiple LLM agents can be created to handle each step, to generate fault plans for electric
+thereby improving the accuracy and feasibility of LLMs in executing power systems. The fine-tuning
+complex tasks. However, prompt engineering, knowledge augmen- dataset consisted of more than 10,000
+real-world fault plans of power
+tation, and fine-tuning are still necessary if LLMs struggle to comsystems. The fine-tuned LLM achieved
+plete certain steps. an accuracy of 94.3% in generating
+fault plans.
+4. Roles of large language models in energy systems [31] Wildfire Electric power This study utilized a multimodal LLM
+detection system (GPT-4V) to detect wildfires based on
+images, aiming to protect power
+After reviewing the 133 eligible articles, it is found that LLMs have
+systems. Few-shot learning was
+played a total of 13 roles in existing energy-related applications: main- employed by providing several
+tainer, adviser, programmer, operator, data analyst, modeler, predictor, labeled images in the prompts. The
+policymaker, reader, designer, cybersecurity defender, auditor, and detection accuracy of the LLM was
+91%.
+cheater. The specific tasks associated with each role are described in
+[46] Fault plan Renewable This study utilized LoRA to fine-tune
+Sections 4.1-4.13. generation energy system ChatGLM to improve its performance
+in offering fault plans for wind
+turbines. The fine-tuning dataset
+4.1. Maintainer
+included 500 fault plans of wind
+turbines. The fine-tuned LLM
+Maintainers are responsible for maintenance management of energy produced fault plans closely
+systems to ensure their reliability and efficiency. LLMs can serve as resembling those created by humans.
+[47] Fault Electric power This study applied prefix-tuning and
+maintainers, enabling automated maintenance management or assisting
+diagnosis system P-tuning to fine-tune ChatGLM-2,
+human maintainers. Table 4summarizes the studies that utilize LLMs as enhancing its diagnosis accuracy for
+maintainers in energy systems. It is discovered that LLMs have been device faults in electrical substations.
+widely applied for fault diagnosis in various energy systems, including The fine-tuning dataset consisted of
+6,000 samples, each labeled with a
+electric power systems [47], distributed energy systems [52], building
+fault type. The fine-tuned LLM
+energy systems (such as heating, ventilation, and air conditioning
+achieved a diagnosis accuracy of 88%.
+(HVAC) systems) [53], natural gas systems [71], and power equipment [52] Fault Distributed This study fine-tuned BERT to
+(such as gas turbines and compressors) [86]. Four types of technologies diagnosis energy system diagnose partial tripping events in
+have been applied to enhance the performance of LLMs in fault diag- distributed energy systems. The finetuning (80%), validation (10%), and
+nosis, including fine-tuning [47], prompt engineering [67], RAG [86],
+test (10%) datasets consisted of 7,765
+and multimodal integration [71]. Besides fault diagnosis, LLMs have simulated fault samples. The finealso been applied for fault plan generation [26], wildfire detection [31], tuned LLM achieved an average
+fault tree generation [65], fault feature extraction [87], and work ticket diagnosis precision of 98%,
+generation [88] in energy systems. outperforming XGBoost and
+multilayer perceptron.
+[53] Fault Building energy This study fine-tuned DistilBERT to
+4.2. Adviser diagnosis system diagnose faults in HVAC systems. The
+fine-tuning dataset included
+simulated sensor and device fault data
+Advisers are experts with extensive energy-related knowledge. They
+from boilers, chillers, air handling
+can offer tailored advice to those seeking guidance. LLMs can serve as units, and heat pumps. The fine-tuned
+advisers by developing domain-specific question answering systems. LLM outperformed multilayer
+Table 5summarizes the studies that utilize LLMs as advisers in energy perceptron, random forest, support
+vector machine, and logistic
+systems. It shows that LLMs have been applied to answer queries across
+regression.
+various energy sectors, including renewable energy (such as hydrogen [65] Fault tree Renewable This study employed full parameter
+energy [29], wind energy [40], and hydropower [97]), sustainable en- generation energy system fine-tuning to fine-tune Baichuan to
+ergy transition [36], electric power [39], net-zero energy [85], and enable it to generate fault trees for
+nuclear power plants. The fine-tuning
+building energy [104]. Four types of technologies have been applied to
+dataset for fault trees was manually
+enhance the performance of LLMs in domain-specific question
+created by reviewing more than 300
+answering, including fine-tuning [39], RAG [48], prompt engineering academic papers. CoT and few-shot
+[50], and multi-agent frameworks [85]. learning were also applied to enhance
+its performance. The fine-tuned LLM
+outperformed GPT-4.
+4.3. Programmer [67] Fault Building energy This study trained a Transformerdiagnosis system based LLM to detect unsafe electrical
+Programmers can solve energy-related tasks through coding. LLMs events in buildings, using over a year
+of electricity usage records from 715
+can act as programmers to offer customized code for specific tasks.
+homes. CoT was also utilized to
+Table 6 summarizes the studies that utilize LLMs as programmers in enhance its performance. This LLM
+energy systems. According to Table 6, LLMs have been applied to achieved a detection accuracy of over
+automatically generate code for optimal electric vehicles (EV) charging 90%.
+[71] Fault Natural gas This study employed multimodal
+[49], data-driven building energy load prediction [61], and power sysdiagnosis system integration to enable Qwen-2 to
+tem modelling [112]. Prompt engineering [61], multi-agent frameworks process both on-site audio data and
+[49], and RAG [112] have been applied to enhance the correctness of the
+(continued on next page)
+code generated by LLMs.
+11
+
+
+[Page 12]
+C. Zhang et al. A p p l i e d E n e r g y 403 (2026) 127076
+Table 4 (continued) Table 4 (continued)
+Ref. Specific task System type Research content Ref. Specific task System type Research content
+infrared temperature maps for base constructed from Wikipedia,
+detecting leaks in natural gas valve academic papers, and technical
+chambers. RAG was also applied to reports. The fine-tuned LLM enhanced
+enhance its performance, with a with RAG effectively generated fault
+knowledge base consisting of 100 plans for power regulators.
+relevant documents (such as [93] Fault feature Renewable This study employed BERT to encode
+standards and solution records). The extraction energy system textual descriptions of transient
+diagnosis accuracy of this LLM was events in nuclear power plants,
+approximately 90%. providing semantic features to
+[74] Fault Building energy This study applied LoRA to fine-tune enhance data-driven fault diagnosis
+diagnosis system GPT-3.5 to improve its accuracy in models for nuclear power plants.
+diagnosing faults in HVAC systems. [94] Fault Electric power This study employed ChatGLM-3 to
+The fine-tuning dataset included 682 diagnosis system generate explanations of fault
+labeled fault samples of air handling diagnosis results produced by dataunits. Fine-tuning increased the driven models for power equipment.
+diagnosis accuracy of GPT-3.5 from This LLM effectively explained fault
+30% to 100%. details, such as locations, occurrence
+[86] Fault Not applicable This study applied RAG to enhance dates, and maintenance history.
+diagnosis the performance of a LLM in [95] Fault Electric power This study utilized RAG to enhance
+diagnosing faults in gas turbines and diagnosis system the performance of ChatGLM-3 in
+compressors. A knowledge base diagnosing defects in power grid
+comprising over 33,000 entries was equipment, such as transformers and
+used for RAG. These entries were substations. A knowledge graph was
+related to fault symptoms and fault constructed from power system fault
+plans. The RAG-enhanced LLM reports to support the RAG
+provided useful diagnosis outcomes in framework. The RAG-enhanced LLM
+71.63% of real-world use cases. achieved an accuracy of 64%.
+[87] Fault feature Energy storage This study employed GPT-4 to extract [96] Fault Electric power This study used LoRA to fine-tune
+extraction system fault features, such as mean and diagnosis system Qwen-1.5 using 500 question-andvariance, from the vibration signals of answer pairs related to fault diagnosis
+energy storage inverters. These of power system devices, such as
+features were then used to train a transformers, protection relays,
+data-driven fault diagnosis model. circuit breakers, and generators. RAG
+[88] Work ticket Electric power This study utilized RAG to enhance was also applied to enhance its
+generation system the performance of LLMs in performance using 3 relevant industry
+generating work tickets for standards. The fault diagnosis
+maintenance management in the accuracy of the fine-tuned LLM with
+electric power sector. The RAG RAG was improved by about 20%
+framework was supported by a compared to ChatGLM-4.
+knowledge base comprising historical
+work tickets and safety specifications.
+Work tickets generated by the RAG- 4.4. Operator
+enhanced LLMs complied with user
+requirements.
+Operators are responsible for managing the operations of energy
+[89] Fault plan Electric power This study fine-tuned Llama-2 to
+generation system generate fault plans for power grid systems to ensure their stability and efficiency. LLMs can function as
+equipment, such as generators, operators, enabling automated operational control or providing operatransformers, and substations. RAG tional control suggestions to human operators. Table 7summarizes the
+was also applied to further improve
+studies that utilize LLMs as operators in energy systems. It is found that
+the performance of the fine-tuned
+LLMs have been applied for the operational control, dispatching, and
+LLM. The fine-tuned LLM enhanced
+with RAG effectively generated fault scheduling of various energy systems, including building energy systems
+plans for power grid equipment. (such as HVAC systems [27], PV systems [117], and appliances [118]),
+[90] Fault Electric power This study employed a multimodal electric power systems [31], EV charging systems [31], energy storage
+diagnosis system LLM (GPT-4) to detect insulator faults
+systems [114], and renewable energy systems [121]. Prompt engineerin power systems based on images.
+Few-shot learning was employed by ing [62], multimodal integration [62], and multi-agent frameworks
+including four images of faulty and [121] have been applied to improve the performance of LLMs in the
+fault-free insulators, along with operation management of energy systems.
+detailed descriptions, in the prompts.
+GPT-4 achieved an average diagnosis
+accuracy of 80%.
+4.5. Data analyst
+[91] Fault Building energy This study explored the diagnosis
+diagnosis system accuracy of GPT-4 for faults in air
+handling units, chillers, and variable The goal of data analysts is to analyse energy-related data to uncover
+refrigerant flow air conditioners. meaningful insights that support informed decision-making. LLMs can
+GPT-4 showed an average accuracy of
+serve as data analysts, significantly enhancing the efficiency of data
+57%.
+[92] Fault plan Electric power This study utilized LoRA and P-tuning analysis. Table 8summarizes the studies that utilize LLMs as data anageneration system to fine-tune ChatGLM to enhance its lysts in energy systems. It indicates that LLMs have been applied to
+performance in offering fault plans for analyse various types of energy-related data, including building carbon
+power regulators. The fine-tuning emission data [32], energy policy-related social media data [55],
+dataset contained detailed records of
+building energy data [91], energy market data [126], and energy confault cases for power regulators. RAG
+was further utilized to enhance its sumer data [127]. These applications support decision-making across a
+performance, leveraging a knowledge wide range of tasks, including carbon emission analysis [32], energy
+policy analysis [55], anomaly detection [91], user profiling [127], and
+12
+
+
+[Page 13]
+C. Zhang et al. A p p l i e d E n e r g y 403 (2026) 127076
+Table 5 Table 5 (continued)
+Summary of LLMs as advisers in energy systems.
+Ref. Specific task System type Research content
+Ref. Specific task System type Research content
+one-shot learning, along
+[29] Queries about the Renewable This study investigated the with the use of RAG
+hydrogen energy energy system performance of GPT-4 in incorporating eight relevant
+sector answering questions related documents. The fine-tuned
+to the hydrogen energy LLMs, enhanced with
+sector. GPT-4 provided prompt engineering and
+valuable insights for RAG, achieved an accuracy
+predictive maintenance, of over 82% in answering
+policy analysis, and 800 questions related to the
+production forecasting in electricity sector.
+hydrogen energy systems. [85] Queries about net-zero Net-zero This study developed a
+[36,37] Queries about Not This study developed a emission energy energy system chatbot powered by four
+sustainable energy applicable Llama-based chatbot to systems GPT-4-based agents, each
+transition answer questions related to designed to handle specific
+the sustainable energy tasks such as identification,
+transition. RAG was retrieval, analysis, and
+employed to enhance its visualization. RAG was
+performance, leveraging a utilized to enhance
+knowledge base including performance by using
+academic papers, industry frequently asked questions
+reports, government and their answers related to
+documents, news, and social net-zero emission energy
+media data. The chatbot systems. This chatbot
+achieved over 85% successfully answered
+accuracy. queries regarding energy
+[39] Queries about the Electric This study fine-tuned usage in a real-world netpower grid power system different LLMs, such as zero emission energy
+Llama, ChatGLM, and Qwen, system.
+to develop a chatbot capable [97] Queries about Renewable This study employed GPT
+of answering questions hydropower stations energy system models to answer questions
+related to power grid related to hydropower
+services. The fine-tuning stations, achieving an
+dataset was composed of average accuracy of about
+1,019 question-answer data 73%.
+from grid corporations. Fine- [98] Queries about the Electric This study utilized LoRA to
+tuning improved the power sector power system fine-tune the Alpaca model
+accuracy of the responses for answering questions
+generated by these LLMs. related to the power sector.
+[40] Queries about the Renewable This study utilized Vicuna to The fine-tuning dataset
+wind turbine assembly energy system answer questions related to contained 200,000 domainprocess the assembly process of wind specific instructions and
+turbines. Instead of 4,329,891 related texts. The
+providing direct answers, fine-tuned LLM
+the LLM generated query outperformed other LLMs,
+requests to retrieve answers such as Llama, ChatGLM,
+from a knowledge graph. and ChatGPT.
+The knowledge graph was [75,99] Queries about the Renewable This study fine-tuned Llamadeveloped using documents renewable energy energy system 3.1 using approximately
+such as maintenance records sector 1,450 papers from the
+and installation instructions. renewable energy sector.
+The LLM achieved an The fine-tuned LLM showed
+accuracy of 98.5%. a significantly higher
+[48] Queries about electric Electric This study employed accuracy in answering
+power safety power system ChatGLM-3 to address questions related to
+regulations questions regarding electric renewable energy.
+power safety regulations. [100] Queries about building Building This study evaluated the
+RAG was integrated to energy saving energy system reliability of GPT-4 in
+improve the performance of offering energy-saving
+this LLM by utilizing a advice for residential
+knowledge base consisting buildings in Greece. The
+of available safety results showed that most
+regulations. The RAG- people (94%) trusted the
+enhanced LLM achieved an answers from GPT-4 with
+average accuracy of 62.3% doubts.
+in answering questions [101] Queries about energy Not This study designed a LLMrelated to safety regulations. technologies applicable based framework to answer
+[50] Queries about the Electric This study utilized LoRA to questions related to
+electric power sector power system fine-tune three LLMs technologies in the energy
+(ChatGLM-3, Baichuan-2, sector. However, this study
+and Qwen) using 500 did not provide a
+question-and-answer pairs quantitative evaluation for
+related to the electricity LLMs.
+sector. Performance was [102] Queries about the Building This study developed a RAG
+further enhanced through household electricity energy system system to enhance the
+the application of CoT and systems performance of GPT-4o,
+GPT-4, Gemini-1.5, and
+(continued on next page)
+13
+
+
+[Page 14]
+C. Zhang et al. A p p l i e d E n e r g y 403 (2026) 127076
+Table 5 (continued) Table 5 (continued)
+Ref. Specific task System type Research content Ref. Specific task System type Research content
+Llama-3 in answering and 1,000 ethical questions.
+questions related to The fine-tuned LLM
+household electricity usage. achieved a precision of
+The system incorporated a 91.5% on technical
+knowledge graph capturing questions and 88% on
+relationships among ethical questions.
+households, their locations, [108] Queries about indoor Building This study employed the
+and their appliances. The thermal comfort energy system Llama-3.1 model enhanced
+RAG-enhanced LLMs with RAG to respond to
+effectively answered queries queries concerning indoor
+regarding electricity usage thermal comfort. The RAG
+for households included in system contained sensor
+the knowledge graph. readings, weather
+[103] Queries about the Electric This study proposed a information, health and
+power grid power system knowledge graph-based safety guidelines, user
+approach to assess the feedback, and other relevant
+credibility of answers documents. The results
+generated by ChatGLM-2. demonstrated that the RAG-
+The knowledge graph was enhanced LLMs effectively
+constructed using 215 addressed questions related
+documents from power to indoor thermal comfort.
+enterprises. The results [109] Queries about power Electric This study leveraged LoRA
+demonstrated that dispatching power system and P-Tuning to fine-tune
+comparing the answers Llama-2, aiming to enhance
+generated by LLMs with its performance in
+relationships in the responding to power
+knowledge graph is an dispatching-related queries.
+effective way to evaluate The fine-tuning dataset
+their credibility. comprised 1,487 power grid
+[104] Queries about building Building This study developed a GPT- dispatch reports collected
+energy saving energy system 3-based chatbot to answer between 2014 and 2023.
+questions related to building Experimental results
+energy saving strategies. indicated that P-Tuning
+This chatbot improved user outperformed LoRA,
+comprehension of building achieving an average score
+energy-saving tips. of 87.7 on the test set.
+[105] Queries about the Electric This study developed a [110] Queries about power Electric This study utilized LoRA to
+energy sector power system chatbot powered by GPT-3 dispatching power system fine-tune Llama-2 to
+to answer questions related enhance its performance in
+to energy systems. The answering queries related to
+chatbot was deployed in a power dispatching. The fineuniversity’s microgrid tuning dataset comprised
+energy system and 160,000 question-anddemonstrated the ability to answer pairs, with 15%
+respond effectively to related to general power
+queries concerning concepts, knowledge and 85% focused
+technologies, and tabular on power dispatching. The
+data associated with this results demonstrated that
+system. fine-tuning significantly
+[106] Queries about the Renewable This study employed fine- enhanced the performance
+predictive energy system tuning and a RAG of Llama-2.
+maintenance of framework to improve the [111] Queries about building Building This study used GPT to
+nuclear power plants performance of Llama-3 and operation and energy system answer questions related to
+Gemma in answering maintenance the building information
+questions related to models (BIM). The results
+predictive maintenance in demonstrated that GPT
+nuclear power plants. The could answer queries about
+fine-tuning process used the BIM of a real building,
+2,086 samples derived from such as sensor information.
+a technical and scientific
+question-answering dataset.
+The RAG system was built on energy trading [129]. In addition, LLMs have also been applied to ena domain-specific ergy database management tasks, including text-to-SQL [45] and data
+knowledge base consisting
+standardization [64]. Fine-tuning [32], prompt engineering [64], and
+of a 20-page document.
+Fine-tuning and RAG RAG [131] have been utilized to enhance the performance of LLMs in
+significantly improved the analysing energy-related data.
+performance of LLMs in the
+nuclear domain.
+[107] Queries about the Electric This paper employed P- 4.6. Modeler
+power sector power system tuning to fine-tune ChatGLM
+for addressing technical and Modelers are responsible for leveraging domain-specific simulation
+ethical questions in the
+tools to develop energy system models that are valuable for underpower sector. The finetuning dataset consisted of standing system behaviour and supporting informed decisions. LLMs can
+5,000 technical questions function as modelers, enabling automated modeling or accelerating the
+modeling process of human modelers by natural language interaction
+14
+
+
+[Page 15]
+C. Zhang et al. A p p l i e d E n e r g y 403 (2026) 127076
+Table 6 Table 7
+Summary of LLMs as programmers in energy systems. Summary of LLMs as operators in energy systems.
+Ref. Specific task System type Research content Ref. Specific task System type Research content
+[49] Optimization of EV EV charging This study designed a multi-agent [27] HVAC system control Building energy This study utilized GPT-3.5
+charging system framework based on ChatGLM-4 to system to explain model predictive
+optimize EV charging strategies. control results in HVAC
+Three agents were developed to systems. The findings
+collect information, develop indicated that GPT-3.5
+models, and generate code. CoT effectively enhanced the
+was also applied for performance comprehension and trust of
+enhancement. The results showed users regarding model
+that this framework was able to predictive control.
+generate correct code to obtain [31] Optimal power flow Electric power This study evaluated the
+optimal EV charging strategies. and EV charging system and EV performance of GPT-4 in
+[61] Building energy Building This study applied one-shot scheduling charging system optimal power flow and EV
+demand prediction energy learning to improve the charging scheduling tasks.
+system performance of GPT-3.5 in The results showed that GPTgenerating Python code for data- 4 was able to generate
+driven building energy load effective strategies for both
+prediction. Example codes were tasks.
+provided in the prompts, and [62] HVAC system control Building energy This study employed few-
+Bayesian optimization was system shot learning and
+employed to further refine the multimodal integration to
+prompts. The results demonstrated enhance the performance of
+that the code generated by GPT- GPT-4 in indoor air
+3.5 achieved an average R2 of 0.95 temperature control for
+in two buildings. HVAC systems. By
+[91] Building energy Building This study investigated the incorporating indoor
+demand prediction energy performance of GPT-4 in temperature distribution
+system generating Python code for data- images and several historical
+driven building energy load control strategies into the
+prediction. The results indicated prompts, GPT-4 achieved a
+that GPT-4 produced correct code 48% reduction in energy
+for most stages of a data-driven consumption while
+modeling process, such as data improving occupant comfort
+preprocessing, feature by 26%.
+engineering, model training, and [113] HVAC system control Building energy This study utilized GPT-4 to
+model interpretation. system offer persuasive suggestions
+[112] Power system Electric This study utilized RAG to enhance that encouraged occupants
+modeling power the ability of GPT-3.5 in to adopt healthy,
+system generating code for power system comfortable, and energymodeling. A software manual for efficient HVAC control
+power system modeling was strategies. More than 80% of
+applied for RAG. GPT-3.5 the occupants agreed to
+integrated with RAG successfully follow the suggestions.
+generated correct code in a test [114] Energy storage Energy storage This study employed GPT-4o
+case. system scheduling system to identify the optimal
+charging and discharging
+schedules for energy storage
+[132]. Table 9summarizes the studies that utilize LLMs as modelers in systems. In the context of the
+energy systems. It is found that most studies focus on LLM-based Polish energy market, GPT-
+4o demonstrated the profits
+building performance simulation tasks, such as building energy of 150-180 €/MWh.
+modeling [17], building information modeling [134], and building in- [115] Smart home control Building energy This study evaluated the
+door environment modeling [136]. Additionally, some studies have also system performance of GPT-4, GPTleveraged LLMs to generate power grid models [63]. Five technologies 3.5, and Llama-2 in
+controlling smart home
+have been applied to enhance the performance of LLMs in energy system
+devices based on occupant
+modeling, including RAG [17], prompt engineering [41], fine-tuning
+commands. The results
+[54], multimodal integration [70], and multi-agent frameworks [83]. demonstrated that GPT-4
+outperformed the other
+LLMs, achieving a control
+4.7. Predictor accuracy of 84%.
+[116] HVAC system control Building energy This study used ChatGPT to
+system generate control
+Predictors aim to forecast crucial factors (such as energy demand and recommendations for
+generation) that affect the performance of energy systems, thereby optimizing air-conditioning
+supporting informed decision-making. Unlike programmers and mod- systems in response to
+elers, predictors make direct predictions without relying on program- occupant commands. The
+results demonstrated that
+ming or simulation tools. Due to the data-driven nature of LLMs, they
+ChatGPT provided effective
+can naturally serve as predictors to make accurate predictions. Table 10 suggestions for system
+summarizes the studies that utilize LLMs as predictors in energy systems. control.
+It indicates that LLMs have been utilized to predict renewable energy [117] HVAC system Building energy This study applied GPT-4 to
+control, PV system system, and EV optimize the control of
+generation (e.g., wind and PV power generation) [35], building energy
+control, and EV charging system HVAC systems, PV systems,
+demand [57], grid electrical demand [90], EV charging demand [137], charging scheduling and EV charging schedules.
+weather conditions (e.g., wind speed [76] and cloud cover [81]), elec-
+(continued on next page)
+tricity prices [139], and electricity bidding behaviors [145]. Moreover,
+15
+
+
+[Page 16]
+C. Zhang et al. A p p l i e d E n e r g y 403 (2026) 127076
+Table 7 (continued) Table 7 (continued)
+Ref. Specific task System type Research content Ref. Specific task System type Research content
+The results showed that GPT- [124] Power dispatching Electric power This study developed a LLM-
+4 was capable of generating system based platform to generate
+effective control and power dispatching strategies
+scheduling strategies across based on energy predictions.
+these tasks. The platform was deployed
+[118] Home appliance Building energy This study employed few- in a park grid system and
+scheduling system shot learning to enhance the achieved an energy
+performance of Mistral in consumption reduction of
+scheduling household 15% to 20%.
+appliances. In most cases,
+Mistral was able to generate
+scheduling strategies that LLMs have also been utilized to recover missing data in power system
+resulted in lower energy load profiles [44]. Fine-tuning [25] and RAG [137] have been utilized to
+costs.
+enhance the prediction accuracy of LLMs in energy-related applications.
+[119] HVAC system control Building energy This study utilized GPT-4 to
+system control the outdoor damper
+opening ratio and chilled
+4.8. Policymaker
+water supply temperature in
+HVAC systems based on
+indoor and outdoor Policymakers play a crucial role in formulating policies that ensure
+environmental conditions. energy security, promote sustainable energy transitions, support tech-
+Simulation results showed nological innovation, and more. LLMs can act as policymakers to
+that GPT-4 achieved a 16.8%
+develop energy policies based on user requirements. Table 11summareduction in building energy
+consumption compared to rizes the studies that utilize LLMs as policymakers in energy systems. As
+baseline operations. shown in Table 11, LLMs have been applied to generate energy transi-
+[120] Optimal power flow Electric power This study used GPT-3.5 to tion policies [147].
+system evaluate whether optimal
+power flow solutions meet
+grid codes. The evaluation 4.9. Reader
+was then converted into
+rewards and constraints to
+The objective of readers is to examine energy-related documents to
+guide deep reinforcement
+learning in solving optimal find the content they need. LLMs can function as readers, assisting
+power flow problems. This humans in locating or summarizing the content within these documents.
+method enhanced Table 12summarizes the studies that utilize LLMs as readers in energy
+compliance of optimal power systems. It is found that LLMs have been applied to answer questions
+flow solutions.
+related to power system documents [31]. In addition, they have also
+[121] Optimal operation of Renewable This study proposed a multirenewable energy energy system agent framework based on been utilized to generate research questions [38], methodologies [38],
+communities GPT models (GPT-4 and keywords [42], and summaries [90] from energy-related papers, as well
+GPT-3) to optimize the as to locate regulations within energy-related legal documents [72].
+operation of renewable
+RAG [31] and fine-tuning [38] have been applied to improve the reading
+energy communities. Three
+comprehension capabilities of LLMs in the energy domain.
+agents were designed to
+perform coding,
+optimization, and
+4.10. Designer
+interpretation tasks. The
+framework achieved an
+average accuracy of 96.72% Designers are tasked with designing and retrofitting energy systems,
+in generating correct optimal ensuring compliance with industry standards and meeting user reoperation strategies.
+quirements. LLMs can act as designers, enabling automated design or
+[122] Power dispatching Electric power This study utilized LLMs to
+accelerating the design process of human designers. Table 13summasystem translates the commands of
+EV drivers into reward rizes the studies that utilize LLMs as designers in energy systems. It
+signals to guide deep shows that LLMs have been applied to assist in HVAC system design
+reinforcement learning in [23], generate building retrofit strategies [66], and develop passive
+generating personalized
+energy-saving strategies for buildings [151]. Multi-agent frameworks,
+power dispatching
+strategies. The proposed prompt engineering, multimodal integration, and RAG have been
+method effectively integrates employed to enhance the performance of LLMs in energy system design
+EV charging into the power [66].
+dispatching process.
+[123] Power dispatching Electric power This study developed a
+system multi-agent framework 4.11. Cybersecurity defender
+based on Llama-3 for power
+scheduling. The framework
+The role of cybersecurity defenders is to protect critical energy
+used three specialized agents
+to formulate optimization infrastructure from cyber threats, thereby ensuring the secure and reliproblems, identify necessary able operation of energy systems. LLMs can function as cybersecurity
+parameters, and solve defenders, providing faster and more efficient protection for energy
+problems accordingly. Its systems. Table 14summarizes the studies that utilize LLMs as cyberseeffectiveness was validated
+curity defenders in energy systems. It indicates that LLMs have been
+through applications in EV
+charging scenarios. applied to detect cyberattacks in electric power systems, including
+substations [33] and smart inverters [152]. Fine-tuning has been utilized to enhance the accuracy of LLMs in detecting cyberattacks [152].
+16
+
+
+[Page 17]
+C. Zhang et al. A p p l i e d E n e r g y 403 (2026) 127076
+Table 8 Table 8 (continued)
+Summary of LLMs as data analysts in energy systems.
+Ref. Specific task System type Research content
+Ref. Specific task System type Research content
+data from an open-source energy
+[32] Carbon Building This study fine-tuned Claude-3.5 usage database.
+emission energy system and GPT-4 using approximately [128] Anomaly Building This study employed GPT-3.5 and
+analysis 330 training samples related to the detection energy system GPT-4 to analyse HVAC system
+carbon emission factors of building operational data. The results
+materials and equipment. The fine- demonstrated that GPT-4
+tuned Claude-3.5 demonstrated successfully identified 89.17% of
+the highest accuracy (84.12%) in abnormal operational patterns
+matching the emission factors to from one year of operational data
+materials and equipment. in a chiller plant.
+[43] Anomaly Building This study utilized Phi-3 to analyse [129] Energy Electric power This study proposed an interactive
+detection energy system building operational data related trading system learning framework for local
+to energy consumption and device analysis energy trading, combining
+usage. This LLM was able to ChatGPT and reinforcement
+identify energy-inefficient learning. ChatGPT enabled realoccupant behaviours and offer time user feedback, which was
+recommendations for energy integrated into reinforcement
+savings. learning to adjust trading
+[45] Text-to-SQL Electric power This study utilized LoRA to fine- strategies. This enhanced user
+system tune XLM-RoBERTa using over engagement in the trading process.
+50,000 samples of power grid- [130] Text-to-SQL Building This study used GPT-3.5 to
+related text-to-SQL queries. The energy system generate SQL for transforming
+fine-tuned LLM was applied to unstructured building energy data
+convert natural language into SQL into a standardized format. With
+for efficient management of power few-shot learning, GPT-3.5
+grid-related databases, achieving achieved 96% accuracy in 105
+an execution accuracy of 80.9%. real-world cases from 21 American
+[55,125] Nuclear Renewable This study utilized 1 million energy companies.
+power policy energy system labeled tweets related to nuclear [131] Text-to-SQL Building This study fine-tuned Qwen using
+analysis power from 2008 to 2023 to fine- energy system LoRA with over 17,000 query-SQL
+tune BERT, GPT-2, and Llama-2. pairs related to building energy
+The fine-tuned LLMs were then management and other similar
+applied to classify American public tasks. A RAG system with a
+sentiment (negative, neutral, and knowledge graph, built from
+positive) toward nuclear power sensor data and room layouts of a
+using social media data, achieving real building, further enhanced its
+a classification accuracy of 96%. performance. The fine-tuned LLM
+[64] Data point Building This study applied few-shot with RAG achieved an execution
+naming energy system learning to enhance the accuracy of 95.5%.
+performance of Qwen in
+standardizing data point naming in
+building energy databases. By 4.12. Auditor
+using prompts with 12 samples,
+the LLM achieved an average
+Auditors play a key role in ensuring that contracts and transactions in
+precision of 78% for data point
+energy trading markets adhere to relevant laws, regulations, and innaming across datasets from five
+buildings. dustry standards. LLMs can serve as auditors to automatically verify the
+[91] Anomaly Building This study examined the compliance of these contracts and transactions, thereby enhancing the
+detection energy system performance of GPT-4 in analysing security of energy trading. Table 15summarizes the studies that utilize
+HVAC system operational data to
+LLMs as auditors in energy systems. It shows that LLMs have been
+identify their abnormal
+operational patterns. GPT-4 applied to assess the business compliance of smart contracts in the endemonstrated an average accuracy ergy trading market [153].
+of 65% in detecting typical
+abnormal patterns from two years
+of operational data of a chiller 4.13. Cheater
+plant.
+[126] Energy policy Electric power This study used GPT and statistical
+Surveying is the most popular approach to collect public opinions on
+analysis system analysis to analyse the European
+carbon and electricity market data the energy sector, such as new energy technologies and energy policies.
+to identify key policy drivers. GPT LLMs can be misused to generate fraudulent responses, acting as
+classified relevant policies from cheaters to manipulate survey results. Table 16summarizes the studies
+the data, and statistical analysis
+that utilize LLMs as cheaters in energy systems. As shown in Table 16,
+quantified their impact. The results
+indicated that expectation some researchers have indicated that participants may utilize LLMs to
+management and market- provide fraudulent responses in surveys related to renewable energy
+regulating policies were the most [28] and emerging energy technologies [154].
+influential factors.
+[127] User profiling Electric power This study utilized Qwen to
+system analyse the SQL data of energy 5. Opportunities and challenges
+consumers for generating their
+profiles regarding energy usage LLMs demonstrate considerable potential to assist or even replace
+patterns. This LLM identified
+humans in various energy-related applications, enhancing the intelliconsumer behaviours, such as high
+energy consumption, based on the gence level of energy systems. Fig. 14illustrates a conceptual vision of
+future smart energy systems empowered by LLMs. LLM-based agents act
+as the smart brain of energy systems to complete energy-related tasks
+17
+
+
+[Page 18]
+C. Zhang et al. A p p l i e d E n e r g y 403 (2026) 127076
+Table 9 Table 9 (continued)
+Summary of LLMs as modelers in energy systems.
+Ref. Specific task System type Research content
+Ref. Specific task System type Research content
+debugging, respectively. GPT-4
+[17] Building energy Building This study employed Llama-3 successfully generated an
+demand modeling energy integrated with RAG to generate EnergyPlus model for a real
+system building energy models based on building.
+EnergyPlus. The RAG system [133] Building energy Building This study utilized 70,000 pairs
+consisted of multiple EnergyPlus demand modeling energy of prompts and EnergyPlus files
+files. The LLM, enhanced with system to fine-tune T5 for improving its
+RAG, successfully generated an performance in generating
+accurate EnergyPlus model EnergyPlus-based building
+within 196 seconds. energy models. The fine-tuned
+[41] Building energy Building This study investigated the LLM achieved 100% accuracy in
+demand modeling energy performance of six LLMs (Llama, 152 test cases.
+system Gemma, Mistral, Qwen, Solar, [134] Building Building This study employed GPT-3.5 to
+and Vicuna) enhanced with three information energy generate, modify, retrieve,
+types of prompt engineering modeling system delete, and clarify details within
+techniques (one-shot learning, BIM using natural language.
+few-shot learning and CoT) in GPT-3.5 achieved an accuracy of
+generating EnergyPlus-based 83.33% in generating 2,160
+building energy models. The detailed wall designs in BIM.
+results revealed that these [135] Grid modeling Electric This study utilized GPT-4 to
+prompt engineering techniques power generate power system models
+significantly improved the system using Simulink. GPT-4
+accuracy of these LLMs in successfully generated power
+generating EnergyPlus models grid system models, including
+across 648 cases. generators, circuit breakers, and
+[54] Building energy Building This study fine-tuned three LLMs, load terminals, in two test cases.
+demand modeling energy i.e., LaBSE, XLM-RoBERTa, and [136] Building indoor Building This study employed GPT-4o to
+system Distiluse, to improve their ability environment energy simulate indoor environments
+to match the semantic modeling system using a building performance
+information between BIM and simulation tool called CONTAM.
+EnergyPlus-based building The results showed that GPT-4o
+energy models. The fine-tuning successfully used this tool to
+process utilized the databases simulate indoor environments in
+developed by the National three different cases.
+Renewable Energy Laboratory,
+which included semantic
+matching relationships related to automatically. They collect user requirements and multimodal energy
+building spaces and information to formulate a plan for a specific task. Then, they can
+constructions. The fine-tuned
+complete this task independently or with the aid of tools such as simu-
+LLMs achieved a matching
+lation and programming software. If their performance on this task is
+accuracy of 43.88%.
+[63] Grid modeling Electric This study employed one-shot unsatisfactory, techniques such as fine-tuning, RAG, and prompt engipower learning to enable GPT-3.5 and neering can be employed to improve the performance. Once a solution to
+system GPT-4 to generate electrical this task is obtained, there are two possible deployment approaches. The
+circuit models for grid systems
+first approach is named automated action. It enables LLMs to deploy the
+using OpenDSS. The GPT models,
+with one-shot learning, solution through customized APIs. This approach is suitable for tasks
+successfully generated circuit that do not require physical contact with the systems, such as operamodels in most test cases tional control, scheduling, and dispatching. The second approach is to
+[70] Building energy Building This study utilized RAG and
+inform users of the solution and have them perform it manually. This
+demand modeling energy multimodal integration to enable
+approach is suitable for tasks that require physical contact with the
+system Llama-2 to guide users in
+utilizing building energy systems, such as equipment repair and system retrofit. Additionally, this
+modeling tools, i.e., EnergyPlus approach can also be used for tasks with high safety requirements, such
+and OpenStudio. A knowledge as operational control in nuclear energy systems. Users must verify the
+base, created from 59 videos
+responses from LLMs to ensure their reliability, as LLMs may occasionrelated to the two tools, was used
+for RAG. The videos were ally produce incorrect outputs. The LLM-empowered smart energy systranscribed into text using a tems enhance the efficiency, reliability, and flexibility of energy
+speech recognition tool systems. In addition, they significantly reduce labour costs by minideveloped by Google for
+mizing reliance on human intervention.
+multimodal integration. The
+Although the above concept is highly promising, current LLMs are
+Llama-2 enhanced with RAG was
+able to provide responses that still unable to support its full realization. There are eight key challenges
+include videos to teach users how when applying LLMs in energy systems:
+to effectively use the two tools.
+[83,84] Building energy Building This study developed a multi- • Limited availability of domain-specific data: Fine-tuning and
+demand modeling energy agent framework based on LLMs,
+system such as GPT-4 and Gemini, for RAG rely on substantial domain-specific data to enhance the perautomated generation of formance of general-purpose LLMs. However, energy-related data,
+building energy models. Four which is held by various companies or individuals, is usually not
+agents were created for building publicly accessible due to privacy and security concerns [90]. This
+information preprocessing,
+limits the development of powerful domain-specific LLMs for energy
+simulation data extraction,
+model generation, and model systems. Moreover, energy-related data exists in diverse formats (e.
+g., PDFs, Excel sheets, SQL databases, and SCADA system logs) and
+18
+
+
+[Page 19]
+C. Zhang et al. A p p l i e d E n e r g y 403 (2026) 127076
+Table 10 Table 10 (continued)
+Summary of LLMs as predictors in energy systems.
+Ref. Specific task System type Research content
+Ref. Specific task System type Research content
+probabilities based on textual
+[25] PV power generation Renewable This study fine-tuned GPT-2 weather descriptions. These
+prediction energy system using outdoor weather and predicted probabilities were
+PV power generation data to then used to train XGBoost
+predict PV power output. models for PV generation
+However, it did not provide a forecasting. The results
+quantitative evaluation of demonstrated that this
+the prediction accuracy. approach enhanced the
+[30] Building electrical Building This study utilized GPT-4o to accuracy of PV generation
+demand prediction energy system predict urban-scale building predictions.
+energy consumption. GPT-4o [90] Grid electrical demand Electric This study fine-tuned GPTachieved an R2 of 0.94 for prediction, and power system 3.5 using one year of hourly
+predicting urban-scale electricity price electrical demand and price
+building energy in the prediction data from a power system to
+Yangcheon district of South predict the demand and price
+Korea. for the following day. The
+[35] Wind and PV power Integrated This study utilized hourly fine-tuned LLM achieved a
+generation prediction energy system wind and PV power output low mean absolute
+time series data to fine-tune percentage error of 8% for
+Llama. The fine-tuned LLM demand prediction, but a
+demonstrated high accuracy high error of 84% for price
+in predicting wind and PV prediction.
+power generation. [137] EV charging demand EV charging This study fine-tuned T5
+[44] Missing power data Electric This study used one year of prediction system using 18 days of charging
+recovery power system power data from a power data from 18,061 EV stations
+distribution grid to fine-tune in China, enhanced with RAG
+GPT-2 for estimating missing to retrieve and integrate the
+power data of the system. EV charging station data into
+The fine-tuned LLM prompts. The fine-tuned
+demonstrated superior LLM, augmented with RAG,
+accuracy compared to long outperformed traditional
+short-term memory (LSTM) models such as lasso
+networks. regression, LSTM, and fully
+[56] Wind power energy Renewable This study utilized LoRA to connected neural networks.
+generation prediction energy system fine-tune BERT with a wind [138] Building electrical Building This study utilized three
+power dataset collected from demand prediction energy system electrical load datasets with
+12 wind power stations in 227,760 samples to fine-tune
+China and a wind speed T5 for predicting building
+dataset from 15 electrical demand. The
+meteorological observation results showed that the finedsites across Europe. The fine- tuned LLM outperformed
+tuned BERT demonstrated traditional models such as
+superior accuracy compared LSTM and gated recurrent
+to existing models such as unit networks.
+LSTM, Transformer, and [139] Electricity price Electric This study fine-tuned GPT
+Informer. prediction power system using a dataset of 125
+[57] Building electrical Building This study leveraged three samples related to news
+demand prediction energy system months of hourly electrical events and electricity prices
+load data from 16 in the Spanish energy
+educational buildings to fine- market. The fine-tuned LLM
+tune TimeGPT, aiming to was then used to predict
+improve its accuracy in electricity price fluctuations
+predicting building electrical based on reported events,
+loads. The fine-tuned such as supply shortages and
+TimeGPT outperformed policy changes, achieving an
+traditional models, such as average accuracy of 87%.
+LSTM, XGBoost, and [140] Grid electrical demand Electric This study fine-tuned GPTmultilayer perceptron, when prediction power system 3.5 using two years of hourly
+the training data was limited. electrical load data from 321
+[76] Wind speed prediction Renewable This study utilized LoRA to customers (26,305 samples).
+energy system fine-tune GPT-2 with four The fine-tuned LLM
+wind speed datasets from outperformed traditional
+554 wind turbines, models like LSTM and
+containing over 70,000 Informer in predicting
+samples. The results electrical loads 24 and 28
+demonstrated that the hours ahead.
+accuracy of the fine-tuned [141] Missing power data Electric This study fine-tuned GPT-
+LLM was improved by 12.2% recovery power system 3.5 with 512 smart meter
+compared to traditional samples from 10 American
+models, such as temporal consumers to predict missing
+convolutional networks, power data of these
+recurrent neural networks, consumers. The results
+and Autoformer. showed that this LLM, fine-
+[81] Cloud cover prediction Renewable This study employed GPT-3.5 tuned with 512 samples,
+energy system to predict cloud cover achieved accuracy
+comparable to a BERT-based
+(continued on next page)
+19
+
+
+[Page 20]
+C. Zhang et al. A p p l i e d E n e r g y 403 (2026) 127076
+Table 10 (continued) Table 11
+Summary of LLMs as policymakers in energy systems.
+Ref. Specific task System type Research content
+Ref. Specific task System Research content
+model fine-tuned with
+type
+220,000 samples from 8,000
+consumers. [147] Energy Not This study utilized ChatGPT to generate
+[142] Electricity price Electric This study employed LoRA to policy applicable energy transition policies. The policies
+prediction power system fine-tune Llama-2, enabling making produced by ChatGPT were further refined
+it to extract Lack of Reserve using an optimization algorithm to
+notices from the Australian enhance their effectiveness. The results
+energy market. The fine- showed that ChatGPT could generate
+tuning dataset consisted of satisfactory policy recommendations.
+32 market notices. The
+extracted notices, along with
+historical electricity price
+data, were used to train a Table 12
+LSTM model for electricity Summary of LLMs as readers in energy systems.
+price prediction, thereby
+improving accuracy. Ref. Specific task System type Research content
+[143] PV power generation Integrated This study proposed a LLM- [31] Answering questions Electric power This study utilized RAG to
+prediction, and energy system based framework to predict related to power system system enable GPT-4 to answer
+electrical/heating/ PV power generation as well documents questions related to power
+cooling demand as electrical, heating, and system documents. This
+prediction cooling loads in integrated approach was applied to
+energy systems. By Order No. 901 issued by the
+converting time series data Federal Energy Regulatory
+into textual representations, Commission. GPT-4
+the framework enabled successfully answered two
+Llama to effectively capture questions related to this
+temporal dependencies. document.
+Experiments on a real-world [38] Extraction of research Electric power This study utilized LoRA to
+one-year dataset showed that questions and system fine-tune Llama, aiming to
+this framework improved methodologies from improve its ability to extract
+prediction accuracy by 5.7% papers research questions and
+to 83.6% compared to methodologies from papers in
+traditional models such as the field of new energy power
+LSTM. systems. The fine-tuning
+[144] Wind power energy Renewable This study applied a LLM- dataset consisted of 4,585
+generation prediction energy system based method to predict samples generated by GPTwind power generation. The 3.5 from relevant research
+method transforms time papers. Experimental results
+series data into textual inputs demonstrated that the finesuitable for LLMs such as tuned Llama achieved
+Llama, GPT-2, and BERT. It significantly higher accuracy
+was validated using the wind compared to the original
+power datasets from three Llama.
+Chinese wind farms. Results [42] Analysis of paper Electric power This study utilized ChatGLM
+showed that this framework keywords system to generate and explain
+improved prediction keywords of 20,000 papers in
+accuracy by 5.14% compared the electric power domain.
+to traditional models like The keywords produced by
+LSTM and Transformer. ChatGLM were subsequently
+[145] Electricity bidding Electric This study employed LoRA to used to develop domainbehavior prediction power system fine-tune Llama-3 to predict specific knowledge graphs.
+bidding behaviors of market [72] Extraction of regulations Renewable This study employed GPT-4
+participants. The fine-tuning from legal documents energy system to extract renewable energy
+dataset consisted of 934 siting regulations from legal
+samples related to electricity documents. This method
+prices, power demand, and achieved an accuracy of 85%
+bidding records from the to 90% when applied to 108
+Australian energy market. real-world American
+The bidding behaviors were ordinances.
+used as inputs of data-driven [90] Literature summary Electric power This paper used GPT-4 to
+models, thereby enhancing system generate a detailed summary
+their accuracy in electricity of a 170-page smart grid
+price prediction. report.
+[146] Wind power energy Renewable This study investigated the
+generation prediction energy system performance of GPT-4 in
+forecasting wind power modalities (e.g., text, images, audio, and video), which lacks a
+generation. Experiments
+standardized data structure for LLMs. This makes it difficult to collect
+conducted on four wind
+turbines demonstrated that and process this data at scale. In addition, the benchmark datasets for
+GPT-4 achieved higher evaluating the performance of domain-specific LLMs in various enaccuracy (R2 >0.92) ergy applications are currently lacking. To enable the widespread
+compared to traditional
+adoption of LLMs in this domain, it is essential to develop benchmark
+models such as LSTM and
+datasets tailored to energy applications.
+Informer.
+• Lack of continuous learning capability in LLMs: Domain-specific
+LLMs suffer from an information lag issue due to their reliance on
+20
+
+
+[Page 21]
+C. Zhang et al. A p p l i e d E n e r g y 403 (2026) 127076
+Table 13 Table 15
+Summary of LLMs as designers in energy systems. Summary of LLMs as auditors in energy systems.
+Ref. Specific task System type Research content Ref. Specific task System Research content
+type
+[23] HVAC system Building This study investigated the potential of
+design energy 12 LLMs in HVAC system design by [153] Energy Not This study investigated the applicability
+system having them take the Certified HVAC contract applicable of LLMs for evaluating business
+Designer exam of ASHRAE. The LLMs review compliance in smart contracts in the
+included GPT-3.5, GPT-4, Ernie Bot, energy trading market. LLMs effectively
+Dolly, T5, Koala, Pythia, Vicuna, Alpaca, verified the compliance of 10 carbon
+ChatGLM, Llama, and StableLM. Both trading regulations.
+GPT-4 and GPT-3.5 successfully passed
+the exam.
+[66] Building Building This study designed a LLM-based multiretrofit energy agent framework enhanced with Table 16
+system prompting engineering (CoT and ReAct) Summary of LLMs as cheaters in energy systems.
+and RAG to generate building retrofit
+Ref. Specific System type Research content
+strategies. ChatGLM, GPT-3.5, and GPTtask
+4V were jointly applied to address
+multimodal data. Three types of agents [28] Survey Renewable This study analysed two surveys
+were included in this framework to cheating energy system comprising 2,453 responses on
+formulate plans, utilize tools, and hydrogen energy systems. It was found
+provided final retrofit that 11.9% of the responses in one of
+recommendations, respectively. The the surveys closely resembled those
+RAG system utilized four documents: the generated by LLMs. The findings
+ASHRAE handbook, a technical report, suggest that participants may use LLMs
+an energy audit report, and an industry to produce fraudulent responses in
+standard. The proposed framework surveys related to renewable energy.
+provided reliable retrofit strategies at a [154] Survey Not applicable This study indicates that participants
+low cost of $ 5.2 in this study. cheating may utilize LLMs to generate fraudulent
+[148] Building Building This study investigated the capabilities response in surveys regarding emerging
+retrofit energy of ChatGPT in designing building retrofit energy technologies.
+system strategies. The results showed that
+ChatGPT was able to generate valuable
+insights for building retrofit. static training or fine-tuning data, which prevents them from
+[149] Building Building This study explored the application of capturing the most recent information in energy systems [155]. This
+retrofit energy GPT-3.5 in evaluating retrofit strategies
+issue can result in performance degradation of such LLMs over time.
+system for kindergartens. However, the findings
+revealed that GPT-3.5 lacked the For instance, if an energy system has been retrofitted, a domaincapability to quantitatively evaluate the specific LLM developed using the data from the original system
+associated energy-saving potential. may struggle to effectively handle tasks related to the retrofitted
+[150] Building Building This study compared building retrofit
+system.
+retrofit energy strategies proposed by GPT-4 and
+system human experts. It was discovered that • High local deployment costs and long response time: LLMs
+GPT-4 was capable of generating typically have billions to hundreds of billions of parameters,
+strategies comparable to those requiring significant computational resources for local deployment
+developed by humans. [20]. This increases the deployment costs of LLMs in energy systems
+[151] Passive Building This study investigated the capability of
+due to significant energy consumption and the need for specialized
+building energy ChatGPT in designing passive energydesign system saving strategies for buildings. The hardware (such as GPUs). In addition, the substantial computational
+results demonstrated that ChatGPT was demands result in long response times, making it challenging for
+able to generate valuable insights to LLMs to handle tasks that need quick responses, such as real-time
+support passive energy-saving efforts.
+grid scheduling.
+• Hallucinations in LLMs: Hallucinations in LLMs refer to content
+that seems plausible but is actually incorrect or entirely fabricated
+Table 14 [156]. For instance, LLMs may output fabricated regulations and
+Summary of LLMs as cybersecurity defenders in energy systems.
+exaggerated technical claims about energy systems. This may lead to
+Ref. Specific task System type Research content uncontrollable decision-making risks and operational failures in
+[33] Cyberattack Electric This study compared the performance energy systems.
+detection power of three LLMs (GPT-4, Claude-2, and • Lack of interpretability: LLMs lack interpretability because they
+system PaLM-2) in detecting cyberattacks in rely on complex, high-dimensional neural network architectures that
+digital substations. The results showed
+capture patterns in data without providing transparent reasoning
+that GPT-4 outperformed the other two
+paths [157]. As a result, it is difficult to ensure the trustworthiness of
+LLMs, achieving an average precision
+of 99.1%. the information they generate, which limits their application in
+[152] Cyberattack Electric This study utilized LoRA to fine-tune energy-related tasks that demand high reliability, such as power grid
+detection power DistilBERT using thousands of attack operation and nuclear energy systems.
+system records in 30 smart inverters of a real • Privacy leakage: Domain-specific LLMs can inadvertently learn
+distribution network in America. The
+fine-tuned LLM reached a 97% sensitive information in energy systems (such as owner’s name, sedetection precision, outperforming curity protocols, control strategies, and operational data) during
+traditional models such as LSTM, their training or fine-tuning processes [158]. Hence, malicious at-
+XGBoost, and support vector machine.
+tackers may utilize domain-specific LLMs to reproduce such sensitive
+information, leading to significant risks of privacy leakage [159].
+• Lack of interoperability between domain-specific LLMs and
+available tools: Domain-specific LLMs often face challenges when
+21
+
+
+[Page 22]
+C. Zhang et al. A p p l i e d E n e r g y 403 (2026) 127076
+Fig. 14. Conceptual illustration of future smart energy systems empowered by LLMs.
+interacting with available tools in the energy sector (such as simu- energy-related data from diverse formats and modalities into stanlation software, energy management software, and grid scheduling dardized structures tailored for LLMs. To address this issue, it is essential
+software) due to the lack of standardized data formats, APIs, and to combine data mining algorithms with LLMs. Data mining algorithms
+communication protocols. This limits the application of domain- excel at processing non-textual data, while LLMs are particularly effecspecific LLMs in utilizing these tools. tive for handling text data. Third, designing suitable data pricing stra-
+• Social issues: Using LLMs to replace or assist professionals in the tegies is important for the market. For instance, data prices can be
+energy industry may lead to a range of social issues, such as job determined based on their costs or profits [162]. Lastly, effective data
+displacement [160] and difficulties in attributing responsibility right confirmation methods should be studied to ensure accountability,
+[161]. As a result, the traditional energy sector may resist the use of promote lawful data sharing, and enhance data trustworthiness [165].
+LLMs, thereby increasing the difficulty of their practical
+implementation.
+6.2. How to continuously update domain-specific LLMs?
+6. Future perspectives
+There are two promising methods to continuously update domainspecific LLMs. The first method is to fine-tune a domain-specific LLM
+6.1. How to reduce the difficulty in accessing domain-specific data?
+continuously using newly collected data. The second method is to update the knowledge base continuously for a domain-specific LLM inte-
+In the energy sector, companies and individuals often do not want to
+grated with a RAG system. Both methods require continuous updates to
+open source their data due to concerns such as data privacy, industry
+either the fine-tuning dataset or the knowledge base in a RAG system.
+competition, and limited profitability. Therefore, developing well-
+Sliding window-based data collection offers a simple and effective
+regulated data trading markets for energy systems is a more viable sostrategy for continuously updating LLMs. At each window interval,
+lution than relying solely on open-source data [162]. Such markets can
+available energy-related data, such as energy consumption, renewable
+offer high-quality, standardized, and easily accessible domain-specific
+energy generation, energy prices, and weather data, corresponding to
+data for fine-tuning LLMs or developing external knowledge bases.
+this interval can be collected from predefined data sources. New data
+Moreover, they can reduce the cost and complexity of creating benchcan be identified by comparing the collected data with previously stored
+mark datasets for evaluating LLM performance across various energy
+data. The new data can then be used to update either the fine-tuning
+applications.
+dataset or the knowledge base in a RAG system.
+To develop well-regulated data trading markets, it is necessary to
+address at least the following four key issues. First, the market must
+implement effective mechanisms to protect the privacy and security of 6.3. How to decrease the size of domain-specific LLMs?
+data owners. Data anonymization [163] and encryption [164] can serve
+as effective solutions to address this issue. Second, developing data Model compression is an effective technique to reduce the size of
+standardization methods is valuable for automatically transforming domain-specific LLMs. A compressed LLM requires fewer computational
+resources for local deployment, reducing deployment costs and response
+22
+
+
+[Page 23]
+C. Zhang et al. A p p l i e d E n e r g y 403 (2026) 127076
+times. Quantization, pruning, and knowledge distillation are promising their identities, their real names can be replaced with a pseudonym such
+model compression methods for developing smaller domain-specific as "Owner 1", "Owner 2", etc. Privacy protection in models refers to
+LLMs [166]. Some key questions are expected to be explored in the protecting privacy during the training, fine-tuning or inference process
+future: Do we really need extremely large LLMs for the energy sector? of LLMs. Differential privacy may be a viable method for privacy pro-
+What is the minimum number of model parameters required for a tection in models. For instance, this approach can add noise to sensitive
+domain-specific LLM? Which model compression methods are most user load profiles, making it difficult for LLMs to learn or reconstruct the
+effective for developing domain-specific LLMs? To answer these ques- original profiles.
+tions, different model compression methods should be applied to produce a set of compact LLMs with different sizes tailored for specific 6.7. How to enhance the interoperability between domain-specific LLMs
+energy applications. Then, the benchmark datasets created for these and available tools?
+applications can be applied to compare their performance.
+Numerous tools have been developed by various companies, orga-
+6.4. How to reduce the hallucinations in domain-specific LLMs? nizations, and individuals to address a wide range of energy-related
+tasks. They typically have different data formats, APIs, and communi-
+Hallucination is an important topic in the research of LLMs. Many cation protocols. It is recommended to develop a middleware that intechniques have already been applied to reduce hallucinations in LLMs, corporates standardized data formats, APIs, and communication
+such as RAG, fine-tuning, and self-refinement [167]. Although these protocols to enable seamless interaction with various tools. LLMs can
+methods can help mitigate hallucinations in domain-specific LLMs, there utilize this middleware to more easily access and leverage these tools. In
+is currently no way to eliminate hallucinations completely. In the energy addition, establishing industry standards to promote the use of stansector, hallucinations can be regarded as responses that are inconsistent dardized communication protocols, data formats, and APIs in these tools
+with domain knowledge. Hence, it is suggested to develop effective is also valuable.
+response evaluation methods for domain-specific LLMs. Such methods
+should be capable of assessing how well the responses generated by 6.8. How to improve the adoption of domain-specific LLMs in the energy
+LLMs align with domain-specific knowledge. Human evaluation-based sector?
+frameworks may offer an effective solution to this issue and have been
+widely applied in other domains such as healthcare [168] and statistics Social science research is important for improving the adoption of
+[169]. These frameworks assess the quality of outputs from LLMs either domain-specific LLMs in the energy sector by addressing the social issues
+by directly comparing human-generated and LLM-generated responses, caused by the use of LLMs, such as job displacement and the attribution
+or by asking human evaluators to assess LLM outputs across multiple of responsibility. To address the job displacement issue, it is necessary to
+dimensions, such as correctness, relevance, completeness, consistency, explore new jobs in the era of LLMs. For instance, developing domainand safety [168]. Techniques like RAG, fine-tuning, and self-refinement specific LLMs requires experts with domain knowledge to clean, label,
+can be utilized to correct the incorrect responses to reduce the halluci- and align the training and fine-tuning data. In addition, it is crucial to
+nations. The responses from human evaluators can be applied to fine- explore strategies for re-skilling the current workers in the energy sector
+tune LLMs or generate external knowledge bases for RAG. to help them adapt to the new era. To establish clear attribution of responsibility, it is recommended to develop legal frameworks that clarify
+6.5. How to enhance the interpretability of domain-specific LLMs? when developers or users should be held accountable for errors caused
+by domain-specific LLMs. In the future, more social issues are likely to
+Several existing interpretability techniques may be useful for arise. Therefore, social science research will become increasingly
+explaining LLMs, such as feature attribution-based, gradient-based, important.
+perturbation-based, and probing-based techniques [170]. However,
+these techniques are typically designed for traditional AI models rather 7. Conclusions
+than LLMs. LLMs possess a substantially greater number of parameters
+than traditional AI models, which makes the interpretation of their pa- This paper presents a comprehensive review of the applications of
+rameters particularly challenging. Hence, perturbation-based tech- large language models (LLMs) in energy systems. It identifies and
+niques may currently be the most feasible option, as they do not depend summarizes the advantages, limitations, and target users of LLMs
+on model parameter analysis. For instance, when applying a domain- applied in energy systems, along with the technologies employed to
+specific LLM to perform energy-related tasks such as load forecasting enhance their performance in the energy sector. It further elucidates the
+or energy consumption analysis, users can selectively remove or replace roles that LLMs play within energy systems. Moreover, it discusses the
+relevant domain-specific terms (e.g., "load prediction" or "energy con- key opportunities and challenges associated with LLM-empowered
+sumption") in the input prompts. The importance of these terms can be smart energy systems and outlines eight promising future research
+assessed by observing whether the model’s responses still satisfy the task directions.
+requirements. Such techniques enable users to identify the key terms The literature review reveals that 22 types of LLMs have been applied
+that influence the responses of domain-specific LLMs. However, more in energy systems, such as GPT, Llama, and ChatGLM. Different LLMs
+advanced interpretability techniques should be explored to enable users have distinct advantages and limitations, which makes them suitable for
+to gain deeper insights into the internal reasoning processes of domain- different users. This paper offers guidelines to help users select suitable
+specific LLMs. LLMs according to their requirements. Five categories of technologies
+have been adopted to improve the performance of LLMs in energy sys-
+6.6. How to reduce the risk of privacy leakage in domain-specific LLMs? tems, including prompt engineering, knowledge augmentation, finetuning, multimodal integration, and autonomous agent. Guidelines are
+There are two potential types of solutions to solve the privacy further offered to help users choose suitable performance enhancement
+leakage issue in domain-specific LLMs: privacy protection in data, and technologies. Thirteen distinct roles of LLMs in energy systems are
+privacy protection in models [171]. Privacy protection in data refers to identified, including maintainer, adviser, programmer, operator, data
+the removal of private information from the training or fine-tuning data analyst, modeler, predictor, policymaker, reader, designer, cyberseof domain-specific LLMs. Data anonymization could serve as a promising curity defender, auditor, and cheater. This highlights their ability to
+method for privacy protection in data. For instance, when fine-tuning a address a wide range of energy-related tasks, such as energy demand
+domain-specific LLM, if the owners of energy systems wish to protect modeling/prediction, maintenance management, operational control,
+23
+
+
+[Page 24]
+C. Zhang et al. A p p l i e d E n e r g y 403 (2026) 127076
+and question answering. acquisition, Formal analysis, Data curation, Conceptualization. Jian
+Furthermore, a conceptual vision of future smart energy systems Zhang: Writing – original draft, Visualization. Jie Lu: Visualization.
+empowered by LLMs is presented. This vision emphasizes the potential Yang Zhao: Writing – review & editing, Supervision, Resources, Project
+of LLMs to assist or even replace humans in a variety of energy-related administration, Funding acquisition.
+applications. To realize this vision, eight key challenges need to be
+addressed: limited availability of domain-specific data, lack of contin- Declaration of competing interest
+uous learning capability, high local deployment costs and long response
+time, hallucinations, lack of interpretability, privacy leakage, lack of The authors declare that they have no known competing financial
+interoperability, and social issues. To overcome these challenges, eight interests or personal relationships that could have appeared to influence
+future directions are further proposed. These future directions offer the work reported in this paper.
+valuable insights that advance the integration of LLMs in the energy
+domain. Acknowledgements
+CRediT authorship contribution statement This paper is supported by the National Natural Science Foundation
+of China (No. 52161135202) and the Start-up Fund for RAPs under the
+Chaobo Zhang: Writing – original draft, Visualization, Validation, Strategic Hiring Scheme from the Hong Kong Polytechnic University
+Supervision, Software, Methodology, Investigation, Funding (No. P0057944).
+Appendix A
+Table A1shows the references for the studies that use the 22 types of LLMs (see Table 3).
+Table A1
+References for studies that use the 22 types of LLMs.
+Model Ref.
+GPT [23,25–33,44,45,55,61–63,66,72,74,76,81,83–85,87,89,91,92,97,98,100,102–105,110–117,119–121,125,126,128–131,134–136,139–141,144,146–151]
+Llama [23,35–43,45,55,70,71,75,89,92,98,99,102,106,108–110,115,123,131,142–145]
+ChatGLM [23,39,41,42,45–50,66,88,92,94,98,103,107]
+BERT [52–56,76,93,125,144,152]
+Distiluse [54]
+T5 [23,41,70,76,133,137,138]
+StableLM [23]
+Pythia [23]
+OPT [44]
+Bloom [45,98]
+Mistral [41,118]
+Gemma [41,43,106]
+Falcon [41]
+Phi [43]
+Qwen [39,41,50,64,71,96,127,131]
+Yi [41,131]
+BaiChuan [50,65,92]
+Ernie Bot [23]
+Claude [32,33]
+Gemini [28,83,102]
+PaLM [33]
+TimeGPT [57]
+Data availability [5] Forootan MM, Larki I, Zahedi R, Ahmadi A. Machine Learning and Deep Learning
+in Energy Systems: A Review. Sustainability 2022;14:4832. https://doi.org/
+10.3390/su14084832.
+No data was used for the research described in the article. [6] Zhao Y, Li T, Zhang X, Zhang C. Artificial intelligence-based fault detection and
+diagnosis methods for building energy systems: Advantages, challenges and the
+References future. Renew. Sust. Energ. Rev. 2019;109:85–101. https://doi.org/10.1016/j.
+rser.2019.04.021.
+[7] Gao Y, Matsunami Y, Miyata S, Akashi Y. Operational optimization for off-grid
+[1] Jasiu¯nas J, Lund PD, Mikkola J. Energy system resilience – A review. Renew. Sust. renewable building energy system using deep reinforcement learning. Appl.
+Energ. Rev. 2021;150:111476. https://doi.org/10.1016/j.rser.2021.111476. Energy 2022;325:119783. https://doi.org/10.1016/j.apenergy.2022.119783.
+[2] Maier R, Behrens J, Hoffmann M, Kullmann F, Weinand JM, Stolten D. Impact of [8] Bubeck S, Chandrasekaran V, Eldan R, Gehrke J, Horvitz E, Kamar E, et al. Sparks
+foresight horizons on energy system decarbonization pathways. Advances in of Artificial General Intelligence: Early experiments with GPT-4. arXiv 2023.
+Applied Energy 2025;18:100217. https://doi.org/10.1016/j. https://doi.org/10.48550/arXiv.2303.12712.
+adapen.2025.100217. [9] Zhang X, Glaws A, Cortiella A, Emami P, King RN. Deep generative models in
+[3] Shobanke M, Bhatt M, Shittu E. Advancements and future outlook of Artificial energy system applications: Review, challenges, and future directions. Appl.
+Intelligence in energy and climate change modeling. Advances in Applied Energy Energy 2025;380:125059. https://doi.org/10.1016/j.apenergy.2024.125059.
+2025;17:100211. https://doi.org/10.1016/j.adapen.2025.100211. [10] Li YF, Wang H, Sun M. ChatGPT-like large-scale foundation models for
+[4] Shoaei M, Noorollahi Y, Hajinezhad A, Moosavian SF. A review of the prognostics and health management: A survey and roadmaps. Reliab. Eng. Syst.
+applications of artificial intelligence in renewable energy systems: An approach- Saf. 2024;243:109850. https://doi.org/10.1016/j.ress.2023.109850.
+based study. Energy Convers. Manag. 2024;306:118207. https://doi.org/ [11] Wang D, Peng D, Huang D. Application and prospects of large AI models in virtual
+10.1016/j.enconman.2024.118207. power plants. Electr. Power Syst. Res. 2025;241:111403. https://doi.org/
+10.1016/j.epsr.2024.111403.
+24
+
+
+[Page 25]
+C. Zhang et al. A p p l i e d E n e r g y 403 (2026) 127076
+[12] Li JX, Zhang T, Zhu Y, Chen Z. Artificial general intelligence for the upstream [37] Arslan M, Munawar S, Sibilla M. Sustainable Energy Decision-Making with an
+geoenergy industry: A review. Gas Science and Engineering 2024;131:205469. RAG-LLM System. In: Proceedings of the 2024 International Conference on
+https://doi.org/10.1016/j.jgsce.2024.205469. Decision Aid Sciences and Applications. 2024. p. 1–5. https://doi.org/10.1109/
+[13] Shi H, Fang L, Chen X, Gu C, Ma K, Zhang X, et al. Review of the opportunities DASA63652.2024.10836639.
+and challenges to accelerate mass-scale application of smart grids with large- [38] Liu W, Zhang S, Sun Y, Sheng X, Wu Z. New Energy Power Domain Questionlanguage models. IET Smart Grid 2024;7:737–59. https://doi.org/10.1049/ Method Extraction And Soft Clustering. In: Proceedings of the 9th International
+stg2.12191. Conference on Communication and Information Processing. 2024. p. 484–91.
+[14] Zhao J, Wen F, Huang J, Liu J, Zhao H, Cheng Y, et al. Prospect of Artificial https://doi.org/10.1145/3638884.3638961.
+General Intelligence for Power Systems Based on Large Language Model: Theory [39] Wang Q, Zhou Z. CPGA-BOT: A Customized Power Grid Assistant chatBOT Fineand Applications. Dian Li Xi Tong Zi Dong Hua 2024;48:13–28. https://doi.org/ Tuning in Large Language Model. In: Proceedings of the 5th International
+10.7500/AEPS20230804001. Conference on Information Science, Parallel and Distributed Systems. 2024.
+[15] Zhang L, Chen Z. Opportunities of applying Large Language Models in building p. 597–601. https://doi.org/10.1109/ISPDS62779.2024.10667517.
+energy sector. Renew. Sust. Energ. Rev. 2025;214:115558. https://doi.org/ [40] Hu Z, Li X, Pan X, Wen S, Bao J. A question answering system for assembly
+10.1016/j.rser.2025.115558. process of wind turbines based on multi-modal knowledge graph and large
+[16] Zaboli A, Kasimalla SR, Park K, Hong Y, Hong J. A Comprehensive Review of language model. J. Eng. Des. 2023;0:1–25. https://doi.org/10.1080/
+Behind-the-Meter Distributed Energy Resources Load Forecasting: Models, 09544828.2023.2272555.
+Challenges, and Emerging Technologies. Energies 2024;17:2534. https://doi.org/ [41] Jiang G, Ma Z, Zhang L, Chen J. Prompt engineering to inform large language
+10.3390/en17112534. model in automated building energy modeling. Energy 2025;316:134548.
+[17] Zhang Y, Wang D, Wang G, Xu P, Zhu Y. Data-driven building load prediction and https://doi.org/10.1016/j.energy.2025.134548.
+large language models: Comprehensive overview. Energy and Buildings 2025; [42] Zhao H, Jiang W, Deng J, Ren Q, Zhang L. Constructing Knowledge Graph for
+326:115001. https://doi.org/10.1016/j.enbuild.2024.115001. Electricity Keywords Based on Large Language Model. In: Proceedings of the IEEE
+[18] Zhao WX, Zhou K, Li J, Tang T, Wang X, Hou Y, et al. A Survey of Large Language 7th Conference on Energy Internet and Energy System Integration. 2023.
+Models. arXiv 2025. https://doi.org/10.48550/arXiv.2303.18223. p. 4844–9. https://doi.org/10.1109/EI259745.2023.10512525.
+[19] Das BC, Amini MH, Wu Y. Security and Privacy Challenges of Large Language [43] Chronis C, Varlamis I, Dimitrakopoulos G, Bensaali F, Papadopoulos Gth. Privacy-
+Models: A Survey. ACM Comput. Surv. 2025;57:1–39. https://doi.org/10.1145/ Preserving Energy Recommendations Using Federated Learning and Local LLMs
+3712001. on the Edge. In: Proceedings of the 2024 IEEE/ACM International Conference on
+[20] Cai F, Yuan D, Yang Z, Cui L. Edge-LLM: A Collaborative Framework for Large Big Data Computing, Applications and Technologies. 2024. p. 377–82. https://
+Language Model Serving in Edge Computing. In: Proceedings of the 2024. IEEE doi.org/10.1109/BDCAT63179.2024.00065.
+International Conference on Web Services; 2024. p. 799–809. https://doi.org/ [44] Xie R, Yin X, Li C, Chen G, Liu N, Zhao B, et al. Large Language Model-Aided Edge
+10.1109/ICWS62655.2024.00099. Learning in Distribution System State Estimation. IEEE Internet Things J. 2025;
+[21] Zeng A, Xu B, Wang B, Zhang C, Yin D, et al. ChatGLM: A Family of Large 12:25966–76. https://doi.org/10.1109/JIOT.2024.3483441.
+Language Models from GLM-130B to GLM-4 All Tools. arXiv 2024. https://doi. [45] Sun G, Shen R, Jin L, Wang Y, Xu S, Chen J, et al. Instruction Tuning Text-to-SQL
+org/10.48550/arXiv.2406.12793. with Large Language Models in the Power Grid Domain. In: Proceedings of the
+[22] Sanh V, Debut L, Chaumond J, Wolf T. DistilBERT, a distilled version of BERT: 4th International Conference on Control, Robotics and Intelligent System. 2023.
+smaller, faster, cheaper and lighter. arXiv 2020. https://doi.org/10.48550/ p. 59–63. https://doi.org/10.1145/3622896.3622906.
+arXiv.1910.01108. [46] Tao L, Li S, Huang Q, Zhao Z, Su X, Jin K. Research of Preventive Maintenance
+[23] Lu J, Tian X, Zhang C, Zhao Y, Zhang J, Zhang W, et al. Evaluation of large Plans for Wind Power Equipment Based on Maintenance Knowledge Fusion Large
+language models (LLMs) on the mastery of knowledge and skills in the heating, Model. IFAC-PapersOnLine 2024;58:361–6. https://doi.org/10.1016/j.
+ventilation and air conditioning (HVAC) industry. Energy and Built Environment ifacol.2024.11.171.
+2024. https://doi.org/10.1016/j.enbenv.2024.03.010. [47] Xu T, Tang XS. Electrical Equipment Fault Diagnosis: A Technique Combining
+[24] Garza A, Challu C, Mergenthaler-Canseco M. TimeGPT-1. arXiv 2024. https://doi. Fuzzy Logic and Large Language Models. In: Proceedings of the 2023 IEEE
+org/10.48550/arXiv.2310.03589. International Symposium on Product Compliance Engineering – Asia. 2023.
+[25] Gao L, Yu Q. New Energy Prediction Method under the Influence of p. 1–4. https://doi.org/10.1109/ISPCE-ASIA60405.2023.10365878.
+Meteorological Factors Based on Generative AI. In: Proceedings of the 4th [48] Li B, Jiang Y, Xu J, Liu Z, Sheng Z, Song X, et al. The Design and Implementation
+International Conference on Energy Engineering and Power Systems; 2024. of an Intelligent Q&A System for Electric Power Safety Regulations Based on
+p. 79–83. https://doi.org/10.1109/EEPS63402.2024.10804289. Large Language Model Technology. In: Proceedings of the 6th International
+[26] Wang D, Yin C, Liu L, Zhang Z, She Y, Yu Y. Research on Intelligent Matching Conference on Energy Systems and Electrical Power. 2024. p. 604–7. https://doi.
+Technology of Power Grid Dispatching Automation Emergency Plan Based on org/10.1109/ICESEP62218.2024.10652122.
+Large Model and Small Sample LoRA Fine-Tuning Algorithm. In: Proceedings of [49] Ou P, Wang Y, Lin W, Wu J. An LLM-Based Modeling and Decision Optimization
+the 9th Asia Conference on Power and Electrical Engineering. 2024. p. 1390–6. for User-Centric Electric Vehicle Charging. In: Proceedings of the 2024 IEEE 8th
+https://doi.org/10.1109/ACPEE60788.2024.10532664. Conference on Energy Internet and Energy System Integration; 2024. p. 4078–83.
+[27] Zhang L, Chen Z. Large language model-based interpretable machine learning https://doi.org/10.1109/EI264398.2024.10991378.
+control in building energy systems. Energy and Buildings 2024;313:114278. [50] Lu Y, Peng J, Xu X, He Y, Li T, Wei J, et al. A Retrieval-Augmented Generation
+https://doi.org/10.1016/j.enbuild.2024.114278. Framework for Electric Power Industry Question Answering. In: Proceedings of
+[28] Traylor F. The threat of AI chatbot responses to crowdsourced open-ended survey the 2nd International Conference on Electronics, Computers and Communication
+questions. Energy Res. Soc. Sci. 2025;119:103857. https://doi.org/10.1016/j. Technology. 2025. p. 95–100. https://doi.org/10.1145/3705754.3705771.
+erss.2024.103857. [51] Devlin J, Chang MW, Lee K, Toutanova K. BERT: Pre-training of Deep
+[29] Shahin M, Simjoo M. Potential applications of innovative AI-based tools in Bidirectional Transformers for Language Understanding. arXiv. 2019. https://doi.
+hydrogen energy development: Leveraging large language model technologies. org/10.48550/arXiv.1810.04805.
+Int. J. Hydrog. Energy 2025;102:918–36. https://doi.org/10.1016/j. [52] Zhao T, Yogarathnam A, Yue M. A Large Language Model for Determining Partial
+ijhydene.2025.01.066. Tripping of Distributed Energy Resources. IEEE Transactions on Smart Grid 2025;
+[30] Choi S, Yoon S. GPT-based data-driven urban building energy modeling (GPT- 16:437–40. https://doi.org/10.1109/TSG.2024.3453649.
+UBEM): Concept, methodology, and case studies. Energy and Buildings 2024;325: [53] Langer G, Hirsch T, Kern R, Kohl T, Schweiger G. Large Language Models for Fault
+115042. https://doi.org/10.1016/j.enbuild.2024.115042. Detection in Buildings’ HVAC Systems. In: Proceedings of the 4th Energy
+[31] Huang C, Li S, Liu R, Wang H, Chen Y. Large Foundation Models for Power Informatics Academy Conference. Cham: Springer Nature Switzerland; 2025.
+Systems. In: Proceedings of the 2024 IEEE Power & Energy Society General p. 49–60. https://doi.org/10.1007/978-3-031-74741-0_4.
+Meeting. 2024. p. 1–5. https://doi.org/10.1109/PESGM51994.2024.10688670. [54] Forth K, Borrmann A. Semantic enrichment for BIM-based building energy
+[32] Gu X, Chen C, Fang Y, Mahabir R, Fan L. CECA: An intelligent large-language- performance simulations using semantic textual similarity and fine-tuning
+model-enabled method for accounting embodied carbon in buildings. Build. multilingual LLM. Journal of Building Engineering 2024;95:110312. https://doi.
+Environ. 2025;272:112694. https://doi.org/10.1016/j.buildenv.2025.112694. org/10.1016/j.jobe.2024.110312.
+[33] Zaboli A, Choi SL, Song TJ, Hong J. ChatGPT and Other Large Language Models [55] Kwon OH, Vu K, Bhargava N, Radaideh MI, Cooper J, Joynt V, et al. Sentiment
+for Cybersecurity of Smart Grid Applications. In: Proceedings of the 2024 IEEE analysis of the United States public support of nuclear power on social media
+Power & Energy Society General Meeting. 2024. p. 1–5. https://doi.org/10.1109/ using large language models. Renew. Sust. Energ. Rev. 2024;200:114570.
+PESGM51994.2024.10688863. https://doi.org/10.1016/j.rser.2024.114570.
+[34] Touvron H, Lavril T, Izacard G, Martinet X, Lachaux MA, Lacroix T, et al. LLaMA: [56] Lai Z, Wu T, Fei X, Ling Q. BERT4ST:: Fine-tuning pre-trained large language
+Open and Efficient Foundation Language Models. arXiv. 2023. https://doi.org/ model for wind power forecasting. Energy Convers. Manag. 2024;307:118331.
+10.48550/arXiv.2302.13971. https://doi.org/10.1016/j.enconman.2024.118331.
+[35] Chen Y, Fang Z, Zhang N, Qiang T, Zhang Z, Huang T, et al. Multi-objective [57] Liao W, Wang S, Yang D, Yang Z, Fang J, Rehtanz C, et al. TimeGPT in load
+Collaborative Operation Method for Park-level Integrated Energy System Cluster forecasting: A large time series model perspective. Appl. Energy 2025;379:
+Based on Large Language Model for Green Electricity Prediction and Trading. 124973. https://doi.org/10.1016/j.apenergy.2024.124973.
+High Voltage Engineering 2024;50(7):2849–63. https://doi.org/10.13336/ [58] Elangovan A, Liu L, Xu L, Bodapati SB, Roth D. ConSiDERS-The-Human
+j.1003-6520.hve.20241015. Evaluation Framework: Rethinking Human Evaluation for Generative Large
+[36] Arslan M, Mahdjoubi L, Munawar S. Driving sustainable energy transitions with a Language Models. In: Proceedings of the 62nd Annual Meeting of the Association
+multi-source RAG-LLM system. Energy and Buildings 2024;324:114827. https:// for Computational Linguistics. 2024. p. 1137–60. https://doi.org/10.18653/v1/
+doi.org/10.1016/j.enbuild.2024.114827. 2024.acl-long.63.
+25
+
+
+[Page 26]
+C. Zhang et al. A p p l i e d E n e r g y 403 (2026) 127076
+[59] Hu R, Cheng Y, Meng L, Xia J, Zong Y, Shi X, et al. Training an LLM-as-a-Judge [83] Zhang L, Ford V, Chen Z, Chen J. Automatic building energy model development
+Model: Pipeline, Insights, and Practical Lessons. In: Companion Proceedings of and debugging using large language models agentic workflow. Energy and
+the ACM on Web Conference 2025;2025:228–37. https://doi.org/10.1145/ Buildings 2025;327:115116. https://doi.org/10.1016/j.enbuild.2024.115116.
+3701716.3715265. [84] Zhang L, Chen Z, Ford V. Advancing building energy modeling with large
+[60] Song Y, Wang T, Cai P, Mondal SK, Sahoo JP. A Comprehensive Survey of Few- language models: Exploration and case studies. Energy and Buildings 2024;323:
+shot Learning: Evolution, Applications, Challenges, and Opportunities. ACM 114788. https://doi.org/10.1016/j.enbuild.2024.114788.
+Comput. Surv. 2023;55:1–40. https://doi.org/10.1145/3582688. [85] Gamage G, Mills N, De Silva D, Manic M, Moraliyage H, Jennings A, et al. Multi-
+[61] Zhang C, Zhang J, Zhao Y, Lu J. Automated data-driven building energy load Agent RAG Chatbot Architecture for Decision Support in Net-Zero Emission
+prediction method based on generative pre-trained transformers (GPT). Energy Energy Systems. In: Proceedings of the 2024 IEEE International Conference on
+2025;318:134824. https://doi.org/10.1016/j.energy.2025.134824. Industrial Technology. 2024. p. 1–6. https://doi.org/10.1109/
+[62] Sawada T, Hasegawa T, Yokoyama K, Mizuno M. Office-in-the-Loop for Building ICIT58233.2024.10540920.
+HVAC Control with Multimodal Foundation Models. In: Proceedings of the 11th [86] Vitale M, Youssef A, Mishra P, Shetty S, Sharma M, Vanzo G, et al. Harnessing
+ACM International Conference on Systems for Energy-Efficient Buildings, Cities, Generative AI for Interactive System Failure Diagnostics: A User-Centric
+and Transportation. 2024. p. 110–20. https://doi.org/10.1145/ Approach to Streamlined Problem Solving and Maintenance. In: Proceedings of
+3671127.3698182. the ADIPEC 2024. https://doi.org/10.2118/222033-MS.
+[63] Bonadia RS, Trindade FCL, Freitas W, Venkatesh B. On the Potential of ChatGPT [87] Wang Y, Qi Q, Wang C, Xu C. High-Precision Fault Diagnosis Method for Energy
+to Generate Distribution Systems for Load Flow Studies Using OpenDSS. IEEE Storage Inverter Signals. Comput. Eng. 2024;50:389. https://doi.org/10.19678/j.
+Trans. Power Syst. 2023;38:5965–8. https://doi.org/10.1109/ issn.1000-3428.0068520.
+TPWRS.2023.3315543. [88] Chen F, Jiang Y, Xu J, Liu Z, Sheng Z, Song X, et al. A knowledge graph and large
+[64] Zheng Z, Mari´e S, Farazdaghi E, Yahia E, Makhoul K, Lagarde T, et al. Mastering language model based approach to security measure. In: Proceedings of the
+building management systems data points tagging with minimal examples: International Conference on Algorithms, High Performance Computing, and
+unveiling the power of large language models. Energy and Buildings 2025;328: Artificial Intelligence. 2024. p. 609–13. https://doi.org/10.1117/12.3051842.
+115173. https://doi.org/10.1016/j.enbuild.2024.115173. [89] Ieva S, Loconte D, Loseto G, Ruta M, Scioscia F, Marche D, et al. A Retrieval-
+[65] Xiao X, Liu S, Zuo Z, Chen P, Qi B, Liang J, et al. A Text Intelligence-Based Augmented Generation Approach for Data-Driven Energy Infrastructure Digital
+Approach for Automatic Generation of Fault Trees in Nuclear Power Plants. In: Twins. Smart Cities 2024;7:3095–120. https://doi.org/10.3390/
+Proceedings of the 31st International Conference on Nuclear Engineering. 2024. smartcities7060121.
+p. 1–10. https://doi.org/10.1115/ICONE31-134226. [90] Majumder S, Dong L, Doudi F, Cai Y, Tian C, Kalathil D, et al. Exploring the
+[66] Xiao T, Xu P. Exploring automated energy optimization with unstructured capabilities and limitations of large language models in the electric energy sector.
+building data: A multi-agent based framework leveraging large language models. Joule 2024;8:1544–9. https://doi.org/10.1016/j.joule.2024.05.009.
+Energy and Buildings 2024;322:114691. https://doi.org/10.1016/j. [91] Zhang C, Lu J, Zhao Y. Generative pre-trained transformers (GPT)-based
+enbuild.2024.114691. automated data mining for building energy management: Advantages, limitations
+[67] Wang RG, Chuang ML, Ke CY, Chien YF, Ho WJ, Chiang KC, et al. Predicting and the future. Energy and Built Environment 2024;5:143–69. https://doi.org/
+Imminent Electrical Safety Incidents Using Smart Meter Big Data With Large 10.1016/j.enbenv.2023.06.005.
+Language Models. IEEE Access 2024;12:184940–52. https://doi.org/10.1109/ [92] Zhang D, Zhang C, Zhao W, Xu L, Zhang G, Li Z. Synchronous Condenser-Based
+ACCESS.2024.3514209. Intelligent Question Answering System Based on Large Language Model. In:
+[68] Yao S, Zhao J, Yu D, Du N, Shafran I, Narasimhan K, et al. ReAct: Synergizing Proceedings of the 2024 International Conference on Computing, Robotics and
+Reasoning and Acting in Language Models. arXiv. 2023. https://doi.org/ System Sciences. 2024. p. 206–11. https://doi.org/10.1109/
+10.48550/arXiv.2210.03629. ICRSS65752.2024.00043.
+[69] Lewis P, Perez E, Piktus A, Petroni F, Karpukhin V, Goyal N, et al. Retrieval- [93] Qi B, Sun J, Sui Z, Xiao X, Liang J. Multimodal learning using large language
+Augmented Generation for Knowledge-Intensive NLP Tasks. In: Proceedings of models to improve transient identification of nuclear power plants. Prog. Nucl.
+the Advances in Neural Information Processing Systems33; 2020. p. 9459–74. Energy 2024;177:105421. https://doi.org/10.1016/j.pnucene.2024.105421.
+https://proceedings.neurips.cc/paper_files/paper/2020/file/6b493230205f780e [94] Tian X, Liu B, Yang J, Ai B, Zhao H, Zhang S. Knowledge Graph Enhanced
+1bc26945df7481e5-Paper.pdf. Interactive Fault Diagnosis O&M Approach Based on Large Models of Electrical
+[70] Labib R. Leveraging Multimodal Large Language Models for Enhanced Learning Power. In: Proceedings of the 4th Power System and Green Energy Conference.
+and Application in Building Energy Modeling. In: Berardi U, editor. Multiphysics 2024. p. 137–42. https://doi.org/10.1109/PSGEC62376.2024.10721152.
+and Multiscale Building Physics. Singapore: Springer Nature; 2025. p. 611–8. [95] Zhou Y, Chen L, Wei Q, Su Y, Qiao B, Guo Y, et al. Improving the Classification of
+https://doi.org/10.1007/978-981-97-8313-7_83. Defect Levels in Main Electrical Equipment Through Advanced Prompting on a
+[71] Wei Q, Sun H, Xu Y, Pang Z, Gao F. Exploring the Application of Large Language Large Language Model. International Journal of High Speed Electronics and
+Models Based AI Agents in Leakage Detection of Natural Gas Valve Chambers. Systems 2025;34:2540116. https://doi.org/10.1142/S0129156425401160.
+Energies 2024;17:5633. https://doi.org/10.3390/en17225633. [96] Li L, Shi R, Guo X, Jiang H. Diagnosis of Power System Defects by Large Language
+[72] Buster G, Pinchuk P, Barrons J, McKeever R, Levine A, Lopez A. Supporting Models and Graph Neural Networks. Journal of Frontiers of Computer Science
+energy policy research with large language models: A case study in wind energy and Technology 2024;18(10):2643–55. https://doi.org/10.3778/j.issn.1673-
+siting ordinances. Energy and AI 2024;18:100431. https://doi.org/10.1016/j. 9418.2405085.
+egyai.2024.100431. [97] Zhu J, Zhang L, Lu J, Wu X, Wei C. Research on the Application of ChatGPT-like
+[73] Hu EJ, Shen Y, Wallis P, Allen-Zhu Z, Li Y, Wang S, et al. LoRA: Low-Rank Language Models in Hydropower Stations. E3S Web of Conferences 2024;561:
+Adaptation of Large Language Models. arXiv. 2021. https://doi.org/10.48550/ 02026. https://doi.org/10.1051/e3sconf/202456102026.
+arXiv.2106.09685. [98] Yin C, Du K, Nong Q, Zhang H, Yang L, Yan B, et al. PowerPulse: Power energy
+[74] Zhang J, Zhang C, Lu J, Zhao Y. Domain-specific large language models for fault chat model with LLaMA model fine-tuned on Chinese and power sector domain
+diagnosis of heating, ventilation, and air conditioning systems by labeled-data- knowledge. Expert. Syst. 2024;41:e13513. https://doi.org/10.1111/exsy.13513.
+supervised fine-tuning. Appl. Energy 2025;377:124378. https://doi.org/ [99] Hemied OS, Gabbar HA. RE-LLaMA: Large Language Models for Hydrogen
+10.1016/j.apenergy.2024.124378. Deployment: A Domain-Specific Approach in Renewable Energy. In: Proceedings
+[75] Gabber HA, Hemied OS. Domain-Specific Large Language Model for Renewable of the 8th International Symposium on Innovative Approaches in Smart
+Energy and Hydrogen Deployment Strategies. Energies 2024;17:6063. https:// Technologies. 2024. p. 1–4. https://doi.org/10.1109/
+doi.org/10.3390/en17236063. ISAS64331.2024.10845736.
+[76] Wu T, Ling Q. STELLM: Spatio-temporal enhanced pre-trained large language [100] Tsihrintzis GA, Sarmas E, Marinakis V, Panagoulias D, Tsihrintzi E-A, Virvou M.
+model for wind speed forecasting. Appl. Energy 2024;375:124034. https://doi. Evaluating Non-Expert Stakeholder Interaction with Artificial Intelligence on
+org/10.1016/j.apenergy.2024.124034. Energy Urban Domain Using VIRTSI: The Case of ChatGPT. In: Proceedings of the
+[77] Li XL, Liang P. Prefix-Tuning: Optimizing Continuous Prompts for Generation. 15th International Conference on Information, Intelligence, Systems &
+arXiv. 2021. https://doi.org/10.48550/arXiv.2101.00190. Applications. 2024. p. 1–10. https://doi.org/10.1109/
+[78] Liu X, Ji K, Fu Y, Tam W, Du Z, Yang Z, et al. P-Tuning: Prompt Tuning Can Be IISA62523.2024.10786650.
+Comparable to Fine-tuning Across Scales and Tasks. In: Proceedings of the 60th [101] Shi Y, Chen G, Li S, Zhou Q, Liang X, Gao H, et al. Research and Application of the
+Annual Meeting of the Association for Computational Linguistics. 2022. p. 61–8. Energy Science and Technology Intelligence Brain Integrating Large Model
+https://doi.org/10.18653/v1/2022.acl-short.8. Technology and Patent Big Data Analysis. In: Proceedings of the 6th International
+[79] Houlsby N, Giurgiu A, Jastrzebski S, Morrone B, de Laroussilhe Q, Gesmundo A, Conference on Energy, Power and Grid. 2024. p. 19–26. https://doi.org/10.1109/
+et al. Parameter-Efficient Transfer Learning for NLP. arXiv 2019. https://doi.org/ ICEPG63230.2024.10775587.
+10.48550/arXiv.1902.00751. [102] Fortuna C, Hanˇzel V, Bertalaniˇc B. Natural Language Interaction with a
+[80] Sung YL, Cho J, Bansal M. LST: Ladder Side-Tuning for Parameter and Memory Household Electricity Knowledge-based Digital Twin. In: Proceedings of the 2024
+Efficient Transfer Learning. arXiv. 2022. https://doi.org/10.48550/ IEEE International Conference on Communications, Control, and Computing
+arXiv.2206.06522. Technologies for Smart Grids. 2024. p. 8–14. https://doi.org/10.1109/
+[81] Yan Z, Zhenyuan D, Xu Y, Zhou Z. Probabilistic PV Power Forecasting by a Multi- SmartGridComm60555.2024.10738062.
+Modal Method using GPT-Agent to Interpret Weather Conditions. In: Proceedings [103] Li W, Qi X, Zhao Q, Wang C, Wu Q, Tang X. Knowledge Graph-Based Credibility
+of the IEEE 19th Conference on Industrial Electronics and Applications. 2024. Evaluation Method for Electric Grid Large Language Model Knowledge Questionp. 1–6. https://doi.org/10.1109/ICIEA61579.2024.10665072. Answering. In: Proceedings of the 7th International Conference on Electronic
+[82] Liu M, Zhang L, Chen J, Chen WA, Yang Z, Lo LJ, et al. Large language models for Information Technology and Computer Engineering. 2024. p. 754–9. https://doi.
+building energy applications: Opportunities and challenges. Build. Simul. 2025; org/10.1145/3650400.3650526.
+18:225–34. https://doi.org/10.1007/s12273-025-1235-9.
+26
+
+
+[Page 27]
+C. Zhang et al. A p p l i e d E n e r g y 403 (2026) 127076
+[104] Onile AE, Belikov J, Petlenkov E, Levron Y. Leveraging Digital Twins and Demand Basin Nuclear Conference 2024; 2024. p. 640–9. https://doi.org/10.13182/
+Side Recommender Chatbot for Optimizing Smart Grid Energy Efficiency. In: PBNC24-44984.
+Proceedings of the 2023 IEEE PES Innovative Smart Grid Technologies - Asia; [126] Li Y, Ni S, Tang X, Xie S, Wang P. Analysis of EU’s Coupled Carbon and Electricity
+2023. p. 1–5. https://doi.org/10.1109/ISGTAsia54891.2023.10372761. Market Development Based on Generative Pre-Trained Transformer Large Model
+[105] Gamage G, Kahawala S, Mills N, De Silva D, Manic M, Alahakoon D, et al. and Implications in China. Sustainability 2024;16:10747. https://doi.org/
+Augmenting Industrial Chatbots in Energy Systems using ChatGPT Generative AI. 10.3390/su162310747.
+In: Proceedings of the IEEE 32nd International Symposium on Industrial [127] Yu T, Wang Y, Luo Q, Cai X, Liu X, Liang M. Preliminary Exploration for a Large
+Electronics; 2023. p. 1–6. https://doi.org/10.1109/ISIE51358.2023.10228101. Language Model-based User Characteristics Stereoscopic Application Paradigm in
+[106] Hong S, Shin JM, Seo J, Lee T, Park J, Young CM, et al. Intelligent Predictive New Power System. High Voltage Engineering 2024;50:2833–48. https://doi.org/
+Maintenance RAG framework for Power Plants: Enhancing QA with StyleDFS and 10.13336/j.1003-6520.hve.20240875.
+Domain Specific Instruction Tuning. In: Proceedings of the 2024 Conference on [128] Zhang C, Zhang J, Zhao Y, Lu J. Automated data mining framework for building
+Empirical Methods in Natural Language Processing: Industry Track; 2024. energy conservation aided by generative pre-trained transformers (GPT). Energy
+p. 805–20. https://doi.org/10.18653/v1/2024.emnlp-industry.61. and Buildings 2024;305:113877. https://doi.org/10.1016/j.
+[107] Xu N, Dong L, Hu L, Feng W, Tang Y, Ye L. Design of an Electricity Knowledge QA enbuild.2023.113877.
+System Incorporating Engineering Ethics Analysis. In: Proceedings of the 2024 [129] Chen Y, Chen G. Interactive Learning - Implementation of ChatGPT and
+4th International Conference on Electronic Information Engineering and Reinforcement Learning in Local Energy Trading. In: Proceedings of the IEEE 34th
+Computer; 2024. p. 490–7. https://doi.org/10.1109/ Australasian Universities Power Engineering Conference; 2024. p. 1–6. 10.1109/
+EIECT64462.2024.10866119. AUPEC62273.2024.10807616.
+[108] Arslan M, Munawar S, Mahdjoubi L, Manu P. Decision Support for Building [130] Sharma A, Li X, Guan H, Sun G, Zhang L, Wang L, et al. Automatic Data
+Thermal Comfort Monitoring with a Sustainable GenAI System. In: Proceedings of Transformation Using Large Language Model - An Experimental Study on
+the 2024 International Conference on Decision Aid Sciences and Applications; Building Energy Data. In: Proceedings of the 2023 IEEE International Conference
+2024. p. 1–5. https://doi.org/10.1109/DASA63652.2024.10836648. on Big Data; 2023. p. 1824–34. https://doi.org/10.1109/
+[109] Xu D, He Y, Wang X, Zhou H, Peng C, Nie Y, et al. Intelligent dispatch method for BigData59044.2023.10386931.
+power systems based on LLM knowledge injection. In: Proceedings of the 4th [131] Li Y, Ji M, Chen J, Wei X, Gu X, Tang J. A large language model-based building
+Energy Conversion and Economics Annual Forum; 2024. p. 204–13. https://doi. operation and maintenance information query. Energy and Buildings 2025;334:
+org/10.1049/icp.2025.0388. 115515. https://doi.org/10.1016/j.enbuild.2025.115515.
+[110] Cheng Y, Zhao H, Zhou X, Zhao J, Cao Y, Yang C, et al. A large language model for [132] Lu J, Zheng Z, Langtry M, Jackson M, Zhao Y, Feng C, et al. Automated building
+advanced power dispatch. Sci. Rep. 2025;15:8925. https://doi.org/10.1038/ energy modeling for energy retrofits using a large language model-based multis41598-025-91940-x. agent framework. iScience 2025;28:113867. https://doi.org/10.1016/j.
+[111] Lee J, Yoon S. Metadata schema for virtual building models in digital twins: VB isci.2025.113867.
+schema implemented in GPT-based applications. Energy and Buildings 2025;327: [133] Jiang G, Ma Z, Zhang L, Chen J. EPlus-LLM: A large language model-based
+115039. https://doi.org/10.1016/j.enbuild.2024.115039. computing platform for automated building energy modeling. Appl. Energy 2024;
+[112] Sun X, Xu Y, Xiao T, Diao H, Huang S, Zhou B, et al. A Preliminary Study on the 367:123431. https://doi.org/10.1016/j.apenergy.2024.123431.
+Application of Large Language Models in Power System Simulations. In: [134] Jang S, Lee G, Oh J, Lee J, Koo B. Automated detailing of exterior walls using
+Proceedings of the 2024 6th International Conference on Power and Energy NADIA: Natural-language-based architectural detailing through interaction with
+Technology; 2024. p. 304–9. https://doi.org/10.1109/ AI. Adv. Eng. Inform. 2024;61:102532. https://doi.org/10.1016/j.
+ICPET62369.2024.10941115. aei.2024.102532.
+[113] Xu Y, Zhu S, Cai J, Chen J, Li S. A large language model-based platform for real- [135] Pribylskii IV, Armeev DV. AI Control System for Power Grid Based on Distributed
+time building monitoring and occupant interaction. Journal of Building Energy Resources. In: Proceedings of the IEEE 25th International Conference of
+Engineering 2025;100:111488. https://doi.org/10.1016/j.jobe.2024.111488. Young Professionals in Electron Devices and Materials; 2024. p. 1420–5. https://
+[114] S ´ wirski K, Błach P. Energy Storage Management Using Artificial Intelligence to doi.org/10.1109/EDM61683.2024.10614965.
+Maximize Polish Energy Market Profits. Energies 2024;17:4855. https://doi.org/ [136] Song J, Yoon S. Ontology-assisted GPT-based building performance simulation
+10.3390/en17194855. and assessment: Implementation of multizone airflow simulation. Energy and
+[115] King E, Yu H, Lee S, Julien C. Sasha: Creative Goal-Oriented Reasoning in Smart Buildings 2024;325:114983. https://doi.org/10.1016/j.enbuild.2024.114983.
+Homes with Large Language Models. In: Proceedings of the ACM on Interactive, [137] Qu H, Li H, You L, Zhu R, Yan J, Santi P, et al. ChatEV: Predicting electric vehicle
+Mobile, Wearable and Ubiquitous Technologies; 2024. p. 1–38. https://doi.org/ charging demand as natural language processing. Transp Res Part D: Transp
+10.1145/3643505. Environ 2024;136:104470. https://doi.org/10.1016/j.trd.2024.104470.
+[116] Paul S, Kim YW. AI-Driven Home Climate Optimization: The Role of ChatGPT in [138] Roitero K, D’Abrosca G, Zancola A, Della Mea V, Mizzaro S. Generative AI for
+Enhancing AC Efficiency. In: Proceedings of the 2024 International Conference on Energy: Multi-Horizon Power Consumption Forecasting using Large Language
+Trends in Quantum Computing and Emerging Business Technologies; 2024. Models. In: Proceedings of the 33rd ACM International Conference on Information
+p. 1–4. https://doi.org/10.1109/TQCEBT59414.2024.10545261. and Knowledge Management; 2024. p. 4015–9. https://doi.org/10.1145/
+[117] Jin M, Sel B, Hardeep F, Yin W. Democratizing Energy Management with LLM- 3627673.3679933.
+´
+Assisted Optimization Autoformalism. In: Proceedings of the 2024 IEEE [139] Medina AM, Alvaro JAH. Using Generative Pre-Trained Transformers (GPT) for
+International Conference on Communications, Control, and Computing Electricity Price Trend Forecasting in the Spanish Market. Energies 2024;17:2338.
+Technologies for Smart Grids; 2024. p. 258–63. https://doi.org/10.1109/ https://doi.org/10.3390/en17102338.
+SmartGridComm60555.2024.10738100. [140] Na Q, Li X, Wang Y, Yang Y, Zhang S, Li X. An Electricity Demand Forecasting
+[118] Siino M, Tinnirello I. GPT Prompt Engineering for Scheduling Appliances Usage Model Based on GCN and Transformer. In: Proceedings of the 2024 International
+for Energy Cost Optimization. In: Proceedings of the 2024 IEEE International Conference on Artificial Intelligence and Power Systems; 2024. p. 372–7. https://
+Symposium on Measurements & Networking; 2024. p. 1–6. https://doi.org/ doi.org/10.1109/AIPS64124.2024.00082.
+10.1109/MN60932.2024.10615758. [141] Hu Y, Kim H, Ye K, Lu N. Applying fine-tuned LLMs for reducing data needs in
+[119] Ahn KU, Kim DW, Cho HM, Chae CdU. Alternative Approaches to HVAC Control load profile analysis. Appl. Energy 2025;377:124666. https://doi.org/10.1016/j.
+of Chat Generative Pre-Trained Transformer (ChatGPT) for Autonomous Building apenergy.2024.124666.
+System Operations. Buildings 2023;13:2680. https://doi.org/10.3390/ [142] Liu C, Cai L, Dalzell G, Mills N. Large Language Model for Extreme Electricity
+buildings13112680. Price Forecasting in the Australia Electricity Market. In: Proceedings of the 50th
+[120] Yan Z, Xu Y. Real-Time Optimal Power Flow With Linguistic Stipulations: Annual Conference of the IEEE Industrial Electronics Society; 2024. p. 1–6.
+Integrating GPT-Agent and Deep Reinforcement Learning. IEEE Trans. Power https://doi.org/10.1109/IECON55916.2024.10906045.
+Syst. 2024;39:4747–50. https://doi.org/10.1109/TPWRS.2023.3338961. [143] Zhang H, Zhang L, Yu L, Zhu R. Large Language Model-Assisted Parameter
+[121] Nammouchi A, Chaabani C, Theocharis A, Kassler A. Towards Explainable Prediction in Integrated Energy Systems. In: Proceedings of the 2024 China
+Renewable Energy Communities Operations Using Generative AI. In: Proceedings Automation Congress; 2024. p. 3611–5. https://doi.org/10.1109/
+of the 2024 IEEE PES Innovative Smart Grid Technologies Europe; 2024. p. 1–5. CAC63892.2024.10865431.
+https://doi.org/10.1109/ISGTEUROPE62998.2024.10863790. [144] Zhu G, Jia W, Xing Z, Xiang L, Hu A, Hao R. CMLLM: A novel cross-modal large
+[122] Chen X, Lu X, Li Q, Li D, Zhu F. Integration of LLM and Human-AI Coordination language model for wind power forecasting. Energy Convers. Manag. 2025;330:
+for Power Dispatching With Connected Electric Vehicles Under SAGVNs. IEEE 119673. https://doi.org/10.1016/j.enconman.2025.119673.
+Trans. Veh. Technol. 2025;74:1992–2002. https://doi.org/10.1109/ [145] Lu X, Qiu J, Yang Y, Zhang C, Lin J, An S. Large Language Model-Based Bidding
+TVT.2024.3434969. Behavior Agent and Market Sentiment Agent-Assisted Electricity Price Prediction.
+[123] Mongaillard T, Lasaulce S, Hicheur O, Zhang C, Bariah L, Varma VS, et al. Large Policy and Regulation IEEE Transactions on Energy Markets 2025;3:223–35.
+Language Models for Power Scheduling: A User-Centric Approach. In: https://doi.org/10.1109/TEMPR.2024.3518624.
+Proceedings of the 2024 22nd International Symposium on Modeling and [146] Chang X, Liang D, Peng F, Zhang G. A New Prediction Paradigm for
+Optimization in Mobile, Ad Hoc, and Wireless Networks; 2024. p. 321–8. Nonprofessionals: Prompt-based Zero-code Wind Power Prediction. In:
+[124] Zhang D, Li Z, Liang X, Chen G. Research on the Intelligent Park Energy Control Proceedings of the 2024 6th International Conference on Power and Energy
+Platform Based on LLM. In: Proceedings of the 2024 4th International Conference Technology; 2024. p. 1782–7. https://doi.org/10.1109/
+on Smart City and Green Energy; 2024. p. 41–5. https://doi.org/10.1109/ ICPET62369.2024.10940181.
+ICSCGE64239.2024.11064308. [147] Yu S, Yang Y, Li J, Guo K, Wang Z, Liu Y. Exploring low-carbon and sustainable
+[125] Kwon O, Vu K, Cooper J, Joynt V, Radaideh M. Using Large Language Models to urban transformation design using ChatGPT and artificial bee colony algorithm.
+Classify Public Sentiment Toward Nuclear Power. In: Proceedings of the Pacific Humanities and Social Sciences Communications 2024;11:1–14. https://doi.org/
+10.1057/s41599-024-02765-4.
+27
+
+
+[Page 28]
+C. Zhang et al. A p p l i e d E n e r g y 403 (2026) 127076
+[148] Hidalgo-Betanzos JM, Prol-Godoy I, Ter´es-Zubiaga J, Briones-Llorente R, Martín- System and Green Energy Conference; 2024. p. 810–6. https://doi.org/10.1109/
+Garín A. Can ChatGPT AI Replace or Contribute to Experts’ Diagnosis for PSGEC62376.2024.10721191.
+Renovation Measures Identification? Buildings 2025;15:421. https://doi.org/ [160] Agrawal A, Gans JS, Goldfarb A. Do we want less automation? Science 2023;381:
+10.3390/buildings15030421. 155–8. https://doi.org/10.1126/science.adh9429.
+[149] Juriˇsevi´c N, Gordi´c D, Nikoli´c D, Neˇsovi´c A, Kowalik R. Exploring the Potential of [161] Mezzi E, Mertzani A, Manis MP, Lilova S, Vadivoulis N, Gatirdakis S, et al. Who
+Emerging Digitainability—GPT Reasoning in Energy Management of Owns the Output? Bridging Law and Technology in LLMs Attribution. arXiv 2025.
+Kindergartens. Buildings 2024;14:4038. https://doi.org/10.3390/ doi:10.48550/arXiv.2504.01032.
+buildings14124038. [162] Wang J, Gao F, Zhou Y, Guo Q, Tan CW, Song J, et al. Data sharing in energy
+[150] Rysanek A, Nagy Z, Miller C, Dilsiz AD. How good is the advice from ChatGPT for systems. Advances in Applied Energy 2023;10:100132. https://doi.org/10.1016/
+building science? Comparison of four scenarios. J. Phys. Conf. Ser. 2023;2600: j.adapen.2023.100132.
+082006. https://doi.org/10.1088/1742-6596/2600/8/082006. [163] Murthy S, Abu Bakar A, Abdul Rahim F, Ramli R. A Comparative Study of Data
+[151] Lai Q, Liu W, Li X. ChatGPT in passive energy-saving technologies: Opportunities Anonymization Techniques. In: Proceedings of the IEEE 5th Intl Conference on
+and challenges. AIP Conference Proceedings 2024;3203:020005. https://doi.org/ Big Data Security on Cloud, IEEE Intl Conference on High Performance and Smart
+10.1063/5.0225681. Computing, and IEEE Intl Conference on Intelligent Data and Security; 2019.
+[152] Selim A, Zhao J, Yang B. Large Language Model for Smart Inverter Cyber-Attack p. 306–9. https://doi.org/10.1109/BigDataSecurity-HPSC-IDS.2019.00063.
+Detection via Textual Analysis of Volt/VAR Commands. IEEE Transactions on [164] Ahene E, Qin Z, Adusei AK, Li F. Efficient Signcryption With Proxy Re-Encryption
+Smart Grid 2024;15:6179–82. https://doi.org/10.1109/TSG.2024.3453648. and its Application in Smart Grid. IEEE Internet Things J. 2019;6:9722–37.
+[153] Wu Y, Wang H, Zhang Y, Li X, Wu H, Fan M, et al. Business Compliance Detection https://doi.org/10.1109/JIOT.2019.2930742.
+of Smart Contracts in Electricity and Carbon Trading Scenarios. In: Proceedings of [165] Harison E. Who owns enterprise information? Data ownership rights in Europe
+the IEEE 35th International Symposium on Software Reliability Engineering and the U.S. Inf. Manag. 2010;47:102–8. https://doi.org/10.1016/j.
+Workshops; 2024. p. 177–178. doi:10.1109/ISSREW63542.2024.00074. im.2009.12.001.
+[154] Cox E, Shirani F, Rouse P. Voices from the algorithm: Large language models in [166] Zhu X, Li J, Liu Y, Ma C, Wang W. A Survey on Model Compression for Large
+social research. Energy Res. Soc. Sci. 2024;113:103559. https://doi.org/10.1016/ Language Models. Transactions of the Association for Computational Linguistics
+j.erss.2024.103559. 2024;12:1556–77. https://doi.org/10.1162/tacl_a_00704.
+[155] Yuan Y, Gao Y, Zhang J, Gao Y, Wang C, Chen X, et al. The application of large [167] Tonmoy SMTI, Zaman SMM, Jain V, Rani A, Rawte V, Chadha A, et al.
+language models in energy storage research. Energy Storage Science and A Comprehensive Survey of Hallucination Mitigation Techniques in Large
+Technology 2024;13:2907. https://doi.org/10.19799/j.cnki.2095- Language Models. arXiv. 2024. https://doi.org/10.48550/arXiv.2401.01313.
+4239.2024.0176. [168] Tam TYC, Sivarajkumar S, Kapoor S, Stolyar AV, Polanska K, McCarthy KR, et al.
+[156] Perkovi´c G, Drobnjak A, Botiˇcki I. Hallucinations in LLMs: Understanding and A framework for human evaluation of large language models in healthcare
+Addressing Challenges. In: Proceedings of the 47th MIPRO ICT and Electronics derived from literature review. Npj Digital Medicine 2024;7:258. https://doi.org/
+Convention; 2024. p. 2084–8. https://doi.org/10.1109/ 10.1038/s41746-024-01258-7.
+MIPRO60963.2024.10569238. [169] Zhu Y, Du S, Li B, Luo Y, Tang N. Are Large Language Models Good Statisticians?.
+[157] Shruti I, Kumar A, Seth A. N RR. Responsible Generative AI: A Comprehensive In: Proceedings of the Advances in Neural Information Processing Systems. 37;
+Study to Explain LLMs. In: Proceedings of the 2024 International Conference on 2024. p. 62697–731.
+Electrical, Computer and Energy Technologies; 2024. p. 1–6. https://doi.org/ [170] Luo H, Specia L. From Understanding to Utilization: A Survey on Explainability
+10.1109/ICECET61485.2024.10698306. for Large Language Models. arXiv. 2024. https://doi.org/10.48550/
+[158] Ruan J, Liang G, Zhao H, Liu G, Sun X, Qiu J, et al. Applying Large Language arXiv.2401.12874.
+Models to Power Systems: Potential Security Threats. IEEE Transactions on Smart [171] Miranda M., Ruzzetti E.S., Santilli A., Zanzotto F.M., Brati`eres S., Rodol`a E.
+Grid 2024;15:3333–6. https://doi.org/10.1109/TSG.2024.3373256. Preserving Privacy in Large Language Models: A Survey on Current Threats and
+[159] Cheng Y, Zhou X, Zhao H, Gu J, Wang X, Zhao J. Large Language Model for Low- Solutions. arXiv 2025. doi: https://doi.org/10.48550/arXiv.2408.05212.
+Carbon Energy Transition: Roles and Challenges. In: Proceedings of the 4th Power
+28

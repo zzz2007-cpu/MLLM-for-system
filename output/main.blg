@@ -2,45 +2,45 @@ This is BibTeX, Version 0.99d (TeX Live 2025)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: unsrt.bst
-Database file #1: references.bib
+Database file #1: references_clean.bib
 You've used 37 entries,
             1791 wiz_defined-function locations,
-            614 strings with 10279 characters,
-and the built_in function-call counts, 10699 in all, are:
-= -- 980
-> -- 483
-< -- 6
-+ -- 174
-- -- 137
-* -- 666
-:= -- 1575
-add.period$ -- 133
+            597 strings with 9457 characters,
+and the built_in function-call counts, 7384 in all, are:
+= -- 555
+> -- 486
+< -- 9
++ -- 175
+- -- 138
+* -- 372
+:= -- 1231
+add.period$ -- 104
 call.type$ -- 37
 change.case$ -- 37
 chr.to.int$ -- 0
 cite$ -- 37
-duplicate$ -- 457
-empty$ -- 995
-format.name$ -- 137
-if$ -- 2478
+duplicate$ -- 334
+empty$ -- 697
+format.name$ -- 138
+if$ -- 1640
 int.to.chr$ -- 0
 int.to.str$ -- 37
 missing$ -- 26
-newline$ -- 210
+newline$ -- 180
 num.names$ -- 37
-pop$ -- 116
+pop$ -- 161
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 333
+skip$ -- 208
 stack$ -- 0
-substring$ -- 864
-swap$ -- 187
-text.length$ -- 6
+substring$ -- 185
+swap$ -- 92
+text.length$ -- 9
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 63
+while$ -- 51
 width$ -- 39
-write$ -- 448
+write$ -- 368
